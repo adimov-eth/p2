@@ -3,8 +3,10 @@ layout: layouts/dark.njk
 permalink: "/pricing/"
 title: "Pricing & Membership Terms"
 description: "Single THB 700,000 membership includes concierge-managed access to 80+ courses with 150 rounds and executive guest privileges."
+metaImage: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=1600&auto=format&fit=crop"
 ---
 {% from "components/accordion.njk" import accordion %}
+{% from "components/hero-art.njk" import heroArt %}
 {% set transferFee = site.membership.transferFeeTHB | formatNumber %}
 {% set annualRounds = site.membership.rounds %}
 {% set guestPerSeat = site.membership.guestsPerSeat %}
@@ -33,10 +35,22 @@ description: "Single THB 700,000 membership includes concierge-managed access to
     "content": "<p>Members and guests must follow partner course regulations and etiquette. Prime is not liable for injury, loss, or damage at partner venues. Breach of conduct may result in suspension or termination without refund.</p>"
   }
 ] %}
-<section class="container mt-8">
-  <h1 class="text-4xl font-semibold mb-6">Prime Corporate Golf Membership</h1>
-  <p class="text-lg text-slate-200 max-w-3xl">One plan tailored for Thai corporate leadership. Annual fee covers concierge-managed access, green fees, caddy, and cart at partner courses nationwide.</p>
-</section>
+{{ heroArt({
+  badge: "Membership pricing",
+  title: "THB {{ site.membership.priceTHB | formatNumber }} corporate membership",
+  subtitle: "One transparent plan covers concierge-managed rounds, priority access, and executive hospitality across Thailand's flagship courses.",
+  image: {
+    src: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=2000&auto=format&fit=crop",
+    sources: [
+      {"srcset": "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=1200&auto=format&fit=crop", "media": "(max-width: 1024px)"}
+    ],
+    alt: "Evening view across a championship golf fairway"
+  },
+  actions: [
+    {"label": "Request membership proposal", "href": "mailto:" ~ site.contact.concierge, "class": "button-primary"},
+    {"label": "Download welcome package", "href": "/member/welcome-package/", "class": "badge-ghost"}
+  ]
+}) }}
 
 <section class="container mt-10 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
   <div class="card card-elevated">

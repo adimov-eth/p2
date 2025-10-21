@@ -3,14 +3,28 @@ layout: layouts/dark.njk
 permalink: "/contact/"
 title: "Contact"
 description: "Reach the Prime Corporate Golf Club concierge and leadership team."
+metaImage: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1600&auto=format&fit=crop"
 ---
-<section class="container mt-8">
-  <header class="mb-10">
-    <span class="section-title">Contact Prime</span>
-    <h1 class="text-3xl font-semibold">Concierge Desk &amp; Corporate Office</h1>
-    <p class="max-w-3xl text-slate-300">Our concierge team monitors all channels daily to honour the service-level agreements outlined in the membership terms.</p>
-  </header>
+{% from "components/hero-art.njk" import heroArt %}
 
+{{ heroArt({
+  badge: "Concierge desk",
+  title: "We confirm tee times, partners, and hospitality in under two hours.",
+  subtitle: "Reach the Prime concierge team by email, hotline, or LINE for bookings, guest management, and premium experiences.",
+  image: {
+    src: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=2000&auto=format&fit=crop",
+    sources: [
+      {"srcset": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1200&auto=format&fit=crop", "media": "(max-width: 1024px)"}
+    ],
+    alt: "Concierge workstation with premium stationery and golf memorabilia"
+  },
+  actions: [
+    {"label": "Email concierge", "href": "mailto:" ~ site.contact.concierge, "class": "button-primary"},
+    {"label": "Call +66 2 123 4567", "href": "tel:+6621234567", "class": "badge-ghost"}
+  ]
+}) }}
+
+<section class="container mt-10">
   <div class="card-grid mb-12">
     <article class="card">
       <h2 class="text-xl font-semibold mb-2">Concierge Email</h2>

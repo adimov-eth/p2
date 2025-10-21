@@ -32,6 +32,17 @@ npm run test:html    # Validate generated HTML with html-validate
 
 These scripts are also executed in CI via GitHub Actions (`.github/workflows/ci.yml`).
 
+## Formatting
+
+Prettier keeps templates and styles tidy:
+
+```bash
+cd site
+npm run format
+```
+
+The command uses the shared `prettier.config.cjs` at the repository root and covers `.njk`, `.html`, `.css`, `.md`, and `.json` files. Run it before committing larger content edits to avoid formatting diffs in CI.
+
 ## Deployment notes
 
 1. Commit and push to `main`. The GitHub Actions workflow installs dependencies, builds the site, and runs link and HTML validation.

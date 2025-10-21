@@ -1,31 +1,41 @@
----
 layout: layouts/dark.njk
 permalink: "/"
 title: "Prime Corporate Golf Club"
 description: "Corporate golf membership with 150 concierge-managed rounds, two executive seats, and access to 80+ Thai courses."
+metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1600&auto=format&fit=crop"
 ---
-<section class="hero container">
-  <div>
-    <span class="section-title">Prime Corporate Golf Club</span>
-    <h1>Thailand’s concierge golf membership for senior leadership.</h1>
-    <p>Two named executives, {{ site.membership.rounds }} annual rounds, and a concierge team confirming tee times across 80+ elite courses.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong>{{ site.membership.seats }}</strong>
-        <span>Named seats</span>
-      </div>
-      <div class="hero-stat">
-        <strong>{{ site.membership.rounds }}</strong>
-        <span>Concierge-confirmed rounds</span>
-      </div>
-      <div class="hero-stat">
-        <strong>฿{{ site.membership.priceTHB | formatNumber }}</strong>
-        <span>Annual investment (+ VAT)</span>
-      </div>
+{% from "components/hero-art.njk" import heroArt %}
+
+{{ heroArt({
+  badge: "Executive membership",
+  title: "Thailand’s concierge golf membership for senior leadership.",
+  subtitle: "Two named executives, {{ site.membership.rounds }} annual rounds, and a concierge team confirming tee times across 80+ elite courses.",
+  image: {
+    src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2000&auto=format&fit=crop",
+    sources: [
+      {"srcset": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1200&auto=format&fit=crop", "media": "(max-width: 1024px)"}
+    ],
+    alt: "Executive golfer overlooking a championship course at sunset"
+  },
+  actions: [
+    {"label": "Connect with concierge", "href": "mailto:" ~ site.contact.concierge, "class": "button-primary"},
+    {"label": "View membership terms", "href": "/pricing/", "class": "badge-ghost"}
+  ]
+}) }}
+
+<section class="container hero-stats-wrapper">
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <strong>{{ site.membership.seats }}</strong>
+      <span>Named seats</span>
     </div>
-    <div class="mt-8 flex flex-wrap gap-4">
-      <a href="mailto:{{ site.contact.concierge }}" class="button-primary">Connect with Concierge</a>
-      <a href="/pricing/" class="badge-ghost">View pricing details</a>
+    <div class="hero-stat">
+      <strong>{{ site.membership.rounds }}</strong>
+      <span>Concierge-confirmed rounds</span>
+    </div>
+    <div class="hero-stat">
+      <strong>฿{{ site.membership.priceTHB | formatNumber }}</strong>
+      <span>Annual investment (+ VAT)</span>
     </div>
   </div>
   <div class="card card-gradient">

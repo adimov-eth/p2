@@ -7,7 +7,8 @@
     "serve": "npx @11ty/eleventy --serve",
     "clean": "rm -rf _site",
     "test:html": "npx html-validate \"_site/**/*.html\"",
-    "test:links": "npx linkinator _site --recurse --skip \"mailto:,tel:\""
+    "test:links": "npx linkinator _site --recurse --skip \"mailto:,tel:,https://primethailand.golf\"",
+    "format": "npx prettier --config ../prettier.config.cjs --write \"**/*.{njk,html,css,md,json}\""
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "html-validate": "^10.1.2",
-    "linkinator": "^6.0.5"
+    "linkinator": "^6.0.5",
+    "prettier": "^3.3.3"
   }
 }

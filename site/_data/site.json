@@ -26,6 +26,13 @@
     "tagline": "Thailand's premier corporate golf membership",
     "heroCTA": "Connect with the Concierge"
   },
+  "meta": {
+    "defaultImage": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1600&auto=format&fit=crop",
+    "twitterHandle": "@PrimeCorporateGolf"
+  },
+  "analytics": {
+    "plausibleDomain": "primethailand.golf"
+  },
   "navigation": {
     "primary": [
       { "label": "Pricing", "url": "/pricing/" },
