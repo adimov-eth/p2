@@ -17,7 +17,7 @@
     "@11ty/eleventy": "^3.1.2"
   },
   "devDependencies": {
-    "html-validate": "^8.34.1",
+    "html-validate": "^10.1.2",
     "linkinator": "^6.0.5"
   }
 }

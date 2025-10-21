@@ -4,4 +4,20 @@ eleventyComputed:
   theme: 'theme-dark'
   mainClass: 'dashboard-main'
 ---
-{{ content | safe }}
+{% set internalPages = site.internalPages or [] %}
+<div class="dashboard-shell">
+  <aside class="dashboard-nav" aria-label="Internal navigation">
+    <span class="dashboard-nav__title">Internal Playbooks</span>
+    <ul class="dashboard-nav__list">
+      {% for item in internalPages %}
+      <li>
+        {% set isActive = page.url and page.url == item.url %}
+        <a href="{{ item.url }}" class="dashboard-nav__link{% if isActive %} is-active{% endif %}">{{ item.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </aside>
+  <section class="dashboard-content">
+    {{ content | safe }}
+  </section>
+</div>

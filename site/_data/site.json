@@ -25,5 +25,62 @@
   "messaging": {
     "tagline": "Thailand's premier corporate golf membership",
     "heroCTA": "Connect with the Concierge"
-  }
+  },
+  "navigation": {
+    "primary": [
+      { "label": "Pricing", "url": "/pricing/" },
+      { "label": "Incentives", "url": "/pricing/incentives/" },
+      { "label": "Membership", "url": "/member/booklet/" },
+      { "label": "Welcome Package", "url": "/member/welcome-package/" },
+      { "label": "Privacy", "url": "/corporate/privacy/" },
+      { "label": "Contact", "url": "/contact/" }
+    ]
+  },
+  "internalPages": [
+    {
+      "title": "Internal Overview",
+      "url": "/internal/",
+      "description": "Start here for quick links to every internal playbook and dashboard."
+    },
+    {
+      "title": "Financial Operations",
+      "url": "/internal/financial-operations/",
+      "description": "Invoicing, payment activation, and settlement SOPs for the finance team."
+    },
+    {
+      "title": "Member Onboarding",
+      "url": "/internal/member-onboarding/",
+      "description": "Step-by-step concierge workflow for welcoming new corporate members."
+    },
+    {
+      "title": "Concierge Manual",
+      "url": "/internal/concierge-manual/",
+      "description": "Channel SLAs, escalation ladders, and booking guidelines for concierge staff."
+    },
+    {
+      "title": "Launch Plan",
+      "url": "/internal/launch-plan/",
+      "description": "12-week go-to-market roadmap with milestones and revenue targets."
+    },
+    {
+      "title": "Launch Checklist",
+      "url": "/internal/launch-checklist/",
+      "description": "Operational readiness checklist and risk log for go-live."
+    },
+    {
+      "title": "Target Outreach",
+      "url": "/internal/outreach/",
+      "description": "Account-based marketing targets and messaging frameworks."
+    },
+    {
+      "title": "Sales Presentation",
+      "url": "/internal/sales-presentation/",
+      "description": "Interactive deck showcasing membership value and digital experience."
+    },
+    {
+      "title": "UAT Tracker",
+      "url": "/internal/uat/",
+      "description": "Acceptance testing coverage for LINE mini-app, NFC, and portal features."
+    }
+  ]
 }

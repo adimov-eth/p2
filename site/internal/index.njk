@@ -1,0 +1,32 @@
+---
+layout: layouts/dashboard.njk
+permalink: "/internal/"
+title: "Internal Overview"
+description: "Centralized access to Prime Corporate Golf Club internal playbooks, launch materials, and operational SOPs."
+noindex: true
+---
+{% from "components/hero-art.njk" import heroArt %}
+
+{{ heroArt({
+  badge: "Internal hub",
+  title: "Prime internal playbooks",
+  lede: "Reference launch plans, concierge SOPs, finance workflows, sales enablement, and QA artifacts in one place. Share privately with authenticated team members only.",
+  ctas: [
+    {"label": "Download Concierge Contact Sheet", "url": "mailto:" ~ site.contact.concierge, "variant": "primary"},
+    {"label": "View pricing incentives", "url": "/pricing/incentives/", "variant": "ghost"}
+  ]
+}) }}
+
+<section class="card-grid">
+  {% for entry in site.internalPages or [] %}
+    {% if entry.url != page.url %}
+    <article class="card">
+      <h3>{{ entry.title }}</h3>
+      {% if entry.description %}
+      <p class="table-note">{{ entry.description }}</p>
+      {% endif %}
+      <a href="{{ entry.url }}" class="badge-ghost">Open playbook</a>
+    </article>
+    {% endif %}
+  {% endfor %}
+</section>

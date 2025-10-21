@@ -4,11 +4,13 @@
       {{ site.brand.name }}
     </a>
   </div>
+  {% set navItems = site.navigation.primary or [] %}
   <nav class="nav-links" aria-label="Primary">
-    <a href="/pricing/">Pricing</a>
-    <a href="/member/booklet/">Membership</a>
-    <a href="/member/welcome-package/">Welcome Package</a>
-    <a href="/corporate/privacy/">Privacy</a>
+    {% set current = page.url or '' %}
+    {% for item in navItems %}
+      {% set isActive = current == item.url %}
+      <a href="{{ item.url }}" class="nav-link{% if isActive %} is-active{% endif %}">{{ item.label }}</a>
+    {% endfor %}
   </nav>
   <div>
     <a class="button-primary" href="mailto:{{ site.contact.concierge }}">

@@ -4,6 +4,13 @@
     <div class="footer-meta">
       © {{ global.currentYear }} {{ site.brand.company }} · {{ site.domain }}
     </div>
+    {% if site.navigation and site.navigation.primary %}
+    <nav class="footer-nav" aria-label="Footer">
+      {% for item in site.navigation.primary %}
+        <a href="{{ item.url }}" class="footer-nav__link">{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
     <div class="tag-grid footer-tags">
       <span>{{ site.contact.concierge }}</span>
       <span>{{ site.contact.privacy }}</span>

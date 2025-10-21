@@ -1,8 +1,8 @@
 {% macro presentation(slides = []) %}
 <div class="presentation" data-presentation>
   <div class="presentation-track">
-    {% for slide in slides %}
-    <section class="presentation-slide presentation-slide--{{ slide.type | default('standard') }}" id="presentation-slide-{{ loop.index }}" data-index="{{ loop.index0 }}"{% if slide.backdrop %} style="--presentation-backdrop: url('{{ slide.backdrop }}')"{% endif %}>
+  {% for slide in slides %}
+    <section class="presentation-slide presentation-slide--{{ slide.type | default('standard') }}" id="presentation-slide-{{ loop.index }}" data-index="{{ loop.index0 }}"{% if slide.backdrop %} data-backdrop="{{ slide.backdrop }}"{% endif %}>
       <div class="presentation-slide__inner">
         {% if slide.badge %}
         <p class="presentation-badge">{{ slide.badge }}</p>

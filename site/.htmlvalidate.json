@@ -2,6 +2,8 @@
   "extends": ["html-validate:recommended"],
   "rules": {
     "void-style": "off",
-    "attribute-allowed-values": "warn"
+    "attribute-allowed-values": "warn",
+    "no-trailing-whitespace": "off",
+    "tel-non-breaking": "off"
   }
 }
