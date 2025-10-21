@@ -37,7 +37,7 @@ metaImage: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=
 ] %}
 {{ heroArt({
   badge: "Membership pricing",
-  title: "THB {{ site.membership.priceTHB | formatNumber }} corporate membership",
+  title: "THB " ~ (site.membership.priceTHB | formatNumber) ~ " corporate membership",
   subtitle: "One transparent plan covers concierge-managed rounds, priority access, and executive hospitality across Thailand's flagship courses.",
   image: {
     src: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=2000&auto=format&fit=crop",
