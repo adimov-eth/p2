@@ -1,0 +1,18 @@
+{% macro workflow(steps = [], options = {}) %}
+<ol class="workflow {{ options.modifier | default('') }}">
+  {% for step in steps %}
+  <li class="workflow-step">
+    <div class="workflow-step__index">{{ step.index | default(loop.index) }}</div>
+    <div class="workflow-step__content card">
+      <h3 class="workflow-step__title">{{ step.title }}</h3>
+      {% if step.description %}
+      <p class="workflow-step__description">{{ step.description }}</p>
+      {% endif %}
+      {% if step.system %}
+      <p class="workflow-step__system">System: <span>{{ step.system }}</span></p>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ol>
+{% endmacro %}

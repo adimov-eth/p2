@@ -1,0 +1,116 @@
+{% macro presentation(slides = []) %}
+<div class="presentation" data-presentation>
+  <div class="presentation-track">
+    {% for slide in slides %}
+    <section class="presentation-slide presentation-slide--{{ slide.type | default('standard') }}" id="presentation-slide-{{ loop.index }}" data-index="{{ loop.index0 }}"{% if slide.backdrop %} style="--presentation-backdrop: url('{{ slide.backdrop }}')"{% endif %}>
+      <div class="presentation-slide__inner">
+        {% if slide.badge %}
+        <p class="presentation-badge">{{ slide.badge }}</p>
+        {% endif %}
+        {% if slide.heading %}
+        <h2 class="presentation-heading">{{ slide.heading }}</h2>
+        {% endif %}
+        {% if slide.lede %}
+        <p class="presentation-lede">{{ slide.lede }}</p>
+        {% endif %}
+        {% if slide.blocks %}
+        <div class="presentation-blocks">
+          {% for block in slide.blocks %}
+            {{ _renderBlock(block) }}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+  <div class="presentation-dots" role="tablist" aria-label="Slide navigation">
+    {% for slide in slides %}
+    <button class="presentation-dot" type="button" role="tab" aria-controls="presentation-slide-{{ loop.index }}" aria-label="{{ slide.heading | default('Slide ' ~ loop.index) }}"{% if loop.first %} aria-selected="true"{% endif %}></button>
+    {% endfor %}
+  </div>
+  <div class="presentation-progress" aria-hidden="true"><span></span></div>
+</div>
+{% endmacro %}
+
+{% macro _renderBlock(block) %}
+  {% if block.type == 'cards' %}
+    <div class="presentation-cards presentation-cards--{{ block.columns | default(2) }}">
+      {% for card in block.items %}
+      <div class="presentation-card">
+        {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+        {% if card.subtitle %}<p class="presentation-card__subtitle">{{ card.subtitle }}</p>{% endif %}
+        {% if card.body %}<p>{{ card.body }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  {% elif block.type == 'media' %}
+    <figure class="presentation-media">
+      <img src="{{ block.src }}" alt="{{ block.alt }}" loading="lazy">
+    </figure>
+  {% elif block.type == 'grid' %}
+    <div class="presentation-grid presentation-grid--{{ block.columns | default(2) }}">
+      {% for item in block.items %}
+      <div class="presentation-grid__item">
+        {% if item.metric %}<div class="presentation-metric">{{ item.metric }}</div>{% endif %}
+        {% if item.title %}<h3>{{ item.title }}</h3>{% endif %}
+        {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  {% elif block.type == 'feature' %}
+    <div class="presentation-feature{% if block.reverse %} presentation-feature--reverse{% endif %}">
+      <div class="presentation-feature__copy">
+        {% if block.heading %}<h3>{{ block.heading }}</h3>{% endif %}
+        {% if block.body %}<p>{{ block.body }}</p>{% endif %}
+      </div>
+      {% if block.image %}
+      <figure class="presentation-feature__media">
+        <img src="{{ block.image.src }}" alt="{{ block.image.alt }}" loading="lazy">
+      </figure>
+      {% endif %}
+    </div>
+  {% elif block.type == 'list' %}
+    <ol class="presentation-steps">
+      {% for item in block.items %}
+      <li>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  {% elif block.type == 'table' %}
+    <div class="presentation-table">
+      <table>
+        <thead>
+          <tr>
+            {% for heading in block.headings %}
+            <th>{{ heading }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in block.rows %}
+          <tr>
+            {% for cell in row %}
+            <td>{{ cell | safe }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% elif block.type == 'summary' %}
+    <div class="presentation-summary">
+      {% if block.title %}<h3>{{ block.title }}</h3>{% endif %}
+      {% if block.body %}<p>{{ block.body }}</p>{% endif %}
+      {% if block.list %}
+      <ul>
+        {% for item in block.list %}
+        <li>{{ item | safe }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endmacro %}

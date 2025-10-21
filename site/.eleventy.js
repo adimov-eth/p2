@@ -44,9 +44,8 @@ module.exports = function(eleventyConfig) {
     return new runtime.SafeString(formatted);
   });
 
-  eleventyConfig.addPassthroughCopy({
-    "assets": "assets"
-  });
+  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addWatchTarget("./assets/");
 
   eleventyConfig.addWatchTarget("./_data/");
   eleventyConfig.addWatchTarget("./_includes/");

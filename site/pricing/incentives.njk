@@ -1,0 +1,121 @@
+---
+layout: layouts/dark.njk
+permalink: "/pricing/incentives/"
+title: "Launch Pricing & Incentives"
+description: "Founding and early adopter pricing incentives for Prime Corporate Golf Club."
+---
+{% from "components/hero-art.njk" import heroArt %}
+
+{% set tiers = [
+  {
+    "name": "The Founders' Circle",
+    "audience": "First 10 memberships",
+    "price": 750000,
+    "savings": "200,000 THB launch savings",
+    "benefits": [
+      "12 bonus rounds (156 total in year one)",
+      "Invitation to the Prime Founders' Cup",
+      "Premium welcome kit with personalised engraving"
+    ],
+    "cta": {"label": "Secure founder membership", "href": "mailto:sales@primethailand.golf"},
+    "featured": true
+  },
+  {
+    "name": "Early Adopter Program",
+    "audience": "Memberships 11–25",
+    "price": 850000,
+    "savings": "100,000 THB incentive",
+    "benefits": [
+      "Premium welcome kit",
+      "Priority scheduling for first three rounds",
+      "Executive onboarding workshop"
+    ],
+    "cta": {"label": "Become an early adopter", "href": "mailto:sales@primethailand.golf"}
+  },
+  {
+    "name": "Standard Membership",
+    "audience": "Post-launch",
+    "price": 950000,
+    "savings": null,
+    "benefits": [
+      "144 concierge-managed rounds",
+      "Dedicated concierge team",
+      "Green fee, caddy, and cart included"
+    ],
+    "cta": {"label": "Join the waitlist", "href": "mailto:concierge@primethailand.golf"}
+  }
+] %}
+
+{{ heroArt({
+  eyebrow: "Launch offer",
+  title: "Launch Pricing & Incentives",
+  subtitle: "Preferential founding rates reward the first 25 corporate members while preserving full-service delivery.",
+  image: {
+    src: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2000&auto=format&fit=crop",
+    sources: [
+      {"srcset": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1200&auto=format&fit=crop", "media": "(max-width: 1024px)"}
+    ],
+    alt: "Sunrise tee box at a championship course"
+  },
+  actions: [
+    {"label": "Request proposal", "href": "mailto:sales@primethailand.golf"},
+    {"label": "Review membership terms", "href": "/pricing/", "class": "badge"}
+  ]
+}) }}
+
+<section class="container mt-10">
+  <h2 class="text-3xl font-semibold mb-6">Founding membership tiers</h2>
+  <div class="tier-grid">
+    {% for tier in tiers %}
+    <article class="tier-card {% if tier.featured %}tier-card--featured{% endif %}">
+      <header class="tier-card__header">
+        <p class="tier-card__audience">{{ tier.audience }}</p>
+        <h3>{{ tier.name }}</h3>
+        <p class="tier-card__price">{{ tier.price | formatCurrencyTHB }} <span>/ year + VAT</span></p>
+        {% if tier.savings %}
+        <p class="tier-card__meta">{{ tier.savings }}</p>
+        {% endif %}
+      </header>
+      <ul class="tier-card__list">
+        {% for benefit in tier.benefits %}
+        <li>{{ benefit }}</li>
+        {% endfor %}
+      </ul>
+      <div class="tier-card__cta">
+        <a href="{{ tier.cta.href }}" class="{% if tier.featured %}button-primary{% else %}badge{% endif %}">{{ tier.cta.label }}</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="container mt-12">
+  <div class="card">
+    <h2 class="text-2xl font-semibold mb-4">Launch incentive guardrails</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      <div>
+        <p class="detail-heading">Eligibility</p>
+        <p>Limited to corporations headquartered in Thailand with active golf programs or hospitality budgets.</p>
+      </div>
+      <div>
+        <p class="detail-heading">Activation</p>
+        <p>Membership must activate within 45 days of contract signature to retain preferential pricing.</p>
+      </div>
+      <div>
+        <p class="detail-heading">Review</p>
+        <p>Pricing reverts to standard rates once the 25th membership is activated or on 30 September 2025.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container mt-12">
+  <div class="card card-elevated">
+    <h2 class="text-2xl font-semibold mb-3">Ready to brief leadership?</h2>
+    <p class="text-slate-700 mb-4">We provide a tailored ROI calculator, executive talking points, and collateral aligned to your hospitality calendar.</p>
+    <div class="flex flex-wrap gap-4">
+      <a class="button-primary" href="mailto:sales@primethailand.golf">Schedule a consultation</a>
+      <a class="badge" href="tel:+6621234567">Call {{ site.contact.phone | formatPhone }}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+{% macro heroArt(options = {}) %}
+<section class="hero hero-art {{ options.modifier | default('') }}">
+  <div class="hero-art__media">
+    {% if options.image %}
+    <picture>
+      {% for source in options.image.sources or [] %}
+      <source srcset="{{ source.srcset }}"{% if source.media %} media="{{ source.media }}"{% endif %}{% if source.type %} type="{{ source.type }}"{% endif %}>
+      {% endfor %}
+      <img src="{{ options.image.src | default(options.image.fallback) }}" alt="{{ options.image.alt | default('') }}" loading="lazy">
+    </picture>
+    {% endif %}
+  </div>
+  <div class="container hero-art__content">
+    {% if options.badge %}
+    <span class="section-title">{{ options.badge }}</span>
+    {% endif %}
+    {% if options.eyebrow %}
+    <p class="hero-eyebrow">{{ options.eyebrow }}</p>
+    {% endif %}
+    {% if options.title %}
+    <h1 class="heading-xl">{{ options.title }}</h1>
+    {% endif %}
+    {% if options.subtitle %}
+    <p class="lead">{{ options.subtitle }}</p>
+    {% endif %}
+    {% if options.meta %}
+    <div class="hero-meta">{{ options.meta | safe }}</div>
+    {% endif %}
+    {% if options.actions %}
+    <div class="hero-actions">
+      {% for action in options.actions %}
+      <a href="{{ action.href }}" class="{{ action.class | default('button-primary') }}"{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>{{ action.label }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endmacro %}

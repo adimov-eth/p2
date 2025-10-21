@@ -1,0 +1,113 @@
+---
+layout: layouts/dashboard.njk
+permalink: "/internal/member-onboarding/"
+title: "New Member Onboarding SOP"
+description: "Playbook for handoff, welcome, package dispatch, and follow-up."
+noindex: true
+---
+{% from "components/hero-art.njk" import heroArt %}
+{% from "components/timeline.njk" import timeline %}
+{% from "components/checklist.njk" import checklist %}
+
+{% set onboardingTimeline = [
+  {
+    "title": "Handoff & setup",
+    "subtitle": "Day 0",
+    "body": "Sales transfers all deal notes and signed agreement to concierge lead.",
+    "meta": "Owner: Concierge lead"
+  },
+  {
+    "title": "Welcome call",
+    "subtitle": "Day 1",
+    "body": "Personal concierge call to confirm executive profiles and preferences.",
+    "meta": "Owner: Assigned concierge"
+  },
+  {
+    "title": "Package dispatch",
+    "subtitle": "Day 2–3",
+    "body": "Ship premium welcome kit and share tracking with the executive assistant.",
+    "meta": "Owner: Operations"
+  },
+  {
+    "title": "Follow-up",
+    "subtitle": "Day 5",
+    "body": "Confirm receipt, book first round, and capture concierge satisfaction score.",
+    "meta": "Owner: Concierge lead"
+  }
+] %}
+
+{{ heroArt({
+  badge: "Internal Use Only",
+  title: "New Member Onboarding SOP",
+  subtitle: "A four-touch sequence that turns new corporate members into concierge advocates within their first week.",
+  image: {
+    src: "https://images.unsplash.com/photo-1524758870432-af57e54afa26?q=80&w=2000&auto=format&fit=crop",
+    sources: [
+      {"srcset": "https://images.unsplash.com/photo-1524758870432-af57e54afa26?q=80&w=1200&auto=format&fit=crop", "media": "(max-width: 1024px)"}
+    ],
+    alt: "Prime concierge team preparing member welcome kits"
+  },
+  meta: "<span>Concierge</span><span>Updated Apr 2025</span>"
+}) }}
+
+<section class="container">
+  <h2 class="text-2xl font-semibold mb-6">Week-one milestones</h2>
+  {{ timeline(onboardingTimeline) }}
+</section>
+
+<section class="container grid gap-8 md:grid-cols-2">
+  <article class="card">
+    <h2 class="text-xl font-semibold mb-3">Phase 1 (Day 0): Internal handoff & systems</h2>
+    {{ checklist([
+      "Company name and primary executive contacts confirmed",
+      "Designated users (1 &amp; 2) entered with full profile details",
+      "Key sales notes tagged for concierge context",
+      "Membership tier, start date, and invoicing cadence captured",
+      "Signed agreement stored in the CRM record"
+    ], { title: "Handoff checklist" }) }}
+    <div class="mt-5">
+      <h3 class="text-sm uppercase tracking-[0.08em] text-slate-300 mb-2">System setup</h3>
+      <ol class="list-decimal ml-5 space-y-2 text-slate-300">
+        <li>Assign dedicated concierge owner and backup.</li>
+        <li>Create member profiles and guest allowances in the CRM.</li>
+        <li>Provision LINE mini-app access for both executives.</li>
+        <li>Review sales insights to personalise opening call.</li>
+      </ol>
+    </div>
+  </article>
+  <article class="card">
+    <h2 class="text-xl font-semibold mb-3">Phase 2 (Day 1): Personal welcome</h2>
+    <div class="space-y-4">
+      <div class="border-l-4 border-[rgba(201,176,121,0.5)] pl-4">
+        <p class="text-sm uppercase tracking-[0.08em] text-slate-300">Welcome call script</p>
+        <p class="text-slate-200 italic mt-2">&ldquo;Hello, [Khun Name]. I'm [Concierge], your dedicated contact at Prime Corporate Golf Club. I'm calling to personally welcome [Company] and ensure we tailor every round to your calendar.&rdquo;</p>
+        <p class="text-slate-200 italic mt-3">&ldquo;You can reach me directly for tee times, guest invitations, or bespoke experiences. My goal is to have your first outing scheduled this week.&rdquo;</p>
+      </div>
+      <div class="border-l-4 border-[rgba(201,176,121,0.5)] pl-4">
+        <p class="text-sm uppercase tracking-[0.08em] text-slate-300">Follow-up email</p>
+        <p class="text-slate-200 italic mt-2"><strong>Subject:</strong> A personal welcome to Prime Corporate Golf Club</p>
+        <p class="text-slate-200 italic mt-2">&ldquo;Khun [Name], it was a pleasure speaking today. Attached is your digital membership kit, quick links to book rounds, and my direct LINE ID for concierge requests.&rdquo;</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="container grid gap-8 md:grid-cols-2">
+  <article class="card">
+    <h2 class="text-xl font-semibold mb-3">Phase 3 (Day 2–3): Welcome package</h2>
+    <p class="text-slate-300 mb-4">Dispatch the premium welcome kit via same-day courier with insurance coverage.</p>
+    <ol class="list-decimal ml-5 space-y-2 text-slate-300">
+      <li>Confirm address and preferred delivery window with the executive assistant.</li>
+      <li>Scan courier receipt into the CRM file and share tracking link with the member.</li>
+      <li>Flag a reminder to call the next business day after delivery.</li>
+    </ol>
+  </article>
+  <article class="card">
+    <h2 class="text-xl font-semibold mb-3">Phase 4 (Day 5): Proactive follow-up</h2>
+    <p class="text-slate-300 mb-4">Confirm package arrival, encourage the first booking, and capture sentiment.</p>
+    <div class="border-l-4 border-[rgba(201,176,121,0.5)] pl-4">
+      <p class="text-sm uppercase tracking-[0.08em] text-slate-300">Suggested note</p>
+      <p class="text-slate-200 italic mt-2">&ldquo;Hi Khun [Name], delighted the welcome kit has arrived. Shall we line up your first visit to Thai Country Club next Thursday? I can confirm tee time, F&amp;B, and guest arrangements within the hour.&rdquo;</p>
+    </div>
+  </article>
+</section>

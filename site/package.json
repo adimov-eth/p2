@@ -5,7 +5,9 @@
   "scripts": {
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "test:html": "npx html-validate \"_site/**/*.html\"",
+    "test:links": "npx linkinator _site --recurse --skip \"mailto:,tel:\""
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,9 @@
   "description": "",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2"
+  },
+  "devDependencies": {
+    "html-validate": "^8.34.1",
+    "linkinator": "^6.0.5"
   }
 }

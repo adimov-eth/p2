@@ -25,7 +25,7 @@
 </head>
 <body class="{{ theme | default('theme-dark') }}">
   {% include "partials/header.njk" %}
-  <main>
+  <main{% if mainClass %} class="{{ mainClass }}"{% endif %}>
     {{ content | safe }}
   </main>
   {% include "partials/footer.njk" %}

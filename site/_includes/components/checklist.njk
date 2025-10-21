@@ -1,0 +1,15 @@
+{% macro checklist(items = [], options = {}) %}
+<div class="checklist {{ options.modifier | default('') }}">
+  {% if options.title %}
+  <h3 class="checklist__title">{{ options.title }}</h3>
+  {% endif %}
+  <ul class="checklist__list">
+    {% for item in items %}
+    <li class="checklist__item">
+      <span class="checklist__icon" aria-hidden="true">✔</span>
+      <span class="checklist__content">{{ item | safe }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endmacro %}

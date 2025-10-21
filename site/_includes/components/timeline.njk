@@ -9,6 +9,9 @@
       <p class="timeline-subtitle">{{ item.subtitle }}</p>
       {% endif %}
       <p class="timeline-body">{{ item.body }}</p>
+      {% if item.meta %}
+      <p class="timeline-meta">{{ item.meta }}</p>
+      {% endif %}
     </div>
   </li>
   {% endfor %}

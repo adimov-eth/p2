@@ -1,0 +1,148 @@
+---
+layout: layouts/dashboard.njk
+permalink: "/internal/financial-operations/"
+title: "Financial Operations SOP"
+description: "Invoicing, payment activation, and partner settlement workflows for the finance team."
+noindex: true
+---
+{% from "components/hero-art.njk" import heroArt %}
+{% from "components/workflow.njk" import workflow %}
+
+{% set invoicingSteps = [
+  {
+    "title": "Agreement signed",
+    "description": "Sales marks the client \"Ready for Invoice\" immediately after the countersigned agreement hits the E-signature queue.",
+    "system": "E-signature platform"
+  },
+  {
+    "title": "Create and detail invoice",
+    "description": "Generate the annual invoice in accounting software with legal entity, VAT registration, membership SKU, and net 30 due date.",
+    "system": "Accounting"
+  },
+  {
+    "title": "Send invoice",
+    "description": "Email the PDF invoice and embedded payment link directly from the accounting system; CC finance@prime for visibility.",
+    "system": "Accounting"
+  },
+  {
+    "title": "Update status & reminders",
+    "description": "Update the CRM deal stage to \"Invoiced – Awaiting Payment\" and confirm automated reminder cadence (7/3/1 days before due).",
+    "system": "CRM + Accounting"
+  }
+] %}
+
+{% set activationSteps = [
+  {
+    "title": "Daily reconciliation",
+    "description": "Check bank and payment gateway dashboards by 10:00 daily to match new deposits against open invoices.",
+    "system": "Banking & gateway"
+  },
+  {
+    "title": "Match & close invoice",
+    "description": "Apply the payment to the matching invoice and mark as Paid; note the reference ID in the settlement log.",
+    "system": "Accounting"
+  },
+  {
+    "title": "Activate membership",
+    "description": "Move the CRM account to \"Active\" which triggers the welcome email sequence for designated executives and guests.",
+    "system": "CRM + Email"
+  }
+] %}
+
+{% set settlementSteps = [
+  {
+    "title": "Log all rounds",
+    "description": "Concierge tracks course, date, players, and booking reference for every round within 24 hours of play.",
+    "system": "CRM"
+  },
+  {
+    "title": "Generate settlement statements",
+    "description": "On the 1st business day monthly, export usage and produce a statement template per partner course for finance review.",
+    "system": "CRM + Spreadsheet"
+  },
+  {
+    "title": "Verify with partner",
+    "description": "Email statements to course finance contacts for confirmation; allow 3–5 business days for dispute resolution.",
+    "system": "Email"
+  },
+  {
+    "title": "Process payment",
+    "description": "Once approved, wire transfer the amount due and record the payout under \"Partner Course Fees\" in accounting.",
+    "system": "Banking + Accounting"
+  }
+] %}
+
+{{ heroArt({
+  badge: "Internal Use Only",
+  title: "Financial Operations SOP",
+  subtitle: "Standard procedures that move a signed agreement to booked revenue and timely partner payouts.",
+  image: {
+    src: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=2000&auto=format&fit=crop",
+    sources: [
+      {"srcset": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop", "media": "(max-width: 1024px)"}
+    ],
+    alt: "Prime finance associate reconciling monthly partner statements"
+  },
+  meta: "<span>Finance</span><span>Updated Apr 2025</span>"
+}) }}
+
+<section class="container">
+  <div class="card">
+    <h2 class="text-2xl font-semibold mb-4">Quarter-close checklist</h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      <div>
+        <p class="text-slate-300 mb-3">Keep revenue recognition, cash timing, and partner accruals tightly aligned.</p>
+        <ul class="list-check">
+          <li>Confirm all invoices issued in the quarter are either Paid or in reminder cadence.</li>
+          <li>Reconcile payment gateway fees versus collected funds.</li>
+          <li>Cross-check concierge usage log totals with accounting deferred revenue.</li>
+        </ul>
+      </div>
+      <div class="card" style="background: rgba(17, 34, 64, 0.55); border-color: rgba(201, 176, 121, 0.12);">
+        <p class="text-sm uppercase tracking-[0.08em] text-slate-300 mb-2">Key docs</p>
+        <ul class="text-slate-200 space-y-2 text-sm">
+          <li>Finance / 01 Templates / <strong>Invoice-Master.xlsx</strong></li>
+          <li>Finance / 02 Settlements / <strong>Course-Statement.docx</strong></li>
+          <li>Finance / 03 Reports / <strong>ARR-Rollforward.xlsx</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="text-2xl font-semibold mb-6">Corporate invoicing workflow</h2>
+  {{ workflow(invoicingSteps) }}
+</section>
+
+<section class="container">
+  <h2 class="text-2xl font-semibold mb-6">Payment tracking & activation</h2>
+  {{ workflow(activationSteps) }}
+</section>
+
+<section class="container">
+  <h2 class="text-2xl font-semibold mb-6">Partner course settlement workflow</h2>
+  {{ workflow(settlementSteps) }}
+</section>
+
+<section class="container">
+  <h2 class="text-2xl font-semibold mb-6">Monthly reports to ship by day 5</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3 class="text-lg font-semibold">Accounts receivable aging</h3>
+      <p class="text-slate-300">Identifies overdue balances and prioritises outreach.</p>
+    </div>
+    <div class="card">
+      <h3 class="text-lg font-semibold">Profit &amp; loss</h3>
+      <p class="text-slate-300">Confirms revenue recognition versus concierge and partner costs.</p>
+    </div>
+    <div class="card">
+      <h3 class="text-lg font-semibold">Cash flow statement</h3>
+      <p class="text-slate-300">Tracks movements from membership cash receipts to partner payouts.</p>
+    </div>
+    <div class="card">
+      <h3 class="text-lg font-semibold">Partner payout summary</h3>
+      <p class="text-slate-300">Rolls up monthly disbursements and pending approvals per course.</p>
+    </div>
+  </div>
+</section>

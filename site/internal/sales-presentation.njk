@@ -1,0 +1,121 @@
+---
+layout: layouts/dashboard.njk
+permalink: "/internal/sales-presentation/"
+title: "Sales Presentation"
+description: "Scrolling sales narrative with talking points, metrics, and launch incentives."
+noindex: true
+---
+{% from "components/presentation.njk" import presentation %}
+{% include "partials/presentation-script.njk" %}
+
+{% set slides = [
+  {
+    "type": "hero",
+    "backdrop": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2000&auto=format&fit=crop",
+    "badge": "Sales deck",
+    "heading": "Prime Corporate Golf Club",
+    "lede": "The ultimate business tool for Thai leadership teams.",
+    "blocks": [
+      {"type": "summary", "body": "Elevate corporate relationships with five hours of uninterrupted time in a championship setting, fully orchestrated by our concierge team."}
+    ]
+  },
+  {
+    "heading": "Building real relationships is harder than ever.",
+    "blocks": [
+      {
+        "type": "cards",
+        "columns": 2,
+        "items": [
+          {"title": "Boardrooms are transactional", "body": "Formal meetings rarely create the trust needed to close transformational deals."},
+          {"title": "Executive time is scarce", "body": "Leaders need curated experiences that justify hours away from HQ."}
+        ]
+      },
+      {"type": "summary", "body": "Prime transforms golf from a sporadic perk into a strategic hospitality platform."}
+    ]
+  },
+  {
+    "heading": "Turn a five-hour game into your most productive meeting.",
+    "blocks": [
+      {
+        "type": "feature",
+        "heading": "Concierge-led planning",
+        "body": "We coordinate tee times, F&B, transport, and guest credentials so executives can focus on relationships.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop",
+          "alt": "Concierge team preparing executive itineraries"
+        }
+      },
+      {
+        "type": "feature",
+        "heading": "Digital control in LINE",
+        "body": "Executives track usage, confirm bookings, and issue digital guest passes through our LINE mini-app.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1587322839218-47c030507a33?q=80&w=1600&auto=format&fit=crop",
+          "alt": "Mobile interface showing membership dashboard"
+        },
+        "reverse": true
+      }
+    ]
+  },
+  {
+    "heading": "Membership at a glance",
+    "blocks": [
+      {
+        "type": "grid",
+        "columns": 3,
+        "items": [
+          {"metric": "80+", "title": "Premier courses", "body": "Nationwide access to championship venues."},
+          {"metric": "150", "title": "Annual rounds", "body": "Sufficient allocation for corporate hospitality and talent retention."},
+          {"metric": "2 + 6", "title": "Users & guests", "body": "Two named executives and up to six guests per outing."}
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "The Prime advantage",
+    "blocks": [
+      {
+        "type": "cards",
+        "columns": 3,
+        "items": [
+          {"title": "All-inclusive", "body": "Green fee, caddy, and cart covered every round."},
+          {"title": "Concierge on-call", "body": "LINE, phone, and email access with two-hour confirmation window."},
+          {"title": "Executive polish", "body": "Premium welcome kits, curated pairings, and on-course hospitality."}
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Launch pricing & incentives",
+    "blocks": [
+      {
+        "type": "cards",
+        "columns": 3,
+        "items": [
+          {"title": "Founders' Circle", "subtitle": "฿750,000", "body": "First 10 memberships · 12 bonus rounds · Founders' Cup invite."},
+          {"title": "Early Adopter", "subtitle": "฿850,000", "body": "Memberships 11–25 · Priority onboarding · Premium welcome kit."},
+          {"title": "Standard", "subtitle": "฿950,000", "body": "Post-launch rate · 150 rounds · Dedicated concierge support."}
+        ]
+      },
+      {"type": "summary", "body": "Incentives limited to the first 25 corporations or until 30 September 2025."}
+    ]
+  },
+  {
+    "heading": "Next steps",
+    "blocks": [
+      {
+        "type": "list",
+        "items": [
+          {"title": "Personalised consultation", "body": "Align the membership with upcoming hospitality commitments."},
+          {"title": "Executive proposal", "body": "Deliver a tailored ROI narrative and leadership briefing deck."},
+          {"title": "Founder onboarding", "body": "Secure membership, launch concierge welcome sequence, and book first round."}
+        ]
+      },
+      {"type": "summary", "body": "Concierge desk: concierge@primethailand.golf · {{ site.contact.phone | formatPhone }}"}
+    ]
+  }
+] %}
+
+<section class="container">
+  {{ presentation(slides) }}
+</section>
