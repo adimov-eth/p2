@@ -1,0 +1,78 @@
+---
+layout: layouts/dark.njk
+permalink: "/corporate/terms/"
+title: "Membership Terms"
+description: "Contractual terms for the Prime Corporate Golf Club membership including usage, guest policy, and cancellation rules."
+---
+{% from "components/accordion.njk" import accordion %}
+{% from "components/table.njk" import standard as renderTable %}
+{% set transferFee = site.membership.transferFeeTHB | formatNumber %}
+{% set annualRounds = site.membership.rounds %}
+{% set guestPerSeat = site.membership.guestsPerSeat %}
+{% set maxGuests = site.membership.maxGuests %}
+{% set cancelHrs = site.membership.cancelHrs %}
+<section class="container mt-8">
+  <header class="mb-10">
+    <span class="section-title">Membership Terms</span>
+    <h1 class="text-4xl font-semibold mb-2">Prime Corporate Golf Club</h1>
+    <p class="text-slate-300">Effective 20 October 2025. These terms apply to all active memberships unless superseded by a signed addendum.</p>
+  </header>
+
+  {{ renderTable(
+    ["Detail", "Description"],
+    [
+      ["Annual membership fee", "<strong>" ~ (site.membership.priceTHB | formatCurrencyTHB) ~ "</strong> plus VAT for a 12-month term."],
+      ["Included usage", "<strong>" ~ annualRounds ~ " rounds</strong> per membership year. Green fee, caddy, and cart are included for each confirmed round."],
+      ["Registered executives", "Two (2) named users employed by the member corporation."],
+      ["Guest allowance", "Up to <strong>" ~ guestPerSeat ~ " guests</strong> per executive (maximum <strong>" ~ maxGuests ~ " guests</strong> when both executives attend)."],
+      ["User transfer fee", "฿" ~ transferFee ~ " per change, subject to vetting."],
+      ["Cancellation window", "Tee times must be amended or cancelled ≥ " ~ cancelHrs ~ " hours before play to avoid deduction."]
+    ]
+  ) }}
+
+  {% set termsAccordion = [
+    {
+      "title": "1. Membership scope",
+      "content": "<p>The membership is corporate and may not be resold. Two named executives receive digital credentials and NFC cards. Additional corporate teams may request supplementary memberships subject to availability.</p><p>Replacement of a named executive requires written authorization and the ฿" ~ transferFee ~ " transfer fee. Replacement users must be direct employees or directors of the same corporate entity.</p>",
+      "open": true
+    },
+    {
+      "title": "2. Usage & quota",
+      "content": "<p>The annual quota of <strong>" ~ annualRounds ~ " rounds</strong> is pooled at the corporate level. Each person (executive or guest) may consume one 18-hole round per day.</p><p>Unused rounds do not roll over. The concierge issues monthly statements summarizing rounds consumed, guest participation, and cancellations.</p>"
+    },
+    {
+      "title": "3. Guest policy",
+      "content": "<p>Guests must be accompanied by one of the registered executives at all times. One executive may host up to " ~ guestPerSeat ~ " guests (four-ball). When both executives play together they may host a party of up to " ~ maxGuests ~ " guests (eight golfers).</p><p>Executives are responsible for the conduct and dress code compliance of their guests.</p>"
+    },
+    {
+      "title": "4. Booking & cancellation",
+      "content": "<p>All tee times must be requested through the Prime concierge via phone, LINE OA, or email. Prime confirms within the published SLA.</p><p>Cancellations or amendments received less than " ~ cancelHrs ~ " hours before the scheduled tee time incur a deduction of one round per player. No-shows are charged the same deduction.</p>"
+    },
+    {
+      "title": "5. Course conduct",
+      "content": "<p>Members and guests must follow partner course etiquette, pace of play, and caddy tipping policies. Prime reserves the right to suspend access for repeated violations.</p><p>Damage to course property is the responsibility of the member corporation. Prime is not liable for personal injury, loss, or property damage sustained during play.</p>"
+    },
+    {
+      "title": "6. Fees & payment",
+      "content": "<p>Invoices are denominated in Thai Baht and due within 30 days of issue. Late payments may lead to suspension until settled. Optional tournament, F&amp;B, or travel services are billed separately.</p>"
+    },
+    {
+      "title": "7. Termination",
+      "content": "<p>Prime may terminate the membership for breach of these terms, non-payment, fraud, or reputational risk. Unused rounds are forfeited upon termination.</p><p>The member corporation may request termination with 60 days’ notice. Refunds are not provided for early cancellation.</p>"
+    },
+    {
+      "title": "8. Governing law",
+      "content": "<p>These terms are governed by the laws of the Kingdom of Thailand. Disputes shall be resolved by the Bangkok South Civil Court.</p>"
+    }
+  ] %}
+
+  <div class="mt-10">
+    {{ accordion(termsAccordion) }}
+  </div>
+
+  <section class="mt-12 mb-12">
+    <h2 class="text-2xl font-semibold mb-4">Concierge contact</h2>
+    <p>Primary point of contact: {{ site.contact.concierge }} · {{ site.contact.phone | formatPhone }}.</p>
+    <p>Physical correspondence should be addressed to {{ site.contact.address }}.</p>
+  </section>
+</section>

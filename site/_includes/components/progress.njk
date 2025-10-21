@@ -1,0 +1,10 @@
+{% macro progress(label, current, total) %}
+{% set percentage = (current / total * 100) | float %}
+<div class="progress-block">
+  <div class="progress-meta">
+    <span>{{ label }}</span>
+    <span>{{ current }}/{{ total }} · {{ percentage | round(0, 'floor') }}%</span>
+  </div>
+  <progress class="progress-element" value="{{ current }}" max="{{ total }}">{{ percentage | round(0, 'floor') }}%</progress>
+</div>
+{% endmacro %}

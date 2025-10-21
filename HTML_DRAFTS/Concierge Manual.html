@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Concierge Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .sidebar-link {
+            transition: all 0.2s ease-in-out;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-link:hover {
+            background-color: var(--brand-navy-light);
+            border-left-color: var(--brand-gold);
+            color: white;
+        }
+        .sidebar-link.active {
+            background-color: var(--brand-navy-light);
+            border-left-color: var(--brand-gold);
+            color: white;
+            font-weight: 500;
+        }
+        main h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: var(--brand-gold);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+        }
+        main h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--brand-text-light);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        main p, main li {
+            color: var(--brand-text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        main strong {
+            color: var(--brand-text-light);
+            font-weight: 500;
+        }
+        main .procedure-step {
+            background-color: var(--brand-navy-light);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--brand-gold);
+            margin-bottom: 1.5rem;
+        }
+        main code {
+            background-color: #000;
+            color: var(--brand-gold);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-[#0A1422] p-6 hidden lg:block fixed top-0 left-0 h-full">
+            <h1 class="text-xl font-bold text-white mb-2">Prime Concierge</h1>
+            <p class="text-sm text-gray-400 mb-8">Internal Playbook v1.0</p>
+            <nav id="sidebar-nav" class="space-y-2">
+                <a href="#philosophy" class="sidebar-link block py-2 px-4 rounded text-gray-300">1. Service Philosophy</a>
+                <a href="#channels" class="sidebar-link block py-2 px-4 rounded text-gray-300">2. Communication</a>
+                <a href="#procedures" class="sidebar-link block py-2 px-4 rounded text-gray-300">3. Core Procedures</a>
+                <a href="#scripts" class="sidebar-link block py-2 px-4 rounded text-gray-300">Appendix: Scripts</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-64 p-6 md:p-12">
+            
+            <section id="philosophy" class="mb-16">
+                <h2>Part 1: The Prime Service Philosophy</h2>
+                
+                <h3>1.1. Our Mission</h3>
+                <p>To provide a seamless, anticipatory, and world-class service experience that transforms every golf outing into a powerful business opportunity for our members. We are not just booking agents; we are trusted partners in our members' success.</p>
+
+                <h3>1.2. Core Service Principles</h3>
+                <ul class="list-disc list-inside space-y-4 pl-4">
+                    <li><strong>Excellence is the Standard:</strong> Every interaction, from a simple email to a complex booking, must be executed flawlessly and with the utmost professionalism.</li>
+                    <li><strong>Know Our Members:</strong> We anticipate needs by understanding our members' preferences, their key clients, and their business rhythms.</li>
+                    <li><strong>Seamless is the Goal:</strong> The member should only have to focus on their game and their guests. We handle all the logistics behind the scenes.</li>
+                    <li><strong>Discretion is Paramount:</strong> We are privy to business relationships and confidential information. Absolute discretion is non-negotiable.</li>
+                </ul>
+            </section>
+
+            <section id="channels" class="mb-16">
+                <h2>Part 2: Communication Channels & Standards</h2>
+                <p>This section outlines the setup and required etiquette for all official communication channels.</p>
+
+                <h3>2.1. Channel Setup</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="procedure-step">
+                        <h4 class="text-lg font-semibold text-white mb-2">Dedicated Phone Line</h4>
+                        <p><strong>Number:</strong> [Insert Your Dedicated Phone Number]</p>
+                        <p><strong>Hours:</strong> 7:00 AM - 7:00 PM, 7 days a week.</p>
+                        <p class="mb-0"><strong>Voicemail:</strong> Professional greeting, checked every 30 mins.</p>
+                    </div>
+                     <div class="procedure-step">
+                        <h4 class="text-lg font-semibold text-white mb-2">Dedicated Email</h4>
+                        <p><strong>Address:</strong> <code>concierge@primegolf.co</code></p>
+                        <p><strong>Signature:</strong> Standardized for all outgoing mail.</p>
+                    </div>
+                     <div class="procedure-step">
+                        <h4 class="text-lg font-semibold text-white mb-2">LINE Official Account</h4>
+                        <p><strong>ID:</strong> <code>@PrimeGolfConcierge</code></p>
+                        <p><strong>Function:</strong> Primary channel for quick requests.</p>
+                        <p class="mb-0"><strong>Auto-Reply:</strong> Set for non-operating hours.</p>
+                    </div>
+                </div>
+
+                <h3>2.2. Service Level Agreements (SLAs)</h3>
+                <ul class="list-disc list-inside pl-4">
+                    <li><strong>Phone Calls:</strong> Answer within 3 rings.</li>
+                    <li><strong>Emails:</strong> Acknowledge in 15 mins; Resolve in 1 hour.</li>
+                    <li><strong>LINE OA Messages:</strong> Acknowledge in 5 mins; Resolve in 30 mins.</li>
+                </ul>
+            </section>
+            
+            <section id="procedures" class="mb-16">
+                <h2>Part 3: Core Operational Procedures</h2>
+                
+                <h3>3.1. Workflow: Handling a Booking Request</h3>
+                <p>This is our most critical procedure. Follow these steps without deviation.</p>
+                <div class="space-y-6">
+                    <div class="procedure-step"><strong>Step 1: Receive & Acknowledge</strong><p>Receive request via any channel and immediately acknowledge using the appropriate script.</p></div>
+                    <div class="procedure-step"><strong>Step 2: Gather Information (The "Big 5")</strong><p>Confirm: Designated User's Name, Golf Course & Date, Preferred Tee Time, Number of Players, and Names of all Guests.</p></div>
+                    <div class="procedure-step"><strong>Step 3: Check Availability</strong><p>Consult the CRM for member's remaining rounds. Contact the partner golf course to check tee time availability.</p></div>
+                    <div class="procedure-step"><strong>Step 4: Confirm with Member</strong><p>Contact the member to confirm the exact tee time. Crucially, state the 48-hour cancellation policy at this stage.</p></div>
+                    <div class="procedure-step"><strong>Step 5: Finalize & Communicate</strong><p>Send a formal confirmation via the LINE Mini-App, email a calendar invite, and update the member's usage in the CRM.</p></div>
+                </div>
+
+                <h3 class="mt-12">3.2. Procedure: Handling Cancellations</h3>
+                 <ul class="list-disc list-inside pl-4">
+                    <li><strong>Outside 48 Hours:</strong> Acknowledge the cancellation and update the booking system. No penalty.</li>
+                    <li><strong>Inside 48 Hours:</strong>
+                        <ol class="list-decimal list-inside pl-6 mt-2 space-y-2">
+                            <li>Politely inform the member that the cancellation is within the 48-hour window and will result in the forfeiture of the rounds.</li>
+                            <li>Express empathy ("I understand last-minute changes happen...").</li>
+                            <li>If the member contests, do not argue. Escalate immediately to the Head Concierge.</li>
+                            <li>Document the interaction in the CRM.</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h3 class="mt-12">3.3. Procedure: Complaint Resolution</h3>
+                <ol class="list-decimal list-inside pl-4 space-y-2">
+                    <li><strong>Listen:</strong> Let the member explain the issue fully without interruption.</li>
+                    <li><strong>Empathize & Apologize:</strong> "I'm very sorry to hear you had that experience. That is not the standard we aim for."</li>
+                    <li><strong>Document:</strong> Take detailed notes of the issue.</li>
+                    <li><strong>Offer Immediate Action:</strong> "I am going to investigate this immediately. I will call you back within the hour with an update."</li>
+                    <li><strong>Escalate:</strong> Inform the Head Concierge of the situation.</li>
+                    <li><strong>Follow Up:</strong> Provide a resolution and follow up a few days later to ensure the member is satisfied.</li>
+                </ol>
+            </section>
+            
+            <section id="scripts" class="mb-16">
+                <h2>Appendix A: Communication Scripts</h2>
+                
+                <div class="procedure-step">
+                    <h4 class="text-lg font-semibold text-white mb-2">Phone Greeting:</h4>
+                    <p class="italic">"Good morning/afternoon, Prime Corporate Golf Club, [Your Name] speaking. How may I assist you?"</p>
+                </div>
+                <div class="procedure-step">
+                    <h4 class="text-lg font-semibold text-white mb-2">LINE OA Acknowledgment:</h4>
+                    <p class="italic">"Thank you for contacting the Prime Concierge. We have received your request and are working on it now. We will be back to you within 30 minutes."</p>
+                </div>
+                <div class="procedure-step">
+                    <h4 class="text-lg font-semibold text-white mb-2">Email Acknowledgment:</h4>
+                    <p class="italic">"Dear [Member Name], Thank you for your email. We are currently processing your request for [Course] on [Date] and will send a full confirmation shortly."</p>
+                </div>
+            </section>
+             <footer class="text-center py-10 text-gray-500 text-sm mt-12">
+                <p>© 2025 Prime Corporate Golf Club. Internal Use Only.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px', threshold: 0 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

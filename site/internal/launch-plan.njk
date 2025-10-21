@@ -1,0 +1,58 @@
+---
+layout: layouts/dark.njk
+permalink: "/internal/launch-plan/"
+title: "Go-to-Market Launch Plan"
+description: "Internal launch roadmap for Prime Corporate Golf Club."
+noindex: true
+---
+{% from "components/progress.njk" import progress %}
+{% from "components/timeline.njk" import timeline %}
+{% set targetRevenue = (site.membership.priceTHB * 10) | formatNumber %}
+<section class="container mt-8">
+  <header class="mb-8">
+    <span class="section-title">Internal Use Only</span>
+    <h1 class="text-3xl font-semibold">Go-to-Market Launch Plan</h1>
+    <p class="max-w-3xl text-slate-300">Objective: secure the first 10 enterprise memberships (THB {{ site.membership.priceTHB | formatNumber }} each) within 90 days.</p>
+  </header>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Pipeline targets</h2>
+    <div class="tag-grid">
+      <span>Hospitality &amp; Tourism Holdings</span>
+      <span>Banking &amp; Financial Services</span>
+      <span>Energy &amp; Petrochemical</span>
+      <span>Industrial Conglomerates</span>
+      <span>Eastern Economic Corridor HQs</span>
+    </div>
+  </section>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Workstream status</h2>
+    {{ progress("Brand &amp; collateral", 4, 5) }}
+    {{ progress("Course partnerships", 6, 8) }}
+    {{ progress("Concierge hiring", 3, 4) }}
+    {{ progress("Member acquisition", 2, 10) }}
+  </section>
+
+  {% set launchTimeline = [
+    {"title": "Week 1", "subtitle": "Collateral", "body": "Finalize pricing one-pager, booklet, and welcome package photography."},
+    {"title": "Week 3", "subtitle": "Soft launch", "body": "Host invite-only Prime Executive Preview for 30 corporate guests."},
+    {"title": "Week 6", "subtitle": "Course showcase", "body": "VIP familiarization trip to Pattaya and Hua Hin partner courses; secure testimonial content."},
+    {"title": "Week 8", "subtitle": "Media push", "body": "Release PR kit with premium photography and partner endorsements."},
+    {"title": "Week 12", "subtitle": "Revenue milestone", "body": "Close 10 memberships generating ฿" ~ targetRevenue ~ " in ARR."}
+  ] %}
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Milestones</h2>
+    {{ timeline(launchTimeline) }}
+  </section>
+
+  <section class="card">
+    <h2 class="text-xl font-semibold mb-4">Immediate next actions</h2>
+    <ol class="ml-5 text-slate-300 list-decimal space-y-2">
+      <li>Finalize agenda and sponsorship tiers for the Prime Invitational at Nikanti.</li>
+      <li>Deliver press kit to PR agency with pricing alignment (฿{{ site.membership.priceTHB | formatNumber }}, {{ site.membership.rounds }} rounds, {{ site.membership.seats }} seats).</li>
+      <li>Assign concierge lead to each Tier 1 prospect with personalized outreach scripts.</li>
+    </ol>
+  </section>
+</section>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Launch Plan Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brand-gold);
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+        }
+        .card {
+            background-color: var(--brand-navy-light);
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        /* Timeline specific styles */
+        .timeline-container {
+            position: relative;
+            padding-left: 2.5rem; /* Space for the timeline line and dots */
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            bottom: 10px;
+            width: 3px;
+            background-color: rgba(201, 176, 121, 0.2);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -2.5rem;
+            top: 5px;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background-color: var(--brand-navy-dark);
+            border: 3px solid var(--brand-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .timeline-dot-inner {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: var(--brand-gold);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Go-to-Market Launch Plan</h1>
+            <p class="text-xl text-gray-400 mt-2">Objective: Secure the first 10 "Founders' Circle" members.</p>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <!-- Left Column: The Main Event -->
+            <div class="lg:col-span-1">
+                <h2 class="section-title !text-left !text-xl !border-0 !mb-6 !pb-2 border-b border-gray-700">Part 1: The Main Event</h2>
+                <div class="card rounded-lg p-6 space-y-4">
+                    <h3 class="text-2xl font-bold text-[var(--brand-gold)]">"The Founders' Circle Invitational"</h3>
+                    <p class="text-gray-300">An exclusive, invitation-only golf and networking event to give prospects a tangible taste of the Prime experience.</p>
+                    <div>
+                        <h4 class="font-semibold text-white text-lg">Key Details:</h4>
+                        <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
+                            <li><strong>Concept:</strong> Half-day luxury, networking & business strategy.</li>
+                            <li><strong>Venue:</strong> Top-tier partner course (Siam Country Club, etc.).</li>
+                            <li><strong>Guest List:</strong> 20-25 hand-picked executives.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white text-lg">Event Schedule:</h4>
+                        <ul class="list-none mt-2 space-y-2 text-gray-400">
+                            <li><strong>08:00 AM:</strong> Arrival, Breakfast & Welcome Kit</li>
+                            <li><strong>09:00 AM:</strong> High-Impact Presentation</li>
+                            <li><strong>09:30 AM:</strong> Curated 9-Hole Round</li>
+                            <li><strong>12:30 PM:</strong> Gourmet Networking Lunch</li>
+                            <li><strong>02:00 PM:</strong> Event Conclusion & Departure Gift</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Column: Digital Campaign Timeline -->
+            <div class="lg:col-span-2">
+                 <h2 class="section-title !text-left !text-xl !border-0 !mb-6 !pb-2 border-b border-gray-700">Part 2: Supporting Digital Campaign (6-Week Timeline)</h2>
+                 <div class="timeline-container">
+                    
+                    <!-- Weeks 1-2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Weeks 1-2: Preparation</h3>
+                        <div class="card rounded-lg p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-xl text-[var(--brand-gold)] mr-3">1.</span>Finalize Guest List: Select top 25 individuals from the target company list.</li>
+                                <li class="flex items-start"><span class="text-xl text-[var(--brand-gold)] mr-3">2.</span>Create RSVP Landing Page: Simple, elegant, on-brand single page with an RSVP form.</li>
+                                <li class="flex items-start"><span class="text-xl text-[var(--brand-gold)] mr-3">3.</span>Craft Email Sequence: Write a 3-part personalized email series (Invite, Follow-up, Confirmation).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Weeks 3-4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Weeks 3-4: Initial Outreach</h3>
+                        <div class="card rounded-lg p-6 space-y-4">
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--brand-gold)] mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">Personalized Email - Wave 1</h4>
+                                    <p class="text-gray-400">Send initial invitations. CTA to the RSVP landing page.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--brand-gold)] mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2" stroke="none"></circle></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">LinkedIn Ad Campaign</h4>
+                                    <p class="text-gray-400">Launch highly targeted ads to the guest list and lookalikes. CTA to "Request Your Invitation".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Week 5 -->
+                     <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Week 5: Follow-Up</h3>
+                        <div class="card rounded-lg p-6 space-y-4">
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--brand-gold)] mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">Personalized Email - Wave 2</h4>
+                                    <p class="text-gray-400">Send a polite follow-up to non-respondents, highlighting key benefits.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--brand-gold)] mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">Sales Team Direct Outreach</h4>
+                                    <p class="text-gray-400">Begin personal follow-ups (phone, LinkedIn) to high-priority targets.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Week 6 -->
+                     <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Week 6: Finalization</h3>
+                        <div class="card rounded-lg p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-xl text-[var(--brand-gold)] mr-3">1.</span>Close RSVPs at the deadline.</li>
+                                <li class="flex items-start"><span class="text-xl text-[var(--brand-gold)] mr-3">2.</span>Send detailed final confirmation emails to all attendees.</li>
+                                <li class="flex items-start"><span class="text-xl text-[var(--brand-gold)] mr-3">3.</span>Finalize all event logistics with the partner course.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Right Column: Post-Event -->
+            <div class="lg:col-span-3 mt-8">
+                 <h2 class="section-title !text-left !text-xl !border-0 !mb-6 !pb-2 border-b border-gray-700">Part 3: Post-Event Follow-Up (Within 48 Hours)</h2>
+                <div class="card rounded-lg p-6 grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-white text-lg mb-2">1. Personalized "Thank You" Email</h4>
+                        <p class="text-gray-400">Send a genuine thank you from the head of sales to each attendee. Reference a specific conversation to build rapport.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white text-lg mb-2">2. Schedule Consultations</h4>
+                        <p class="text-gray-400">The primary call-to-action is to schedule a brief, 15-minute "Personalized Consultation" to discuss their company's specific goals and present the Founders' Circle agreement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center mt-20 text-gray-500">
+            <p>© 2025 Prime Corporate Golf Club. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

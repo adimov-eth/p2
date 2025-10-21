@@ -1,0 +1,72 @@
+---
+layout: layouts/dark.njk
+permalink: "/legal/agreement/"
+title: "Corporate Membership Agreement"
+description: "Template agreement for Prime Corporate Golf Club corporate members."
+---
+<section class="container mt-8">
+  <header class="text-center mb-10">
+    <span class="section-title">Prime Corporate Golf Club</span>
+    <h1 class="text-4xl font-semibold mb-3">Corporate Membership Agreement</h1>
+    <p class="text-slate-300">This template summarises the standard terms executed with corporate members. Figures stay synchronized with pricing data.</p>
+  </header>
+
+  <article class="card card-elevated">
+    <h2 class="text-2xl font-semibold mb-4">1. Membership services &amp; privileges</h2>
+    <ul class="list-disc text-slate-600 pl-5 space-y-2">
+      <li><strong>Rounds:</strong> {{ site.membership.rounds }} rounds of golf annually at partner courses, inclusive of green fee, caddy, and cart.</li>
+      <li><strong>Designated users:</strong> {{ site.membership.seats }} named executives employed by the Member.</li>
+      <li><strong>Concierge:</strong> Access to the Prime concierge desk (phone, LINE, email) with published SLAs.</li>
+      <li><strong>Digital access:</strong> Use of the Prime LINE Mini-App, NFC cards, and member portal.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">2. Term &amp; renewal</h2>
+    <p>The Agreement term is twelve (12) months from the Effective Date. It renews automatically for successive twelve-month periods unless either party gives at least sixty (60) days’ notice of non-renewal.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">3. Fees &amp; payment</h2>
+    <ul class="list-disc text-slate-600 pl-5 space-y-2">
+      <li><strong>Annual fee:</strong> {{ site.membership.priceTHB | formatCurrencyTHB }} plus applicable VAT.</li>
+      <li><strong>Payment terms:</strong> Due within thirty (30) days of invoice issuance.</li>
+      <li><strong>Late payment:</strong> 1.5% monthly interest on overdue amounts and potential suspension of privileges.</li>
+      <li><strong>User transfer:</strong> Replacement of a designated executive incurs a ฿{{ site.membership.transferFeeTHB | formatNumber }} administrative fee.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">4. Booking, guest &amp; cancellation policy</h2>
+    <ul class="list-disc text-slate-600 pl-5 space-y-2">
+      <li>All tee times must be booked via the concierge desk.</li>
+      <li>Guests must be accompanied by a designated executive. A single executive may host up to {{ site.membership.guestsPerSeat }} guests; both executives present may host up to {{ site.membership.maxGuests }} guests.</li>
+      <li>Cancellations or modifications must be received at least {{ site.membership.cancelHrs }} hours before the tee time to avoid forfeiture.</li>
+      <li>Late cancellations or no-shows deduct one round per reserved golfer from the annual allocation.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">5. Liability &amp; conduct</h2>
+    <p>The Member accepts all risks associated with golf activities. Prime is not liable for injuries or property damage occurring at partner facilities. The Member is responsible for the conduct of its executives and guests and will indemnify Prime for losses arising from misconduct.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">6. Confidentiality</h2>
+    <p>Both parties must keep confidential the terms of this Agreement and any non-public information shared in the course of membership.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">7. Termination</h2>
+    <p>Prime may terminate the membership for material breach, non-payment, or reputational risk. The Member may terminate with sixty (60) days’ written notice; prepaid fees are non-refundable upon early termination.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">8. Governing law</h2>
+    <p>The Agreement is governed by the laws of the Kingdom of Thailand. Disputes are subject to the jurisdiction of the Bangkok South Civil Court.</p>
+  </article>
+
+  <section class="my-12 grid gap-8 md:grid-cols-2">
+    <div class="card card-elevated">
+      <h3 class="text-lg font-semibold mb-3">Prime Corporate Golf Club</h3>
+      <p><strong>Authorized Signatory:</strong> ____________________________</p>
+      <p><strong>Title:</strong> _________________________________________</p>
+      <p><strong>Date:</strong> __________________________________________</p>
+    </div>
+    <div class="card card-elevated">
+      <h3 class="text-lg font-semibold mb-3">Corporate Member</h3>
+      <p><strong>Company:</strong> _____________________________________</p>
+      <p><strong>Authorized Signatory:</strong> ____________________________</p>
+      <p><strong>Title:</strong> _________________________________________</p>
+      <p><strong>Date:</strong> __________________________________________</p>
+    </div>
+  </section>
+
+  <p class="text-sm text-slate-500">For fully digital execution, import this template into the e-signature platform (DocuSign / SignNow) and bind to your CRM record.</p>
+</section>

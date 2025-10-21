@@ -1,0 +1,69 @@
+---
+layout: layouts/dark.njk
+permalink: "/corporate/privacy/"
+title: "Privacy Policy"
+description: "How Prime Corporate Golf Club collects, uses, and protects personal data in compliance with Thailand’s PDPA."
+---
+{% from "components/table.njk" import standard as renderTable %}
+<section class="container mt-8">
+  <header class="mb-10">
+    <span class="section-title">Privacy Policy</span>
+    <h1 class="text-4xl font-semibold mb-2">Prime Corporate Golf Club</h1>
+    <p class="text-slate-300">Last updated: {{ site.policy.privacyLastUpdated | formatDate }}</p>
+  </header>
+
+  <article class="card card-elevated">
+    <h2 class="text-2xl font-semibold mb-6">1. Introduction</h2>
+    <p>Prime Corporate Golf Club ("Prime", "we", "us", or "our") protects the privacy of corporate members, their designated executives, and invited guests. This policy explains how we collect, use, disclose, and retain personal data in accordance with Thailand’s Personal Data Protection Act B.E. 2562 (PDPA).</p>
+    <p>The policy covers all Prime channels including the LINE Mini-App, concierge desk, and member management portal.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">2. Personal data we collect</h2>
+    <ul class="list-disc text-slate-600 pl-5 space-y-2">
+      <li><strong>Corporate member data:</strong> Registered company details, billing information, and authorized signatory contacts.</li>
+      <li><strong>Designated user data:</strong> Executive name, email, phone, LINE user ID, NFC card identifier, and photo for access control.</li>
+      <li><strong>Guest data:</strong> Full name and company affiliation captured for each invited guest.</li>
+      <li><strong>Usage data:</strong> Booking history, tee-time confirmations, course allocations, and digital invitation logs.</li>
+      <li><strong>Concierge correspondence:</strong> Notes from phone, LINE, and email interactions to deliver service level agreements.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">3. How we use personal data</h2>
+    {{ renderTable(
+      ["Purpose", "Data processed", "Legal basis"],
+      [
+        ["Membership provisioning", "Corporate &amp; user data, NFC identifiers", "Contractual necessity"],
+        ["Booking &amp; concierge operations", "User, guest, and usage data", "Contractual necessity"],
+        ["Security &amp; fraud prevention", "All categories", "Legitimate interest"],
+        ["Product analytics &amp; service improvement", "Usage data", "Legitimate interest"],
+        ["Marketing communications (optional)", "Contact details", "Consent"]
+      ]
+    ) }}
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">4. Data sharing</h2>
+    <ul class="list-disc text-slate-600 pl-5 space-y-2">
+      <li><strong>Partner courses:</strong> We provide player names and tee-time details solely to facilitate entry.</li>
+      <li><strong>Technology vendors:</strong> Cloud hosting, CRM, and payment processors engaged under PDPA-compliant agreements.</li>
+      <li><strong>Regulators and authorities:</strong> When required by Thai law, court order, or regulatory request.</li>
+    </ul>
+    <p>Prime does not sell personal data. All processors are vetted for security and confidentiality.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">5. Retention</h2>
+    <p>We retain corporate and user records for the membership term and for up to seven (7) years afterward to meet accounting and legal obligations. After this period, data is anonymized or securely deleted.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">6. Security</h2>
+    <p>Security controls include role-based access, encryption in transit and at rest, audit logging, and quarterly vulnerability assessments. Access to guest and usage data is restricted to concierge and compliance personnel.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">7. Data subject rights</h2>
+    <p>Individuals can request access, rectification, deletion, restriction, portability, or objection under the PDPA. Requests are acknowledged within five (5) business days and fulfilled within thirty (30) days, subject to legal exceptions.</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">8. Contact us</h2>
+    <p>To submit a privacy inquiry or exercise PDPA rights, contact our Data Protection Officer:</p>
+    <ul class="list-disc text-slate-600 pl-5 space-y-2">
+      <li><strong>Email:</strong> {{ site.contact.privacy }}</li>
+      <li><strong>Phone:</strong> {{ site.contact.phone | formatPhone }}</li>
+      <li><strong>Address:</strong> {{ site.contact.address }}</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">9. Policy changes</h2>
+    <p>We will notify designated executives of material updates via email or LINE broadcast. Continued use of the membership after an update constitutes acknowledgement of the revised terms.</p>
+  </article>
+</section>

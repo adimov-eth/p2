@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Sales Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .slide {
+            scroll-snap-align: start;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide.is-visible {
+             opacity: 1;
+             transform: translateY(0);
+        }
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+        #navigation-controls {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 50;
+        }
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-dot.active {
+            background-color: var(--brand-gold);
+            transform: scale(1.2);
+        }
+        #progress-bar-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 50;
+        }
+        #progress-bar {
+            height: 100%;
+            background-color: var(--brand-gold);
+            width: 0%;
+            transition: width 0.2s ease-out;
+        }
+        .summary-sheet {
+            background-color: #ffffff;
+            color: #1a202c;
+            max-width: 8.5in;
+            min-height: 11in;
+            margin: 4rem auto;
+            padding: 1in;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .summary-sheet, .summary-sheet * {
+                visibility: visible;
+            }
+            .summary-sheet {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="presentation-container">
+        <!-- Slide 1: Title Slide -->
+        <section class="slide text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(13, 26, 45, 0.7), rgba(13, 26, 45, 0.7)), url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1740&auto=format&fit=crop');">
+            <div class="slide-content">
+                <h1 class="text-5xl md:text-7xl font-bold text-white">Prime Corporate Golf Club</h1>
+                <p class="text-2xl md:text-3xl text-gray-300 mt-4">The Ultimate Business Tool.</p>
+                <p class="text-xl md:text-2xl text-[var(--brand-gold)] mt-2">Elevate Your Business, One Round at a Time.</p>
+            </div>
+        </section>
+
+        <!-- Slide 2: The Modern Business Challenge -->
+        <section class="slide">
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12">Building Real Relationships is <span class="text-[var(--brand-gold)]">Harder Than Ever.</span></h2>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="p-8 border border-gray-700 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">Boardrooms are for transactions, not relationships.</h3>
+                        <p class="text-gray-400">Formal settings are often impersonal and inefficient for building genuine trust.</p>
+                    </div>
+                     <div class="p-8 border border-gray-700 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">Time is our most valuable asset.</h3>
+                        <p class="text-gray-400">Finding quality, uninterrupted time with key clients, partners, and executives is a major challenge.</p>
+                    </div>
+                </div>
+                 <p class="mt-12 text-2xl">How do you stand out and create memorable experiences that build loyalty and open doors?</p>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Solution -->
+        <section class="slide">
+            <div class="slide-content grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl font-bold leading-tight">Turn a <span class="text-[var(--brand-gold)]">5-Hour Game</span> into Your Most Productive Meeting.</h2>
+                    <p class="text-xl text-gray-300 mt-6">We are not another golf membership. We are a strategic business platform designed for elite corporations, providing a seamless experience so you can focus on building relationships.</p>
+                </div>
+                <div>
+                     <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1740&auto=format&fit=crop" class="rounded-lg shadow-2xl object-cover w-full h-full" alt="Two business professionals shaking hands on a golf course.">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: At a Glance -->
+        <section class="slide text-center">
+            <div class="slide-content">
+                 <h2 class="text-4xl md:text-5xl font-bold mb-16">The Prime Membership: At a Glance</h2>
+                 <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-8 bg-[var(--brand-navy-light)] rounded-lg border border-gray-700">
+                        <div class="text-6xl font-bold text-[var(--brand-gold)] mb-4">80+</div>
+                        <h3 class="text-2xl font-semibold text-white">Premier Courses</h3>
+                        <p class="text-gray-400 mt-2">Unrivaled access to the nation's most prestigious and exclusive golf clubs.</p>
+                    </div>
+                    <div class="p-8 bg-[var(--brand-navy-light)] rounded-lg border border-gray-700">
+                        <div class="text-6xl font-bold text-[var(--brand-gold)] mb-4">144</div>
+                        <h3 class="text-2xl font-semibold text-white">Annual Rounds</h3>
+                        <p class="text-gray-400 mt-2">A substantial quota designed for extensive corporate use.</p>
+                    </div>
+                    <div class="p-8 bg-[var(--brand-navy-light)] rounded-lg border border-gray-700">
+                        <div class="text-6xl font-bold text-[var(--brand-gold)] mb-4">2+6</div>
+                        <h3 class="text-2xl font-semibold text-white">Users & Guests</h3>
+                        <p class="text-gray-400 mt-2">Flexible structure for designated users and their guests.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <!-- Slide 5 & 6 & 7 (Combined) -->
+        <section class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">The <span class="text-[var(--brand-gold)]">Prime Advantage</span></h2>
+                <div class="space-y-12">
+                     <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-2">
+                             <h3 class="text-3xl font-semibold text-white mb-3">A World of Difference: The Core Benefits</h3>
+                             <p class="text-gray-300">Unparalleled access to top courses, a dedicated Personal Concierge to handle all logistics, and a truly all-inclusive experience covering green fees, caddies, and carts. No bills, no paperwork, no friction.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1740&auto=format&fit=crop" class="rounded-lg shadow-lg" alt="A professional concierge team working.">
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+                         <img src="https://images.unsplash.com/photo-1587322839218-47c030507a33?q=80&w=1854&auto=format&fit=crop" class="rounded-lg shadow-lg md:order-2" alt="A smartphone showing a modern app interface.">
+                        <div class="md:col-span-2 md:order-1">
+                            <h3 class="text-3xl font-semibold text-white mb-3">The Digital Advantage: At Your Fingertips</h3>
+                            <p class="text-gray-300">Our LINE Mini-App integrates your entire membership: a digital card with NFC for fast check-ins, a portal to track usage and bookings, and a system for sending elegant digital guest invitations.</p>
+                        </div>
+                    </div>
+                     <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-2">
+                            <h3 class="text-3xl font-semibold text-white mb-3">The Ultimate Business Tool</h3>
+                            <p class="text-gray-300">Leverage 5 hours of focused, informal time to build stronger relationships, offer a world-class perk to retain top talent, and consolidate all corporate golf entertainment into one predictable annual fee.</p>
+                        </div>
+                         <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" class="rounded-lg shadow-lg" alt="Business people collaborating and looking at charts.">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 9: Investment -->
+        <section class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">An Exclusive Opportunity for <span class="text-[var(--brand-gold)]">Founding Members</span></h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                     <!-- Tier 1: The Founders' Circle -->
+                    <div class="bg-[var(--brand-navy-light)] border-2 border-[var(--brand-gold)] rounded-xl p-8 transform scale-105 shadow-2xl">
+                        <h3 class="text-2xl font-semibold text-white">The Founders' Circle</h3>
+                        <p class="text-sm text-yellow-400 font-semibold">First 10 Memberships</p>
+                        <div class="my-6"><span class="text-5xl font-bold text-white">THB 750,000</span></div>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>200,000 THB Savings</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>12 Bonus Rounds (156 Total)</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>"Prime Founders' Cup" Invite</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Personalized Welcome Kit</span></li>
+                        </ul>
+                    </div>
+                     <!-- Tier 2 -->
+                    <div class="bg-[var(--brand-navy-light)] border border-gray-700 rounded-xl p-8">
+                         <h3 class="text-2xl font-semibold text-white">Early Adopter Program</h3>
+                         <p class="text-sm text-gray-400 font-semibold">Memberships 11-25</p>
+                         <div class="my-6"><span class="text-5xl font-bold text-white">THB 850,000</span></div>
+                         <ul class="space-y-3 text-gray-300">
+                             <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>100,000 THB Savings</span></li>
+                         </ul>
+                    </div>
+                     <!-- Standard -->
+                    <div class="bg-[var(--brand-navy-light)] border border-gray-700 rounded-xl p-8">
+                         <h3 class="text-2xl font-semibold text-white">Standard Membership</h3>
+                         <p class="text-sm text-gray-400 font-semibold">Post-Launch</p>
+                         <div class="my-6"><span class="text-5xl font-bold text-white">THB 950,000</span></div>
+                         <ul class="space-y-3 text-gray-300">
+                             <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Full Membership Benefits</span></li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Next Steps -->
+        <section class="slide text-center">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12">Next Steps</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-left max-w-5xl mx-auto">
+                    <div class="p-6 border-l-4 border-[var(--brand-gold)]">
+                        <h3 class="text-2xl font-bold text-white mb-2">1. Personalized Consultation</h3>
+                        <p class="text-gray-400">Schedule a call to discuss how Prime can meet your company's strategic goals.</p>
+                    </div>
+                    <div class="p-6 border-l-4 border-[var(--brand-gold)]">
+                        <h3 class="text-2xl font-bold text-white mb-2">2. Review Proposal</h3>
+                        <p class="text-gray-400">We will provide a formal proposal outlining the membership details and benefits.</p>
+                    </div>
+                    <div class="p-6 border-l-4 border-[var(--brand-gold)]">
+                        <h3 class="text-2xl font-bold text-white mb-2">3. Secure Founder Membership</h3>
+                        <p class="text-gray-400">Finalize the agreement and become one of the exclusive founding members.</p>
+                    </div>
+                </div>
+                <div class="mt-16">
+                     <h3 class="text-3xl text-white font-semibold">Thank You</h3>
+                     <p class="text-gray-400 mt-2">concierge@primegolf.co | (02) 123-4567</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- One Page Summary Section -->
+        <section class="slide" id="summary-section">
+            <div class="summary-sheet">
+                <h2 class="text-3xl font-bold text-center text-gray-800">Prime Corporate Golf Club: The Ultimate Business Tool</h2>
+                <p class="text-center text-gray-600 mt-2">Prime Corporate Golf Club is a strategic platform that transforms the golf course into your most powerful environment for building relationships, closing deals, and rewarding top talent. We provide an all-inclusive, seamless corporate membership to over 80 of the nation's most prestigious golf courses.</p>
+                <hr class="my-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Membership at a Glance</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>**80+ Premier Courses:** Unrivaled access to the best courses nationwide.</li>
+                    <li>**144 Annual Rounds:** Substantial quota for corporate entertainment.</li>
+                    <li>**All-Inclusive:** Green fees, caddy, and cart are included. No hidden costs.</li>
+                    <li>**Personal Concierge:** One call handles all your booking needs.</li>
+                    <li>**Digital Integration:** Manage everything through our LINE Mini-App.</li>
+                </ul>
+                <hr class="my-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">The Business Advantage</h3>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="p-2">Build Stronger Relationships</th>
+                            <th class="p-2">Reward & Retain Talent</th>
+                            <th class="p-2">Simplify Expenses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-sm text-gray-600">
+                            <td class="p-2 align-top">Gain 5 hours of uninterrupted, informal time with key clients to build deep, lasting trust away from the office.</td>
+                            <td class="p-2 align-top">Offer a world-class executive perk that attracts and retains the senior-level talent you need to win.</td>
+                            <td class="p-2 align-top">Consolidate all corporate golf expenses into a single, predictable annual fee, eliminating complex reimbursement paperwork.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr class="my-6">
+                 <div class="bg-gray-100 p-6 rounded-lg text-center">
+                    <h3 class="text-xl font-bold text-gray-800">Exclusive Launch Offer: The Founders' Circle</h3>
+                    <p class="text-gray-600 mt-1">Become one of our first 10 founding members to receive an exclusive, one-time incentive package.</p>
+                    <ul class="text-left list-disc list-inside mt-4 text-gray-700 mx-auto max-w-md">
+                         <li>**Preferential Rate:** **THB 750,000** for the first year (Save THB 200,000).</li>
+                         <li>**12 Bonus Rounds:** Receive 156 total rounds for your first year.</li>
+                         <li>**Exclusive Tournament Invite:** A guaranteed spot at the annual "Prime Founders' Cup."</li>
+                    </ul>
+                    <p class="mt-4 font-bold text-red-600">This offer is strictly limited to the first 10 corporations to join.</p>
+                 </div>
+                 <p class="text-center mt-6 text-gray-700 font-semibold">Contact Us to Secure Your Founder Membership: sales@primegolf.co</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- UI Controls -->
+    <div id="navigation-controls"></div>
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const navContainer = document.getElementById('navigation-controls');
+            const progressBar = document.getElementById('progress-bar');
+            let navDots = [];
+
+            // Create nav dots
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('nav-dot');
+                dot.setAttribute('data-index', index);
+                dot.addEventListener('click', () => {
+                    slides[index].scrollIntoView({ behavior: 'smooth' });
+                });
+                navContainer.appendChild(dot);
+                navDots.push(dot);
+            });
+
+            const updateActiveElements = () => {
+                let currentSlideIndex = 0;
+                slides.forEach((slide, index) => {
+                    const slideTop = slide.getBoundingClientRect().top;
+                    const slideBottom = slide.getBoundingClientRect().bottom;
+                    const viewportHeight = window.innerHeight;
+
+                    // Check if slide is mostly in view
+                    if (slideTop < viewportHeight / 2 && slideBottom > viewportHeight / 2) {
+                        currentSlideIndex = index;
+                        if (!slide.classList.contains('is-visible')) {
+                            slide.classList.add('is-visible');
+                        }
+                    }
+                });
+
+                // Update nav dots
+                navDots.forEach((dot, index) => {
+                    if (index === currentSlideIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+
+                // Update progress bar
+                const progress = (currentSlideIndex / (slides.length - 1)) * 100;
+                progressBar.style.width = `${progress}%`;
+            };
+            
+            // Initial call to set active states and trigger first animation
+            setTimeout(updateActiveElements, 100);
+
+            // Use Intersection Observer for better performance on slide visibility
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                       if (!entry.target.classList.contains('is-visible')) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    }
+                });
+            }, { threshold: 0.4 });
+            
+            slides.forEach(slide => observer.observe(slide));
+
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveElements);
+            window.addEventListener('resize', updateActiveElements);
+        });
+    </script>
+
+</body>
+</html>

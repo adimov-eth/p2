@@ -1,0 +1,29 @@
+{
+  "brand": {
+    "name": "Prime",
+    "company": "Prime Corporate Golf Club"
+  },
+  "domain": "primethailand.golf",
+  "contact": {
+    "concierge": "concierge@primethailand.golf",
+    "privacy": "privacy@primethailand.golf",
+    "phone": "+66 2 123 4567",
+    "address": "12th Floor, 1 Wireless Road, Lumphini, Pathum Wan, Bangkok 10330"
+  },
+  "membership": {
+    "priceTHB": 700000,
+    "rounds": 150,
+    "seats": 2,
+    "guestsPerSeat": 3,
+    "maxGuests": 6,
+    "transferFeeTHB": 5000,
+    "cancelHrs": 48
+  },
+  "policy": {
+    "privacyLastUpdated": "2025-10-20"
+  },
+  "messaging": {
+    "tagline": "Thailand's premier corporate golf membership",
+    "heroCTA": "Connect with the Concierge"
+  }
+}

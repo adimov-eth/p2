@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Member Welcome Package</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .section-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brand-gold);
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+        }
+        .card {
+            background-color: var(--brand-navy-light);
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Member Welcome Package</h1>
+            <p class="text-xl text-gray-400 mt-2">A premium introduction to the Prime experience.</p>
+        </header>
+
+        <!-- Welcome Letter -->
+        <section class="mb-16">
+            <h2 class="section-title">Component 1: The Welcome Letter</h2>
+            <div class="card rounded-lg p-8 md:p-12 bg-gray-50 text-gray-800 shadow-2xl max-w-4xl mx-auto">
+                 <p class="text-right mb-8 text-gray-600">[Date]</p>
+                 <div class="space-y-2 mb-8 text-gray-700">
+                    <p>[Contact Person Name]</p>
+                    <p>[Title]</p>
+                    <p>[Company Name]</p>
+                    <p>[Company Address]</p>
+                 </div>
+                 <h3 class="font-bold text-lg mb-4 text-black">Subject: A Warm Welcome to the Prime Corporate Golf Club</h3>
+                 <div class="space-y-6 text-gray-700 leading-relaxed">
+                     <p>Dear [Mr./Ms. Contact Person Name],</p>
+                     <p>On behalf of the entire team, it is my distinct pleasure to officially welcome [Company Name] to the Prime Corporate Golf Club.</p>
+                     <p>We founded Prime on a simple belief: that the most enduring business relationships are built not in the boardroom, but through shared experiences. By joining us, you have invested in a powerful tool designed to foster these connections, reward your key personnel, and provide unparalleled access to the finest golfing destinations in the country.</p>
+                     <p>Enclosed in this package, you will find your exclusive NFC-enabled membership cards and a brief guide to help you and your designated users begin your journey with us. Your personal concierge team is already on standby, ready to assist with your first booking and any special arrangements you may require.</p>
+                     <p>We are honored to have [Company Name] as a member and are committed to providing a seamless and exceptional experience for you, your team, and your most valued guests.</p>
+                     <p>We look forward to seeing you on the course.</p>
+                 </div>
+                 <div class="mt-12 text-gray-800">
+                     <p>Sincerely,</p>
+                     <p class="font-bold">[Your Name/Founder's Name]</p>
+                     <p>Founder & CEO</p>
+                     <p>Prime Corporate Golf Club</p>
+                 </div>
+            </div>
+        </section>
+
+        <!-- NFC Membership Cards -->
+        <section class="mb-16">
+            <h2 class="section-title">Component 2: NFC Membership Cards</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-white">Design & Material Brief</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li><strong>Material:</strong> Matte black, anodized aluminum or high-density PVC with a soft-touch finish.</li>
+                        <li><strong>Dimensions:</strong> Standard credit card size.</li>
+                        <li><strong>Features:</strong> Embossed gold lettering, subtle NFC logo, QR code linking to the LINE Mini-App, and dedicated concierge contact info.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Card Front -->
+                    <div class="bg-black rounded-xl p-6 border border-gray-700 shadow-2xl aspect-[1.58/1] flex flex-col justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-[var(--brand-gold)]">PRIME</p>
+                            <p class="text-xs text-gray-500">MEMBER</p>
+                        </div>
+                        <div class="text-right">
+                             <p class="text-white text-lg font-semibold">[Designated User's Name]</p>
+                             <p class="text-gray-400 text-sm">[Company Name]</p>
+                        </div>
+                    </div>
+                    <!-- Card Back -->
+                     <div class="bg-black rounded-xl p-6 border border-gray-700 shadow-2xl aspect-[1.58/1] flex flex-col justify-between">
+                        <div class="h-10 bg-gray-800 w-full"></div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+                            </div>
+                            <div class="text-xs text-gray-400">
+                                <p>Member ID: [Member ID]</p>
+                                <p class="font-semibold text-white">Personal Concierge:</p>
+                                <p>[Phone Number]</p>
+                                <p>concierge@primegolf.co</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started Guide -->
+        <section class="mb-16">
+             <h2 class="section-title">Component 3: "Getting Started" Guide</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                 <!-- Step 1 -->
+                 <div class="card rounded-lg p-8">
+                    <div class="mb-4 inline-block rounded-full bg-[var(--brand-gold)] p-4 text-[var(--brand-navy-dark)]"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">1. Book Your Round</h3>
+                    <p class="text-gray-400">Contact your Personal Concierge or use the LINE Mini-App to schedule your tee time at your preferred course.</p>
+                 </div>
+                 <!-- Step 2 -->
+                 <div class="card rounded-lg p-8">
+                    <div class="mb-4 inline-block rounded-full bg-[var(--brand-gold)] p-4 text-[var(--brand-navy-dark)]"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">2. Invite Your Guests</h3>
+                    <p class="text-gray-400">Send elegant, personalized digital invitations directly from the app to create a professional first impression.</p>
+                 </div>
+                 <!-- Step 3 -->
+                 <div class="card rounded-lg p-8">
+                    <div class="mb-4 inline-block rounded-full bg-[var(--brand-gold)] p-4 text-[var(--brand-navy-dark)]"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">3. Arrive & Play</h3>
+                    <p class="text-gray-400">Present your NFC membership card upon arrival. All on-site costs are centrally billed for a seamless experience.</p>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Flagship Collection -->
+        <section>
+            <h2 class="section-title">Component 4: The Flagship Collection</h2>
+            <div class="card rounded-lg p-8 md:p-12">
+                 <p class="text-center text-lg text-gray-300 max-w-3xl mx-auto mb-10">A curated selection of the world-class venues you can now call your home course.</p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div class="border-b border-gray-700 py-3"><strong>1. Siam Country Club, Old Course</strong> <span class="text-gray-400">(Pattaya)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>2. Amata Spring Country Club</strong> <span class="text-gray-400">(Chonburi)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>3. Nikanti Golf Club</strong> <span class="text-gray-400">(Nakhon Pathom)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>4. Chee Chan Golf Resort</strong> <span class="text-gray-400">(Pattaya)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>5. Alpine Golf Club</strong> <span class="text-gray-400">(Pathum Thani)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>6. Thai Country Club</strong> <span class="text-gray-400">(Chachoengsao)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>7. Laem Chabang Int'l Country Club</strong> <span class="text-gray-400">(Chonburi)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>8. Black Mountain Golf Club</strong> <span class="text-gray-400">(Hua Hin)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>9. Banyan Golf Club</strong> <span class="text-gray-400">(Hua Hin)</span></div>
+                    <div class="border-b border-gray-700 py-3"><strong>10. Siam Country Club, Plantation</strong> <span class="text-gray-400">(Pattaya)</span></div>
+                 </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-20 text-gray-500">
+            <p>© 2025 Prime Corporate Golf Club. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

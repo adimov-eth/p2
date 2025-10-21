@@ -1,0 +1,75 @@
+---
+layout: layouts/dark.njk
+permalink: "/member/welcome-package/"
+title: "Welcome Package"
+description: "Unboxing guide for new Prime Corporate Golf Club members."
+---
+<section class="container mt-8">
+  <header class="text-center mb-12">
+    <span class="section-title">Welcome Package</span>
+    <h1 class="text-3xl font-semibold mb-3">First 72 Hours</h1>
+    <p class="text-slate-300 max-w-2xl mx-auto">Everything included when your Prime Corporate Golf Club membership activates. Share with executive assistants and security teams so credentials are issued smoothly.</p>
+  </header>
+
+  <div class="card-grid">
+    <article class="card">
+      <div class="badge-pill">Credentials</div>
+      <h2 class="text-xl font-semibold my-4">NFC Member Cards</h2>
+      <p>Two metal cards engraved with executive names and membership ID. Tap to verify at partner courses and scan for guest manifests.</p>
+      <ul class="list-check">
+        <li>Includes detachable NFC-shield sleeve for travel</li>
+        <li>Replacement cost: ฿{{ site.membership.transferFeeTHB | formatNumber }} per reissue</li>
+        <li>QR fallback passes available for assistants</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="badge-pill">Guides</div>
+      <h2 class="text-xl font-semibold my-4">Concierge Playbook</h2>
+      <p>Print booklet summarising booking windows, course etiquette, and the {{ site.membership.cancelHrs }}-hour cancellation rule.</p>
+      <ul class="list-check">
+        <li>Sample itineraries for Bangkok, Pattaya, Hua Hin</li>
+        <li>Guest registration forms and privacy notice</li>
+        <li>Contact sheet: phone, LINE OA, email</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="badge-pill">Digital setup</div>
+      <h2 class="text-xl font-semibold my-4">Portal &amp; LINE Access</h2>
+      <p>Activation email to executives and assistants with multi-factor authentication. LINE Mini-App automatically links to the membership ledger.</p>
+      <ul class="list-check">
+        <li>Usage dashboard seeded with {{ site.membership.rounds }} round counter</li>
+        <li>Concierge SLA reminders triggered before tee time</li>
+        <li>Guest management with CSV import/export</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="badge-pill">Hospitality</div>
+      <h2 class="text-xl font-semibold my-4">Signature Gifting</h2>
+      <p>Prime Performance polos, tour caps, and Pro V1 golf balls packaged for executives. Includes welcome letter signed by concierge lead.</p>
+      <ul class="list-check">
+        <li>Customizable by size and colorway during onboarding</li>
+        <li>Optional add-ons for board directors and VIP guests</li>
+        <li>Reorder portal available for procurement teams</li>
+      </ul>
+    </article>
+  </div>
+
+  <section class="card my-12">
+    <h2 class="text-xl font-semibold mb-4">Implementation checklist</h2>
+    <ol class="ml-5 text-slate-300 list-decimal space-y-2">
+      <li>Confirm executive profiles and ID photos with concierge.</li>
+      <li>Nominate finance contact for billing and statement approvals.</li>
+      <li>Provide list of recurring guests (board directors, clients) to pre-clear.</li>
+      <li>Schedule launch round within first 30 days to brief on etiquette and reporting.</li>
+    </ol>
+  </section>
+
+  <section class="card mb-16">
+    <h2 class="text-xl font-semibold mb-4">Support</h2>
+    <p>Email <a href="mailto:{{ site.contact.concierge }}" class="text-[var(--brand-gold)] no-underline">{{ site.contact.concierge }}</a> or call {{ site.contact.phone | formatPhone }} for expedited onboarding help. LINE OA: @PrimeCorporateGolf</p>
+    <p class="table-note">Concierge monitors onboarding tickets daily and will arrange site visits for large teams.</p>
+  </section>
+</section>

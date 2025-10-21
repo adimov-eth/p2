@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Pricing & Terms</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .section-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -0.025em;
+        }
+        .pricing-table {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .pricing-table-row {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .pricing-table-row:last-child {
+            border-bottom: none;
+        }
+        .pricing-table-header {
+            font-weight: 600;
+            color: #343a40;
+            padding: 1rem 1.5rem;
+            background-color: #f1f3f5;
+        }
+        .pricing-table-cell {
+            padding: 1rem 1.5rem;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+        .pricing-table-cell-header {
+             font-weight: 500;
+             color: #212529;
+        }
+        .accordion-item {
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+            background-color: #ffffff;
+        }
+        .accordion-button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            font-weight: 500;
+            font-size: 1.125rem;
+            color: #004a99;
+            text-align: left;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .accordion-content {
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            color: #495057;
+            line-height: 1.6;
+            display: none; /* Hidden by default */
+        }
+        .accordion-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+         .accordion-icon {
+            transition: transform 0.3s ease;
+         }
+        .accordion-button.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="section-container px-4 py-4">
+            <h1 class="text-xl font-semibold text-gray-700">Prime Corporate Golf Club | Pricing & Terms</h1>
+        </div>
+    </header>
+
+    <main class="section-container px-4 py-8 md:py-12">
+        
+        <!-- Main Title -->
+        <div class="text-center mb-8">
+            <h2 class="main-title mb-2">Prime Corporate Golf Membership</h2>
+            <p class="text-gray-500">Pricing effective as of October 20, 2025. Terms are subject to change.</p>
+        </div>
+
+        <!-- Pricing Details Table -->
+        <section id="pricing-details" class="mb-12">
+             <div class="bg-white pricing-table shadow-sm">
+                <div class="pricing-table-header">
+                    <h3 class="text-lg">Membership Fee and Features</h3>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <div class="pricing-table-row">
+                        <div class="pricing-table-cell pricing-table-cell-header">Annual Membership Fee</div>
+                        <div class="pricing-table-cell">
+                            <p><strong>฿949,000</strong> (VAT excluded). This is a fixed annual fee for a 12-month membership term.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-table-row">
+                        <div class="pricing-table-cell pricing-table-cell-header">Included Usage</div>
+                        <div class="pricing-table-cell">
+                            <p><strong>144 rounds of golf annually</strong>. Includes green fee, caddy, and golf cart for all rounds. Limited to one 18-hole round per day, per player.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-table-row">
+                        <div class="pricing-table-cell pricing-table-cell-header">Registered Users</div>
+                        <div class="pricing-table-cell">
+                             <p>Each corporate membership includes <strong>2 primary registered users</strong> from the member corporation.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-table-row">
+                        <div class="pricing-table-cell pricing-table-cell-header">Guest Privileges</div>
+                        <div class="pricing-table-cell">
+                            <p>Each registered user may bring up to 3 guests. A maximum of <strong>6 guests</strong> are permitted when both registered users are present.</p>
+                        </div>
+                    </div>
+                     <div class="pricing-table-row">
+                        <div class="pricing-table-cell pricing-table-cell-header">User Transfer Fee</div>
+                        <div class="pricing-table-cell">
+                             <p><strong>฿5,000 per user change.</strong> The new user must be an employee of the same member corporation.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-table-row">
+                        <div class="pricing-table-cell pricing-table-cell-header">Late Cancellation or No-Show Penalty</div>
+                        <div class="pricing-table-cell">
+                           <p><strong>Deduction of 1 round</strong> from the annual quota for cancellations made less than 48 hours in advance or for no-shows.</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Terms & Conditions Accordion -->
+        <section id="terms-and-conditions">
+            <div id="accordion-container">
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>Membership Details</span>
+                        <svg class="accordion-icon h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mb-2">Your Prime Corporate Golf Club membership is subject to the following terms:</p>
+                        <ul>
+                            <li><strong>Membership Term:</strong> Membership is valid for 12 months from the date of activation.</li>
+                            <li><strong>Registered Users:</strong> Each corporate membership allows for two (2) named primary users. These individuals must be personnel of the member corporation.</li>
+                            <li><strong>Transfer of Rights:</strong> Transferring membership or changing a named user is permitted. A fee of ฿5,000 applies for each change. The new user must be an employee or director of the same corporation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>Usage and Guest Policy</span>
+                        <svg class="accordion-icon h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mb-2">To ensure a premier experience for all members, please adhere to the following usage policies:</p>
+                        <ul>
+                            <li><strong>Annual Quota:</strong> Play is limited to a maximum of 144 rounds per year per membership.</li>
+                             <li><strong>Daily Limit:</strong> Play is limited to one round (18 holes) per day for each registered user or guest.</li>
+                            <li><strong>Guest Accompaniment:</strong> Registered members must accompany their guests at all times during play on the course.</li>
+                            <li><strong>Group Size:</strong> A single registered member can host up to 3 guests (totaling a group of 4). Both registered members can host up to 6 guests (totaling a group of 8).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>Booking and Cancellation Policy</span>
+                        <svg class="accordion-icon h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mb-2">All tee times must be arranged through your Personal Concierge. The following policies apply:</p>
+                        <ul>
+                            <li><strong>Booking Procedure:</strong> Contact your Personal Concierge to arrange all bookings. Bookings for premium 5-star courses should be made at least 14 days in advance.</li>
+                            <li><strong>Course Availability:</strong> If a member's first choice of course is unavailable, the member agrees to accept an alternative tee time at another available course within the network.</li>
+                            <li><strong>Cancellation Notice:</strong> To cancel or change a booking without penalty, you must notify your Personal Concierge at least 48 hours prior to your scheduled tee time.</li>
+                            <li><strong>Penalty for Late Cancellation/No-Show:</strong> A cancellation made less than 48 hours before the scheduled time, or failure to appear for a booking (no-show), will result in the deduction of one (1) round from your annual quota for each player booked.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>Conduct and Liability</span>
+                        <svg class="accordion-icon h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mb-2">Members and their guests are expected to uphold the highest standards of etiquette.</p>
+                        <ul>
+                            <li><strong>Course Regulations:</strong> All members and guests must strictly adhere to the rules, regulations, and etiquette of each individual golf course. This includes dress codes and pace of play.</li>
+                            <li><strong>Liability:</strong> Prime Corporate Golf Club is not liable for any personal injury or property damage that occurs on the premises of any partner golf course.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="text-center py-8">
+        <p class="text-sm text-gray-500">&copy; 2025 Prime Corporate Golf Club. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionContainer = document.getElementById('accordion-container');
+
+            accordionContainer.addEventListener('click', function(event) {
+                const button = event.target.closest('.accordion-button');
+                if (!button) return;
+
+                const content = button.nextElementSibling;
+                const isOpen = button.classList.contains('open');
+
+                // Optional: Close all other accordions
+                // const allButtons = accordionContainer.querySelectorAll('.accordion-button');
+                // allButtons.forEach(b => {
+                //     if (b !== button) {
+                //         b.classList.remove('open');
+                //         b.nextElementSibling.style.display = 'none';
+                //     }
+                // });
+
+                if (isOpen) {
+                    button.classList.remove('open');
+                    content.style.display = 'none';
+                } else {
+                    button.classList.add('open');
+                    content.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

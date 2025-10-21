@@ -1,0 +1,70 @@
+---
+layout: layouts/dark.njk
+permalink: "/internal/launch-checklist/"
+title: "Launch Checklist"
+description: "Operational checklist for the Prime Corporate Golf Club go-live."
+noindex: true
+---
+{% from "components/progress.njk" import progress %}
+<section class="container mt-8">
+  <header class="mb-8">
+    <span class="section-title">Internal Use Only</span>
+    <h1 class="text-3xl font-semibold">Launch Checklist</h1>
+    <p class="max-w-3xl text-slate-300">Track readiness across product, partnerships, concierge, and revenue. Update daily during stand-up.</p>
+  </header>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Roll-up metrics</h2>
+    {{ progress("Collateral readiness", 5, 6) }}
+    {{ progress("Course contracts", 12, 15) }}
+    {{ progress("Concierge onboarding", 4, 5) }}
+    {{ progress("Member pipeline", 3, 10) }}
+  </section>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Tasks</h2>
+    <ul class="list-check">
+      <li>Finalize pricing assets with single-plan messaging (฿{{ site.membership.priceTHB | formatNumber }}, {{ site.membership.rounds }} rounds).</li>
+      <li>Publish public pages (home, pricing, privacy, terms, contact) via Eleventy deployment.</li>
+      <li>Complete SLA training for concierge staff and simulate cancellation scenarios ({{ site.membership.cancelHrs }}-hour rule).</li>
+      <li>Prepare UAT scripts for NFC tap, usage dashboard, and digital invitations (see UAT tracker).</li>
+      <li>Confirm hospitality vendors for welcome kits and event catering.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 class="text-xl font-semibold mb-4">Risk log</h2>
+    <div class="table-wrap">
+      <table class="table-standard">
+        <thead>
+          <tr>
+            <th>Risk</th>
+            <th>Impact</th>
+            <th>Mitigation</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Course capacity bottleneck (weekend slots)</td>
+            <td>High</td>
+            <td>Hold buffer at partner courses; offer weekday corporate hospitality with F&amp;B upgrades.</td>
+            <td>Partnerships Lead</td>
+          </tr>
+          <tr>
+            <td>Concierge staffing gap</td>
+            <td>Medium</td>
+            <td>Maintain on-call bench from hospitality partners; cross-train marketing staff for overflow.</td>
+            <td>GM Concierge</td>
+          </tr>
+          <tr>
+            <td>Pricing drift in collateral</td>
+            <td>Medium</td>
+            <td>Run nightly CI checks for legacy tokens (old round counts, legacy prices, retired domains).</td>
+            <td>Product Ops</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>

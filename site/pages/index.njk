@@ -1,0 +1,114 @@
+---
+layout: layouts/dark.njk
+permalink: "/"
+title: "Prime Corporate Golf Club"
+description: "Corporate golf membership with 150 concierge-managed rounds, two executive seats, and access to 80+ Thai courses."
+---
+<section class="hero container">
+  <div>
+    <span class="section-title">Prime Corporate Golf Club</span>
+    <h1>Thailand’s concierge golf membership for senior leadership.</h1>
+    <p>Two named executives, {{ site.membership.rounds }} annual rounds, and a concierge team confirming tee times across 80+ elite courses.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>{{ site.membership.seats }}</strong>
+        <span>Named seats</span>
+      </div>
+      <div class="hero-stat">
+        <strong>{{ site.membership.rounds }}</strong>
+        <span>Concierge-confirmed rounds</span>
+      </div>
+      <div class="hero-stat">
+        <strong>฿{{ site.membership.priceTHB | formatNumber }}</strong>
+        <span>Annual investment (+ VAT)</span>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="mailto:{{ site.contact.concierge }}" class="button-primary">Connect with Concierge</a>
+      <a href="/pricing/" class="badge-ghost">View pricing details</a>
+    </div>
+  </div>
+  <div class="card card-gradient">
+    <h2 class="text-[1.35rem] font-semibold mb-4">Executive experience</h2>
+    <p class="mb-5">Central control for invitations, guest management, and quota tracking backed by concierge SLAs (<strong>{{ site.membership.cancelHrs }}</strong>-hour cancellation window).</p>
+    <ul class="list-check">
+      <li>Guaranteed weekend and public holiday allocations at flagship courses</li>
+      <li>Usage portal with live round tracking and guest ledger</li>
+      <li>Personal concierge reachable via phone, LINE OA, and email</li>
+    </ul>
+  </div>
+</section>
+
+{% include "components/glance-cards.njk" %}
+
+<section class="container mt-16">
+  <span class="section-title">Concierge Service Level Agreements</span>
+  <div class="card-grid mt-6">
+    <article class="card">
+      <h3>Phone</h3>
+      <p>Immediate answer within 3 rings. Priority routing for C-suite members.</p>
+      <p class="table-note">Concierge desk: {{ site.contact.concierge }} · {{ site.contact.phone | formatPhone }}</p>
+    </article>
+    <article class="card">
+      <h3>LINE Official Account</h3>
+      <p>Average response under 15 minutes with tee time confirmation or alternate suggestion.</p>
+      <p class="table-note">@PrimeCorporateGolf</p>
+    </article>
+    <article class="card">
+      <h3>Email</h3>
+      <p>Same-business-day itinerary confirmations and PDF guest manifests.</p>
+      <p class="table-note">{{ site.contact.concierge }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="container mt-16">
+  <span class="section-title">Flagship Partner Courses</span>
+  <div class="card-grid mt-6">
+    <article class="card">
+      <h3>Siam Country Club · Bangkok</h3>
+      <p>Weekend allocation of 2 tee sheets/month with concierge-managed caddy preference.</p>
+      <p class="table-note">Ceiling: ฿6,300 | Booking window: 14 days.</p>
+    </article>
+    <article class="card">
+      <h3>Nikanti Golf Club · Nakhon Pathom</h3>
+      <p>Signature gourmet experience bundled. Dedicated Friday afternoon slots.</p>
+      <p class="table-note">Ceiling: ฿5,500 | Booking window: 10 days.</p>
+    </article>
+    <article class="card">
+      <h3>Chee Chan Golf Resort · Pattaya</h3>
+      <p>Executive pairing concierge with sunset hospitality option.</p>
+      <p class="table-note">Ceiling: ฿5,800 | Booking window: 14 days.</p>
+    </article>
+  </div>
+  <p class="table-note">Full coverage matrix available upon request; all rounds include green fee, caddy, and cart.</p>
+</section>
+
+<section class="container mt-16">
+  <span class="section-title">Digital Member Experience</span>
+  <div class="card-grid mt-6">
+    <article class="card">
+      <h3>Usage Dashboard</h3>
+      <p>Track "{{ site.membership.rounds }} round" quota in real time with guest attribution and department charge back.</p>
+    </article>
+    <article class="card">
+      <h3>NFC Member Cards</h3>
+      <p>Tap-to-verify cards issued to each executive and optional guest QR passes for events.</p>
+    </article>
+    <article class="card">
+      <h3>Automated Reporting</h3>
+      <p>Monthly statements detail spend, forfeited rounds, and top guest invitees to keep leadership informed.</p>
+    </article>
+  </div>
+</section>
+
+<section class="container mt-16">
+  <span class="section-title">Next Step</span>
+  <div class="card flex flex-col gap-4">
+    <p>Schedule a 30-minute executive briefing to tailor the membership to your corporate calendar, travel patterns, and hospitality goals.</p>
+    <div class="flex flex-wrap gap-4">
+      <a href="mailto:{{ site.contact.concierge }}" class="button-primary">Request briefing</a>
+      <a href="tel:+6621234567" class="badge-ghost">Call the concierge desk</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prime Thailand Golf | Complete Visual Sketch (Polished + Tokens + Scroll‑spy)</title>
+  <meta name="description" content="Prime Thailand Golf — 2 seats, 150 rounds, concierge-confirmed access to Thailand’s finest courses." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23C9A24E'/><text x='32' y='40' font-size='30' text-anchor='middle' fill='%23111827' font-family='Arial'>P</text></svg>">
+  <style>
+    /* ===== Design Tokens (edit once, theme everywhere) ===== */
+    :root{
+      --brand-gold:#C9A24E;          /* primary accent */
+      --brand-gold-600:#B68E3E;      /* hover accent */
+      --ink:#111827;                 /* primary text */
+      --muted:#64748B;               /* secondary text */
+      --bg:#FFFFFF;                  /* page bg */
+      --surface:#F8FAFC;             /* light surface */
+      --line:#E5E7EB;                /* dividers */
+      --radius-card:12px;
+      --radius-pill:999px;
+      --shadow-card:0 8px 24px rgba(0,0,0,.12);
+      --shadow-hover:0 10px 28px rgba(0,0,0,.16);
+      --container:1200px;
+    }
+
+    html{scroll-behavior:smooth}
+
+    /* Gold underline micro-interaction */
+    .gold-link{position:relative}
+    .gold-link::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--brand-gold);transition:width .15s ease}
+    .gold-link:hover::after{width:100%}
+
+    /* Active nav state (scroll‑spy) */
+    .nav-link.active{color:var(--brand-gold);}
+    .nav-link.active::after{width:100%}
+
+    /* Card polish for non‑Tailwind surfaces */
+    .card{border-radius:var(--radius-card);box-shadow:var(--shadow-card);transition:box-shadow .15s ease, transform .15s ease}
+    .card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- SKIP LINK -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-yellow-500 text-gray-900 px-3 py-2 rounded">Skip to content</a>
+
+  <!-- TOP UTILITY BAR -->
+  <div class="hidden md:flex items-center justify-between px-8 py-2 bg-gray-100 text-sm text-gray-600">
+    <div class="flex items-center gap-4">
+      <span>Tel: +66 2 123 4567</span>
+      <span>LINE: @PrimeGolf</span>
+      <span>WhatsApp: [[number]]</span>
+    </div>
+    <div class="flex items-center gap-3" aria-label="Language switcher">
+      <span class="underline decoration-yellow-500 underline-offset-4">EN</span>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-400">ไทย</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="flex justify-between items-center px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
+    <div class="flex items-center space-x-2">
+      <div class="text-2xl font-bold tracking-tight">PRIME</div>
+      <span class="text-sm text-gray-500 uppercase">Thailand Golf</span>
+    </div>
+    <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-700" aria-label="Primary">
+      <a href="#top" class="nav-link hover:text-yellow-600 gold-link">Home</a>
+      <a href="#courses" class="nav-link hover:text-yellow-600 gold-link">Courses</a>
+      <a href="#how" class="nav-link hover:text-yellow-600 gold-link">How it Works</a>
+      <a href="#corporate" class="nav-link hover:text-yellow-600 gold-link">Corporate</a>
+      <a href="#concierge" class="nav-link hover:text-yellow-600 gold-link">Concierge</a>
+      <a href="#events" class="nav-link hover:text-yellow-600 gold-link">Events</a>
+      <a href="#faq" class="nav-link hover:text-yellow-600 gold-link">FAQ</a>
+      <a href="#apply" class="nav-link hover:text-yellow-600 gold-link">Apply</a>
+    </nav>
+    <a href="#concierge" class="bg-yellow-500 text-gray-900 font-semibold px-4 py-2 rounded-full hover:bg-[color:var(--brand-gold-600)] focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2" aria-label="Talk to Concierge">Talk to Concierge</a>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="grid md:grid-cols-2 items-center max-w-7xl mx-auto px-8 py-20 gap-12" data-spy="top">
+      <div>
+        <p class="uppercase text-sm tracking-widest text-gray-400 mb-2">Bangkok-first corporate golf</p>
+        <h1 class="text-5xl font-bold mb-2 text-gray-900">Two seats. 150 rounds. 700,000 THB.</h1>
+        <span class="mt-3 block w-12 h-1 bg-yellow-500"></span>
+        <p class="text-lg text-gray-600 mt-6 mb-6">Priority access to Bangkok’s premier golf courses with concierge confirmation in under 2 hours.</p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm">2 Named Seats</span>
+          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm">150 Rounds</span>
+          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm">Weekend Allocation</span>
+          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm">Concierge &lt;2h</span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#apply" class="bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-full hover:bg-[color:var(--brand-gold-600)] focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">Request Invoice</a>
+          <a href="#courses" class="border border-gray-900 text-gray-900 px-6 py-3 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">See Courses</a>
+        </div>
+        <p class="text-sm text-gray-500 mt-4">Designed for Thai corporate leaders.</p>
+      </div>
+      <div class="relative h-[420px] rounded-xl shadow-lg overflow-hidden">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1400" alt="Prime: Thailand golf course" class="w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-l from-white/80 via-white/20 to-transparent"></div>
+      </div>
+    </section>
+
+    <!-- PARTNER STRIP -->
+    <section class="py-10 border-y bg-white" data-spy>
+      <div class="max-w-7xl mx-auto px-8">
+        <p class="text-sm text-gray-500 mb-6">Select partner courses</p>
+        <div class="grid grid-cols-2 md:grid-cols-5 items-center gap-8">
+          <div class="h-10 bg-gray-200 rounded grayscale hover:grayscale-0 transition" aria-label="Logo placeholder"></div>
+          <div class="h-10 bg-gray-200 rounded grayscale hover:grayscale-0 transition"></div>
+          <div class="h-10 bg-gray-200 rounded grayscale hover:grayscale-0 transition"></div>
+          <div class="h-10 bg-gray-200 rounded grayscale hover:grayscale-0 transition"></div>
+          <div class="h-10 bg-gray-200 rounded grayscale hover:grayscale-0 transition"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE PROPOSITION -->
+    <section class="bg-white py-20" data-spy>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">What You Get</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          <div class="p-8 border rounded-xl shadow-sm hover:shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Green Fee Coverage</h3>
+            <p class="text-gray-600">All partner courses covered up to defined ceilings. Members pay only caddie & cart.</p>
+            <p class="text-xs text-gray-400 mt-3">Transparent per-course ceilings published on the coverage page.</p>
+          </div>
+          <div class="p-8 border rounded-xl shadow-sm hover:shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Priority Access</h3>
+            <p class="text-gray-600">Guaranteed weekend slots at Bangkok’s top courses with transparent blackout rules.</p>
+            <p class="text-xs text-gray-400 mt-3">Concierge confirms or proposes alternates within 2 hours.</p>
+          </div>
+          <div class="p-8 border rounded-xl shadow-sm hover:shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Corporate Controls</h3>
+            <p class="text-gray-600">Seat management, guest tracking, invoicing & reports — all via member dashboard.</p>
+            <p class="text-xs text-gray-400 mt-3">Seat reassignment permitted 2×/year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES & COVERAGE -->
+    <section id="courses" class="py-20 bg-gray-50" data-spy>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Courses & Coverage</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+          <p class="text-lg text-gray-600 mt-6 max-w-2xl">Transparent ceilings and partner network access across Thailand’s top-tier golf destinations.</p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mt-12">
+          <div class="border rounded-xl overflow-hidden shadow-sm">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1500932372319-3912071a0e84?q=80&w=800" class="h-48 w-full object-cover" alt="Siam Country Club"/>
+            <div class="p-6">
+              <h3 class="font-semibold text-lg">Siam Country Club</h3>
+              <p class="text-sm text-gray-500">Bangkok • Ceiling: 6,300 THB</p>
+              <p class="text-sm text-gray-400 mt-1">Booking: 14 days • Weekend Allocation: 2 slots/month</p>
+            </div>
+          </div>
+          <div class="border rounded-xl overflow-hidden shadow-sm">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1587135304389-339ee9941031?q=80&w=800" class="h-48 w-full object-cover" alt="Nikanti Golf Club"/>
+            <div class="p-6">
+              <h3 class="font-semibold text-lg">Nikanti Golf Club</h3>
+              <p class="text-sm text-gray-500">Nakhon Pathom • Ceiling: 5,500 THB</p>
+              <p class="text-sm text-gray-400 mt-1">Booking: 10 days • Weekend Allocation: 3 slots/month</p>
+            </div>
+          </div>
+          <div class="border rounded-xl overflow-hidden shadow-sm">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1563624831-5026534927b1?q=80&w=800" class="h-48 w-full object-cover" alt="Chee Chan Golf Resort"/>
+            <div class="p-6">
+              <h3 class="font-semibold text-lg">Chee Chan Golf Resort</h3>
+              <p class="text-sm text-gray-500">Pattaya • Ceiling: 5,800 THB</p>
+              <p class="text-sm text-gray-400 mt-1">Booking: 14 days • Weekend Allocation: 2 slots/month</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table (toggle) -->
+        <details class="mt-10 bg-white border rounded-xl open:shadow-sm">
+          <summary class="cursor-pointer px-5 py-4 font-semibold text-gray-900 flex items-center justify-between">View full coverage table <span class="text-gray-500">▾</span></summary>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead>
+                <tr class="border-b">
+                  <th class="px-5 py-3">Course</th>
+                  <th class="px-5 py-3">Location</th>
+                  <th class="px-5 py-3 text-right">Ceiling (THB)</th>
+                  <th class="px-5 py-3">Booking Window</th>
+                  <th class="px-5 py-3">Weekend Allocation</th>
+                  <th class="px-5 py-3">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd:bg-gray-50">
+                  <td class="px-5 py-3">Siam Country Club</td>
+                  <td class="px-5 py-3">Bangkok</td>
+                  <td class="px-5 py-3 text-right">6,300</td>
+                  <td class="px-5 py-3">14 days</td>
+                  <td class="px-5 py-3">2 / month</td>
+                  <td class="px-5 py-3">Peak-time quota applies</td>
+                </tr>
+                <tr class="odd:bg-gray-50">
+                  <td class="px-5 py-3">Nikanti Golf Club</td>
+                  <td class="px-5 py-3">Nakhon Pathom</td>
+                  <td class="px-5 py-3 text-right">5,500</td>
+                  <td class="px-5 py-3">10 days</td>
+                  <td class="px-5 py-3">3 / month</td>
+                  <td class="px-5 py-3">All-inclusive package</td>
+                </tr>
+                <tr class="odd:bg-gray-50">
+                  <td class="px-5 py-3">Chee Chan Golf Resort</td>
+                  <td class="px-5 py-3">Pattaya</td>
+                  <td class="px-5 py-3 text-right">5,800</td>
+                  <td class="px-5 py-3">14 days</td>
+                  <td class="px-5 py-3">2 / month</td>
+                  <td class="px-5 py-3">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-gray-500 text-xs px-5 py-4">Ceilings indicate green-fee coverage by Prime. Cart & caddie fees payable at course. Blackout calendars updated monthly.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="bg-white py-20" data-spy>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">How Credits Work</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8 mt-12">
+          <div class="p-6 border rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">1. Assign Seats</h3>
+            <p class="text-gray-600">Two named corporate users receive full digital access.</p>
+          </div>
+          <div class="p-6 border rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">2. Book Rounds</h3>
+            <p class="text-gray-600">Use the LINE Mini-App or Concierge to schedule play.</p>
+          </div>
+          <div class="p-6 border rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">3. Credits Deducted</h3>
+            <p class="text-gray-600">Weekday = 1 credit; Weekend/Holiday = 1.5 credits.</p>
+          </div>
+          <div class="p-6 border rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">4. Play & Enjoy</h3>
+            <p class="text-gray-600">Arrive and play — green fee covered under your plan.</p>
+          </div>
+        </div>
+        <div class="mt-10 grid md:grid-cols-3 gap-6 text-left">
+          <div class="bg-gray-50 border rounded-lg p-6">
+            <h4 class="font-semibold">Weekdays</h4>
+            <p class="text-gray-600 text-sm mt-2">1 credit per round.</p>
+          </div>
+          <div class="bg-gray-50 border rounded-lg p-6">
+            <h4 class="font-semibold">Weekends & Holidays</h4>
+            <p class="text-gray-600 text-sm mt-2">1.5 credits per round.</p>
+          </div>
+          <div class="bg-gray-50 border rounded-lg p-6">
+            <h4 class="font-semibold">Guests</h4>
+            <p class="text-gray-600 text-sm mt-2">Guesting allowed within monthly limits. Weekend guesting may require additional credits or surcharges.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORPORATE -->
+    <section id="corporate" class="py-20 bg-gray-50" data-spy>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Built for Corporate Teams</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center text-left mt-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Administrative Control</h3>
+            <p class="text-gray-600 mb-4">Each membership includes 2 named seats and an admin dashboard to manage transfers, usage tracking, and invoicing. Assign or reassign seats up to twice per year.</p>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+              <li>Seat reassignment allowed 2×/year</li>
+              <li>Downloadable monthly usage reports</li>
+              <li>E-invoices and PO support</li>
+            </ul>
+          </div>
+          <div class="bg-white shadow rounded-xl p-8 border">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900">Corporate Dashboard Preview</h3>
+            <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400 italic">[Dashboard Mockup]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCIERGE -->
+    <section id="concierge" class="bg-white py-20" data-spy>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Personal Concierge</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center text-left mt-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Your Dedicated Team</h3>
+            <p class="text-gray-600 mb-4">Available daily from 7am–7pm via LINE, phone, or email. Response guaranteed within 2 hours for all booking requests.</p>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+              <li>LINE Official: <strong>@PrimeGolf</strong></li>
+              <li>Email: concierge@primethailand.golf</li>
+              <li>Phone: +66 2 123 4567</li>
+            </ul>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl border shadow-sm">
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">Service Standards</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li>✔ Phone: Answered within 3 rings</li>
+              <li>✔ LINE Messages: Response within 5 minutes</li>
+              <li>✔ Emails: Acknowledged within 15 minutes</li>
+              <li>✔ Confirmations: Within 2 hours</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10">
+          <a href="#apply" class="inline-block bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-full hover:bg-[color:var(--brand-gold-600)] focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">Request Invoice</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="bg-white py-20" data-spy>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Member Events</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+          <p class="text-lg text-gray-600 mt-6">Quarterly executive rounds and invitational tournaments across flagship venues.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          <!-- Event Card 1 -->
+          <article class="rounded-xl overflow-hidden border shadow-sm bg-white">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1280" class="h-44 w-full object-cover" alt="Event banner"/>
+            <div class="p-6">
+              <div class="text-xs uppercase tracking-wider text-gray-500">Member Event</div>
+              <h3 class="text-lg font-semibold mt-1">Prime Executive Scramble</h3>
+              <p class="text-sm text-gray-500">[[Date]] • Siam Country Club, Bangkok</p>
+              <p class="text-sm text-gray-600 mt-3">A hosted 18-hole scramble with curated pairings across leading Thai corporates.</p>
+              <a href="#" class="inline-block mt-4 gold-link text-gray-900">Details →</a>
+            </div>
+          </article>
+          <!-- Event Card 2 -->
+          <article class="rounded-xl overflow-hidden border shadow-sm bg-white">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1280" class="h-44 w-full object-cover" alt="Event banner"/>
+            <div class="p-6">
+              <div class="text-xs uppercase tracking-wider text-gray-500">Tournament</div>
+              <h3 class="text-lg font-semibold mt-1">Bangkok Invitational</h3>
+              <p class="text-sm text-gray-500">[[Date]] • Nikanti Golf Club</p>
+              <p class="text-sm text-gray-600 mt-3">Limited-field stroke play with hospitality lounge and prize ceremony.</p>
+              <a href="#" class="inline-block mt-4 gold-link text-gray-900">Details →</a>
+            </div>
+          </article>
+          <!-- Event Card 3 -->
+          <article class="rounded-xl overflow-hidden border shadow-sm bg-white">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1519864950531-2262cb88f691?q=80&w=1280" class="h-44 w-full object-cover" alt="Event banner"/>
+            <div class="p-6">
+              <div class="text-xs uppercase tracking-wider text-gray-500">Networking</div>
+              <h3 class="text-lg font-semibold mt-1">C‑Suite Twilight Nine</h3>
+              <p class="text-sm text-gray-500">[[Date]] • Summit Windmill</p>
+              <p class="text-sm text-gray-600 mt-3">Twilight round followed by clubhouse mixer. Guest passes available.</p>
+              <a href="#" class="inline-block mt-4 gold-link text-gray-900">Details →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-gray-50 py-20" data-spy>
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Frequently Asked Questions</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+          <p class="text-lg text-gray-600 mt-6">Clear, transparent terms designed for corporate members.</p>
+        </div>
+
+        <div class="space-y-4 mt-12">
+          <details class="group rounded-lg border bg-white p-5 open:shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">What exactly is included in the 700,000 THB membership?
+              <span class="ml-4 text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="pt-3 text-gray-600">Two named seats and 150 shared round credits per year. Prime covers the green fee at listed partner courses up to published ceilings; members pay cart & caddie at course rates.</div>
+          </details>
+
+          <details class="group rounded-lg border bg-white p-5 open:shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">Do weekends cost more credits?
+              <span class="ml-4 text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="pt-3 text-gray-600">Yes. Weekdays deduct 1 credit per round; weekends and public holidays deduct 1.5 credits per round.</div>
+          </details>
+
+          <details class="group rounded-lg border bg-white p-5 open:shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">Can we bring guests?
+              <span class="ml-4 text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="pt-3 text-gray-600">Guesting is allowed within monthly limits. Green fee is covered up to ceilings when booked under your membership; guest pays cart & caddie. Weekend guesting may require additional credits or surcharges.</div>
+          </details>
+
+          <details class="group rounded-lg border bg-white p-5 open:shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">How far in advance can we book?
+              <span class="ml-4 text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="pt-3 text-gray-600">Typical booking windows are 7–14 days depending on course. Concierge will confirm or propose alternates within 2 hours.</div>
+          </details>
+
+          <details class="group rounded-lg border bg-white p-5 open:shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">What’s the no‑show policy?
+              <span class="ml-4 text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="pt-3 text-gray-600">Cancellations inside 48 hours or no‑shows may deduct 0.5–1 credit per reserved slot to protect member access.</div>
+          </details>
+
+          <details class="group rounded-lg border bg-white p-5 open:shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">Which courses are covered?
+              <span class="ml-4 text-gray-500 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="pt-3 text-gray-600">See the Courses & Coverage section for the current roster and course-by-course green fee ceilings.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLY / REQUEST INVOICE -->
+    <section id="apply" class="bg-white py-20" data-spy>
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Request Corporate Invoice</h2>
+          <span class="mt-3 block w-12 h-1 bg-yellow-500 mx-auto md:mx-0"></span>
+          <p class="text-gray-600 mt-6">700,000 THB / year • 2 seats • 150 rounds</p>
+        </div>
+        <form aria-label="Request Invoice" class="grid gap-8 mt-8">
+          <!-- Company Details -->
+          <fieldset class="border rounded-xl p-6">
+            <legend class="px-2 text-sm font-semibold text-gray-700">Company Details</legend>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+              <label class="block text-sm">Company Name<input required type="text" placeholder="Company Co., Ltd." class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <label class="block text-sm">Tax ID<input required inputmode="numeric" pattern="[0-9]*" type="text" placeholder="010555XXXXX" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <label class="block text-sm md:col-span-2">Billing Address<textarea required placeholder="Street, District, Province, 10xxx" class="mt-1 w-full h-24 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"></textarea></label>
+              <label class="block text-sm">Billing Contact Name<input required type="text" placeholder="First Last" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <label class="block text-sm">Billing Contact Email<input required type="email" placeholder="ap@company.co.th" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+            </div>
+          </fieldset>
+
+          <!-- Seat Holders -->
+          <fieldset class="border rounded-xl p-6">
+            <legend class="px-2 text-sm font-semibold text-gray-700">Seat Holders</legend>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+              <label class="block text-sm">Seat A Name<input required type="text" placeholder="Full name" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <label class="block text-sm">Seat A Email<input required type="email" placeholder="seat.a@company.co.th" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <label class="block text-sm">Seat B Name<input type="text" placeholder="Full name" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <label class="block text-sm">Seat B Email<input type="email" placeholder="seat.b@company.co.th" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+            </div>
+          </fieldset>
+
+          <!-- Preferences -->
+          <fieldset class="border rounded-xl p-6">
+            <legend class="px-2 text-sm font-semibold text-gray-700">Preferences (optional)</legend>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+              <label class="block text-sm">Preferred Home Course<input type="text" placeholder="e.g., Nikanti" class="mt-1 w-full h-11 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"/></label>
+              <div class="block text-sm">
+                Typical Play Days
+                <div class="mt-2 grid grid-cols-2 gap-2 text-sm text-gray-700">
+                  <label class="inline-flex items-center gap-2"><input type="checkbox"/> Mon–Thu</label>
+                  <label class="inline-flex items-center gap-2"><input type="checkbox"/> Fri</label>
+                  <label class="inline-flex items-center gap-2"><input type="checkbox"/> Sat</label>
+                  <label class="inline-flex items-center gap-2"><input type="checkbox"/> Sun</label>
+                </div>
+              </div>
+              <label class="block text-sm md:col-span-2">Notes<textarea placeholder="Anything we should know?" class="mt-1 w-full h-24 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"></textarea></label>
+            </div>
+          </fieldset>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="submit" class="bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-full hover:bg-[color:var(--brand-gold-600)] focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">Request Invoice</button>
+            <a href="#concierge" class="text-gray-700 gold-link">Or contact concierge</a>
+          </div>
+          <p class="text-xs text-gray-500">By submitting, you agree to our <a href="#" class="gold-link">Terms</a> and <a href="#" class="gold-link">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA SECTION -->
+  <section class="bg-gray-50 py-16 text-center">
+    <h2 class="text-2xl font-bold mb-3">Ready to Join Prime?</h2>
+    <p class="text-gray-600 mb-6">700,000 THB / year • 2 seats • 150 rounds</p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="#apply" class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-[color:var(--brand-gold-600)] focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">Request Invoice</a>
+      <a href="#concierge" class="border border-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">Talk to Concierge</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-300 pt-12">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 px-8 pb-8">
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-3">Prime Thailand Golf</h3>
+        <p class="text-sm text-gray-400">Corporate-first golf membership offering priority access to Thailand’s finest courses.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#top" class="gold-link">Home</a></li>
+          <li><a href="#courses" class="gold-link">Courses</a></li>
+          <li><a href="#how" class="gold-link">How it Works</a></li>
+          <li><a href="#corporate" class="gold-link">Corporate</a></li>
+          <li><a href="#apply" class="gold-link">Apply</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Support</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#concierge" class="gold-link">Concierge</a></li>
+          <li><a href="#faq" class="gold-link">FAQ</a></li>
+          <li><a href="#" class="gold-link">Privacy Policy</a></li>
+          <li><a href="#" class="gold-link">Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Contact</h4>
+        <p class="text-sm">Bangkok, Thailand</p>
+        <p class="text-sm">concierge@primethailand.golf</p>
+        <p class="text-sm">LINE: @PrimeGolf</p>
+        <div class="mt-3">
+          <a href="#top" class="inline-flex items-center gap-2 text-sm gold-link">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 py-4 text-center text-gray-500 text-sm">© 2025 Prime Thailand Golf. All Rights Reserved.</div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 md:hidden">
+    <div class="bg-white shadow-lg border rounded-full overflow-hidden flex">
+      <a href="#apply" class="px-4 py-3 text-sm font-semibold bg-yellow-500 text-gray-900">Join</a>
+      <a href="#concierge" class="px-4 py-3 text-sm">Concierge</a>
+    </div>
+  </div>
+
+  <!-- 10-line Scroll‑Spy (no dependency) -->
+  <script>
+    (function(){
+      const links=[...document.querySelectorAll('.nav-link')];
+      const map=new Map(links.map(a=>[a.getAttribute('href').replace('#','')||'top',a]));
+      const opts={rootMargin:'-40% 0px -55% 0px',threshold:0};
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          const id=e.target.getAttribute('id')||e.target.getAttribute('data-spy')||'';
+          const key=id||'top';
+          const link=map.get(key);
+          if(!link) return;
+          if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); link.classList.add('active'); }
+        })
+      },opts);
+      document.querySelectorAll('[data-spy], section[id], #top').forEach(el=>io.observe(el));
+    })();
+  </script>
+</body>
+</html>

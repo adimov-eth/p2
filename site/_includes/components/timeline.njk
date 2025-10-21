@@ -1,0 +1,16 @@
+{% macro timeline(items) %}
+<ol class="timeline">
+  {% for item in items %}
+  <li class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="card timeline-card">
+      <h3 class="timeline-title">{{ item.title }}</h3>
+      {% if item.subtitle %}
+      <p class="timeline-subtitle">{{ item.subtitle }}</p>
+      {% endif %}
+      <p class="timeline-body">{{ item.body }}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ol>
+{% endmacro %}

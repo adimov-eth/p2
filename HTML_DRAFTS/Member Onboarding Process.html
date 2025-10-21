@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - New Member Onboarding SOP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .timeline-container {
+            position: relative;
+            width: 100%;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 24px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #4A5568, #4A5568 6px, transparent 6px, transparent 12px);
+            z-index: 0;
+        }
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+        }
+        .timeline-dot {
+            width: 50px;
+            height: 50px;
+            background-color: var(--brand-navy-light);
+            border: 3px solid var(--brand-gold);
+        }
+        .phase-card {
+            background-color: var(--brand-navy-light);
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            border-radius: 0.75rem;
+            margin-top: 2rem;
+            padding: 2rem;
+        }
+        .phase-title {
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .script-block {
+            background-color: var(--brand-navy-dark);
+            border-left: 4px solid var(--brand-gold);
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            font-style: italic;
+            color: var(--brand-text-gray);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">New Member Onboarding SOP</h1>
+            <p class="text-xl text-gray-400 mt-2 max-w-4xl mx-auto">A structured, high-touch process to welcome new members and establish a strong foundation for a lasting relationship.</p>
+        </header>
+
+        <!-- Timeline Visual -->
+        <div class="mb-20">
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="flex justify-between text-center">
+                    <div class="timeline-step w-1/4">
+                        <div class="timeline-dot rounded-full mx-auto flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">0</span>
+                        </div>
+                        <p class="mt-3 font-semibold text-white">Handoff & Setup</p>
+                        <p class="text-sm text-gray-400">Day 0</p>
+                    </div>
+                    <div class="timeline-step w-1/4">
+                        <div class="timeline-dot rounded-full mx-auto flex items-center justify-center">
+                             <span class="text-white font-bold text-lg">1</span>
+                        </div>
+                        <p class="mt-3 font-semibold text-white">Welcome Call</p>
+                        <p class="text-sm text-gray-400">Day 1</p>
+                    </div>
+                    <div class="timeline-step w-1/4">
+                        <div class="timeline-dot rounded-full mx-auto flex items-center justify-center">
+                             <span class="text-white font-bold text-lg">2-3</span>
+                        </div>
+                        <p class="mt-3 font-semibold text-white">Package Dispatch</p>
+                        <p class="text-sm text-gray-400">Day 2-3</p>
+                    </div>
+                    <div class="timeline-step w-1/4">
+                        <div class="timeline-dot rounded-full mx-auto flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">5</span>
+                        </div>
+                        <p class="mt-3 font-semibold text-white">Follow-up</p>
+                        <p class="text-sm text-gray-400">Day 5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 1: Day 0 -->
+        <section id="day0" class="phase-card">
+            <h2 class="phase-title">Phase 1 (Day 0): Internal Handoff & System Setup</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold text-xl text-gold-400 mb-3 text-[#C9B079]">New Member Handoff Checklist</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start"><span class="mr-3 text-[#C9B079]">&#10003;</span> Company Name & Primary Contact</li>
+                        <li class="flex items-start"><span class="mr-3 text-[#C9B079]">&#10003;</span> Designated User 1 & 2 Details</li>
+                        <li class="flex items-start"><span class="mr-3 text-[#C9B079]">&#10003;</span> Key Details from Sales Process</li>
+                        <li class="flex items-start"><span class="mr-3 text-[#C9B079]">&#10003;</span> Membership Tier & Start Date</li>
+                        <li class="flex items-start"><span class="mr-3 text-[#C9B079]">&#10003;</span> Signed Agreement Attached</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl text-gold-400 mb-3 text-[#C9B079]">System Setup Procedure</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                        <li>Assign a Dedicated Concierge to the new account.</li>
+                        <li>Create Member Profiles in the internal CRM.</li>
+                        <li>Activate LINE Mini-App access for designated users.</li>
+                        <li>Review handoff notes to personalize communication.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2: Day 1 -->
+        <section id="day1" class="phase-card">
+            <h2 class="phase-title">Phase 2 (Day 1): The Personal Welcome</h2>
+            <div>
+                <h3 class="font-semibold text-xl text-gold-400 mb-3 text-[#C9B079]">Welcome Call Script</h3>
+                <div class="script-block">
+                    <p>"Hello, [Mr./Ms. Name]. My name is [Concierge's Name], and I'm your dedicated Personal Concierge at the Prime Corporate Golf Club. I'm calling to personally welcome [Company Name] to the club..."</p>
+                    <p class="mt-4">"My role is to ensure your experience is completely seamless. I'll be your single point of contact for everything from booking tee times and making special arrangements to answering any questions you might have..."</p>
+                </div>
+
+                <h3 class="font-semibold text-xl text-gold-400 mt-8 mb-3 text-[#C9B079]">Welcome Email Template</h3>
+                <div class="script-block">
+                    <p><strong>Subject:</strong> A Personal Welcome to the Prime Corporate Golf Club</p>
+                    <p class="mt-4"><strong>Dear [Mr./Ms. Name],</strong></p>
+                    <p>It was a pleasure speaking with you today. On behalf of the entire team, I would like to extend the warmest of welcomes to [Company Name] as new members...</p>
+                    <p class="mt-4">As your dedicated Personal Concierge, I am your primary point of contact for all your needs...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3 & 4 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Phase 3: Day 2-3 -->
+            <section id="day2-3" class="phase-card">
+                <h2 class="phase-title">Phase 3 (Day 2-3): Welcome Package</h2>
+                 <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                    <li>The physical welcome package is dispatched via a premium courier service.</li>
+                    <li>The concierge actively monitors the tracking information for the package.</li>
+                    <li>Once delivered, the concierge makes a note to follow up the next business day.</li>
+                </ol>
+            </section>
+
+            <!-- Phase 4: Day 5 -->
+            <section id="day5" class="phase-card">
+                <h2 class="phase-title">Phase 4 (Day 5): Post-Delivery Follow-up</h2>
+                 <p class="text-gray-400 mb-4">A brief, proactive follow-up via email or LINE to confirm receipt and encourage the first booking.</p>
+                 <div class="script-block text-sm">
+                    <p><strong>Subject:</strong> Following Up on Your Welcome Package</p>
+                    <p class="mt-2">"Hi [Mr./Ms. Name], I just wanted to quickly check in and ensure you received your welcome package... Whenever you're ready to plan your first outing, please let me know. I would be delighted to help..."</p>
+                 </div>
+            </section>
+        </div>
+
+        <footer class="text-center mt-16 text-gray-500">
+            <p>© 2025 Prime Corporate Golf Club. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

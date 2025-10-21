@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Mini-App - UAT Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+            --status-pass: #28a745;
+            --status-fail: #dc3545;
+            --status-pending: #6c757d;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        h1, h2, h3 {
+            color: var(--brand-gold);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--brand-navy-light);
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #0A1422;
+        }
+        tbody tr:nth-child(even) {
+            background-color: var(--brand-navy-light);
+        }
+        textarea.result-input {
+            width: 100%;
+            background-color: #0A1422;
+            border: 1px solid var(--brand-navy-light);
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            color: var(--brand-text-light);
+            min-height: 60px;
+            transition: border-color 0.2s;
+        }
+        textarea.result-input:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+        }
+        .status-btn {
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        .status-btn.pass { background-color: var(--status-pass); color: white; }
+        .status-btn.fail { background-color: var(--status-fail); color: white; }
+        
+        .status-btn-group button {
+            background-color: var(--brand-navy-light);
+            color: var(--brand-text-gray);
+            border: 1px solid var(--brand-text-gray);
+        }
+        .status-btn-group button.active.pass {
+            background-color: var(--status-pass);
+            color: white;
+            border-color: var(--status-pass);
+        }
+        .status-btn-group button.active.fail {
+            background-color: var(--status-fail);
+            color: white;
+            border-color: var(--status-fail);
+        }
+    </style>
+</head>
+<body class="antialiased p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold">Prime LINE Mini-App UAT Dashboard</h1>
+            <p class="text-lg text-gray-400">Version 1.0 | October 20, 2025</p>
+
+            <div class="mt-6">
+                <div class="flex justify-between mb-1">
+                    <span class="text-base font-medium text-white">UAT Progress</span>
+                    <span id="progress-text" class="text-sm font-medium text-white">0% Complete (0/9)</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-4">
+                    <div id="progress-bar" class="bg-blue-600 h-4 rounded-full" style="width: 0%; transition: width 0.5s ease-in-out;"></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Test Scenarios -->
+            <div class="space-y-12">
+                <section id="nfc-tests">
+                    <h2 class="text-2xl font-semibold mb-4">3.1. Feature: Digital Membership Card & NFC Check-in</h2>
+                    <div class="table-wrapper">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/12">Test ID</th>
+                                    <th class="w-2/12">Scenario</th>
+                                    <th class="w-3/12">Steps</th>
+                                    <th class="w-3/12">Expected Result</th>
+                                    <th class="w-2/12">Actual Result</th>
+                                    <th class="w-1/12">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-testid="NFC-01">
+                                    <td>NFC-01</td>
+                                    <td>Successful Check-in</td>
+                                    <td>1. Open LINE Mini-App.<br>2. Navigate to Digital Card.<br>3. Tap NFC-enabled phone on a test check-in point.</td>
+                                    <td>A "Check-in Successful" message appears instantly. The system records the tee time and location.</td>
+                                    <td><textarea class="result-input" placeholder="Enter result..."></textarea></td>
+                                    <td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td>
+                                </tr>
+                                <tr data-testid="NFC-02">
+                                    <td>NFC-02</td>
+                                    <td>Non-NFC Device</td>
+                                    <td>1. Open the app on a device without NFC.<br>2. Navigate to Digital Card.</td>
+                                    <td>The card displays correctly, but an on-screen QR code is presented as a backup check-in method.</td>
+                                    <td><textarea class="result-input" placeholder="Enter result..."></textarea></td>
+                                    <td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="portal-tests">
+                    <h2 class="text-2xl font-semibold mb-4">3.2. Feature: Member's Portal & Usage Tracking</h2>
+                     <div class="table-wrapper">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/12">Test ID</th>
+                                    <th class="w-2/12">Scenario</th>
+                                    <th class="w-3/12">Steps</th>
+                                    <th class="w-3/12">Expected Result</th>
+                                    <th class="w-2/12">Actual Result</th>
+                                    <th class="w-1/12">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-testid="PORTAL-01"><td>PORTAL-01</td><td>View Upcoming Bookings</td><td>1. Log in to the app.<br>2. Go to "My Bookings".<br>3. View "Upcoming" tab.</td><td>All future bookings are listed with correct course, date, time, and guest names.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                                <tr data-testid="PORTAL-02"><td>PORTAL-02</td><td>View Past Bookings</td><td>1. Navigate to the "Past Bookings" tab.</td><td>All completed rounds are listed accurately.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                                <tr data-testid="TRACK-01"><td>TRACK-01</td><td>Round Usage Update</td><td>1. Complete a check-in using NFC-01.<br>2. Go to the main portal screen.</td><td>The "Rounds Remaining" count correctly deducts the number of players who checked in.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                                <tr data-testid="TRACK-02"><td>TRACK-02</td><td>View Annual Quota</td><td>1. Look at the usage tracking display.</td><td>The display clearly shows "X / 144 Rounds Used" and the number updates correctly.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <section id="invite-tests">
+                    <h2 class="text-2xl font-semibold mb-4">3.3. Feature: Digital Guest Invitations</h2>
+                     <div class="table-wrapper">
+                        <table class="min-w-full">
+                           <thead>
+                                <tr>
+                                    <th class="w-1/12">Test ID</th>
+                                    <th class="w-2/12">Scenario</th>
+                                    <th class="w-3/12">Steps</th>
+                                    <th class="w-3/12">Expected Result</th>
+                                    <th class="w-2/12">Actual Result</th>
+                                    <th class="w-1/12">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-testid="INV-01"><td>INV-01</td><td>Send an Invitation</td><td>1. From an upcoming booking, select "Invite Guest".<br>2. Choose a guest.<br>3. Tap "Send via LINE".</td><td>Member is prompted to share a pre-formatted invitation message to the guest's LINE chat.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                                <tr data-testid="INV-02"><td>INV-02</td><td>Guest Receives Invite</td><td>1. As the guest, open the received LINE message.</td><td>The message contains all relevant details: Course, Date, Time, Host, and a map link.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                                <tr data-testid="INV-03"><td>INV-03</td><td>Add a New Guest</td><td>1. Select "Invite Guest".<br>2. Choose to add a new guest.<br>3. Enter the new guest's name.</td><td>The new guest is successfully added to the booking and an invitation can be sent.</td><td><textarea class="result-input" placeholder="Enter result..."></textarea></td><td class="status-cell"><div class="flex flex-col space-y-2 status-btn-group"><button class="status-btn pass">Pass</button><button class="status-btn fail">Fail</button></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="signoff">
+                    <h2 class="text-2xl font-semibold mb-4">5. UAT Sign-off</h2>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <p class="mb-4 text-gray-300">The undersigned have participated in the User Acceptance Testing and agree that the Prime LINE Mini-App has met the criteria outlined in this plan. All "High" and "Medium" severity bugs have been resolved.</p>
+                        <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-1">Lead Tester Name</label><input type="text" class="w-full result-input" placeholder="Enter name"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-1">Beta Tester 1 Name</label><input type="text" class="w-full result-input" placeholder="Enter name"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-1">Beta Tester 2 Name</label><input type="text" class="w-full result-input" placeholder="Enter name"></div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusCells = document.querySelectorAll('.status-cell');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const totalTests = statusCells.length;
+
+            const updateProgress = () => {
+                const completedTests = document.querySelectorAll('.status-btn-group .active').length;
+                const percentage = totalTests > 0 ? (completedTests / totalTests) * 100 : 0;
+                
+                progressBar.style.width = `${percentage}%`;
+                progressBar.classList.remove('bg-blue-600', 'bg-green-500');
+                progressBar.classList.add(percentage === 100 ? 'bg-green-500' : 'bg-blue-600');
+                
+                progressText.textContent = `${Math.round(percentage)}% Complete (${completedTests}/${totalTests})`;
+            };
+
+            statusCells.forEach(cell => {
+                cell.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'BUTTON') {
+                        const buttons = cell.querySelectorAll('button');
+                        buttons.forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+                        updateProgress();
+                    }
+                });
+            });
+
+            // Initial call to set the progress bar text
+            updateProgress();
+        });
+    </script>
+
+</body>
+</html>

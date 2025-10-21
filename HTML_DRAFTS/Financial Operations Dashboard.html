@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Golf - Financial Operations Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .workflow-step {
+            position: relative;
+            padding-left: 3rem; /* Space for icon and line */
+        }
+        .workflow-step:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 44px; /* Start below the icon */
+            bottom: -1rem; /* Extend down to the next step */
+            width: 2px;
+            background-color: #334155; /* A muted line color */
+            z-index: 0;
+        }
+        .step-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand-navy-light);
+            border: 2px solid #334155;
+            z-index: 1;
+        }
+        .step-content {
+            background-color: var(--brand-navy-light);
+            border: 1px solid rgba(201, 176, 121, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="antialiased p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-bold text-white">Financial Operations SOP</h1>
+            <p class="text-lg text-gray-400 mt-2">Standard Operating Procedures for Invoicing, Payments, and Settlements.</p>
+        </header>
+
+        <main class="space-y-16">
+            <!-- Section 2: Corporate Invoicing Workflow -->
+            <section id="invoicing">
+                <h2 class="text-3xl font-semibold text-center mb-10 text-gold-400" style="color: var(--brand-gold);">
+                    Corporate Invoicing Workflow
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- Step 1 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">1</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Agreement Signed</h3>
+                            <p class="text-gray-400 mt-1">Client is flagged as "Ready for Invoice" in the E-Signature App after finalization.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: E-Signature App</span>
+                        </div>
+                    </div>
+                    <!-- Step 2 & 3 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">2</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Create & Detail Invoice</h3>
+                            <p class="text-gray-400 mt-1">An invoice is generated in the accounting software with all required legal details, membership item, amount + VAT, and a Net 30 due date.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: Accounting Software</span>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">3</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Send Invoice</h3>
+                            <p class="text-gray-400 mt-1">Invoice is emailed as a PDF with a payment link directly from the accounting software.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: Accounting Software</span>
+                        </div>
+                    </div>
+                    <!-- Step 5 & 6 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">4</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Update Status & Set Reminders</h3>
+                            <p class="text-gray-400 mt-1">Client's CRM record is updated to "Invoiced - Awaiting Payment." Automated payment reminders are configured.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: CRM & Accounting</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: Payment Tracking & Activation -->
+            <section id="activation">
+                <h2 class="text-3xl font-semibold text-center mb-10 text-gold-400" style="color: var(--brand-gold);">
+                    Payment Tracking & Activation
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-8">
+                     <!-- Step 1 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">1</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Daily Reconciliation</h3>
+                            <p class="text-gray-400 mt-1">Check bank and payment gateway dashboards daily to identify incoming funds.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: Bank / Payment Gateway</span>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">2</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Match & Apply Payment</h3>
+                            <p class="text-gray-400 mt-1">Match payment to the open invoice in the accounting software and mark it as "Paid."</p>
+                             <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: Accounting Software</span>
+                        </div>
+                    </div>
+                     <!-- Step 3 & 4 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">3</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Activate & Welcome</h3>
+                            <p class="text-gray-400 mt-1">Update client status in CRM to "Active." This triggers the official Welcome Packet email to the client and designated users.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: CRM / Email</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: Partner Course Settlement -->
+             <section id="settlement">
+                <h2 class="text-3xl font-semibold text-center mb-10 text-gold-400" style="color: var(--brand-gold);">
+                    Partner Course Settlement Workflow
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-8">
+                     <!-- Step 1 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">1</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Log All Rounds</h3>
+                            <p class="text-gray-400 mt-1">Concierge team logs every round played (Course, Date, Member, # of Players) in the CRM after booking.</p>
+                             <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: CRM</span>
+                        </div>
+                    </div>
+                    <!-- Step 2 & 3 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">2</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Generate & Create Statements</h3>
+                            <p class="text-gray-400 mt-1">On the 1st of each month, generate a usage report from CRM and create a formal Settlement Statement for each partner course.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: CRM / Spreadsheet</span>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">3</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Verify with Partner</h3>
+                            <p class="text-gray-400 mt-1">Email the statement to each course's accounts department for verification to prevent disputes. Allow 3-5 business days.</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: Email</span>
+                        </div>
+                    </div>
+                     <!-- Step 5 -->
+                    <div class="workflow-step">
+                        <div class="step-icon"><span class="font-bold text-lg text-gold-400" style="color: var(--brand-gold);">4</span></div>
+                        <div class="step-content p-6 rounded-lg ml-4">
+                            <h3 class="text-xl font-bold text-white">Process Payment</h3>
+                            <p class="text-gray-400 mt-1">Once verified, process payment via bank transfer and record it as an expense in the accounting software under "Partner Course Fees."</p>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mt-3 px-2 py-1 rounded-full">System: Bank / Accounting</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Key Financial Reports -->
+            <section id="reports">
+                <h2 class="text-3xl font-semibold text-center mb-10 text-gold-400" style="color: var(--brand-gold);">
+                    Key Monthly Financial Reports
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="step-content text-center p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Accounts Receivable Aging</h3>
+                        <p class="text-gray-400 mt-2">Shows which clients are late on payments.</p>
+                    </div>
+                     <div class="step-content text-center p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Profit and Loss (P&L)</h3>
+                        <p class="text-gray-400 mt-2">Provides a snapshot of overall profitability.</p>
+                    </div>
+                     <div class="step-content text-center p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Cash Flow Statement</h3>
+                        <p class="text-gray-400 mt-2">Tracks the movement of cash in and out of the business.</p>
+                    </div>
+                     <div class="step-content text-center p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Partner Payout Summary</h3>
+                        <p class="text-gray-400 mt-2">Details total payments made to all partner courses.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+</body>
+</html>

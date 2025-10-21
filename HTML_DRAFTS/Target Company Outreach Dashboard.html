@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Outreach Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .target-card {
+            background-color: var(--brand-navy-light);
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .target-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+            border-color: rgba(201, 176, 121, 0.5);
+        }
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem; /* 32px */
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brand-gold);
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Target Company Outreach Dashboard</h1>
+            <p class="text-xl text-gray-400 mt-2">Focus Area: Map Yang Phon, Rayong, and the greater EEC</p>
+        </header>
+
+        <!-- Priority 1 Section -->
+        <section id="priority-1">
+            <h2 class="section-title">Priority 1: Core EEC Industrial & Manufacturing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Automotive Manufacturing Card -->
+                <div class="target-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Automotive Manufacturing</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Target Companies:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>AutoAlliance (Ford/Mazda)</li>
+                                <li>General Motors (Rayong)</li>
+                                <li>BMW Group Manufacturing</li>
+                                <li>Mercedes-Benz Manufacturing</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Key Personas / Target Roles:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Plant Director / Managing Director</li>
+                                <li>Head of Supplier Relations</li>
+                                <li>Head of Human Resources</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Primary Sales Angle:</h4>
+                            <p class="text-gray-300 mt-1">A powerful tool for strengthening relationships with international parts suppliers and a premium executive perk to retain top engineering and management talent.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Petrochemical & Energy Card -->
+                <div class="target-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Petrochemical & Energy</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Target Companies:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>PTT Global Chemical (GC)</li>
+                                <li>SCG Chemicals (SCGC)</li>
+                                <li>Covestro (Thailand)</li>
+                                <li>Dow Thailand Group</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Key Personas / Target Roles:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Site Director / Plant Manager</li>
+                                <li>Head of Business Development</li>
+                                <li>Chief Financial Officer (CFO)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Primary Sales Angle:</h4>
+                            <p class="text-gray-300 mt-1">A discreet, world-class venue for hosting high-stakes negotiations with partners and a strategic tool for senior leadership networking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial Estate Developers Card -->
+                <div class="target-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Industrial Estate Developers</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Target Companies:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>WHA Group (WHA)</li>
+                                <li>Amata Corporation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Key Personas / Target Roles:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Director of Sales & Marketing</li>
+                                <li>Head of Customer Relations</li>
+                                <li>Chief Executive Officer (CEO)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Primary Sales Angle:</h4>
+                            <p class="text-gray-300 mt-1">An unmatched value-add to offer your largest tenants and a powerful closing tool to attract new foreign and domestic investment into your estates.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronics Manufacturing Card -->
+                <div class="target-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Electronics Manufacturing</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Target Companies:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Western Digital (Thailand)</li>
+                                <li>Seagate Technology (Thailand)</li>
+                                <li>Delta Electronics (Thailand)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Key Personas / Target Roles:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Country Manager / Managing Director</li>
+                                <li>Operations Director</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Primary Sales Angle:</h4>
+                            <p class="text-gray-300 mt-1">An effective way to build rapport with key distributors and international clients, while also serving as a high-value benefit for senior management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Priority 2 Section -->
+        <section id="priority-2" class="mt-20">
+            <h2 class="section-title">Priority 2: Professional Services & Supporting Industries</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Financial Institutions Card -->
+                <div class="target-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Financial Institutions</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Target Companies:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Bangkok Bank (Corporate)</li>
+                                <li>Kasikornbank (Corporate)</li>
+                                <li>Siam Commercial Bank (SCB)</li>
+                                <li>UOB Thailand</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Key Personas / Target Roles:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Head of Corporate Banking (EEC/Eastern Region)</li>
+                                <li>Senior Relationship Managers</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Primary Sales Angle:</h4>
+                            <p class="text-gray-300 mt-1">An unparalleled and memorable way to secure and retain your highest-value corporate clients, moving beyond standard lunches to build real loyalty.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top-Tier Law Firms Card -->
+                <div class="target-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Top-Tier Law Firms</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-[var(--brand-gold)]">Target Companies:</h4>
+                            <ul class="list-disc list-inside text-gray-300 mt-1">
+                                <li>Baker McKenzie</li>
+                                <li>Tilleke & Gibbins</li>
+                                <li>Weerawong, C&P</li>
+                                <li class="text-sm italic text-gray-400">(Firms with strong industrial/M&A practices)</li>
+                            </ul>
+                        </div>
+                         <!-- NOTE: Key Personas and Sales Angle were empty in the source file, so they are omitted here. -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center mt-20 text-gray-500">
+            <p>© 2025 Prime Corporate Golf Club. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

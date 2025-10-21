@@ -1,0 +1,43 @@
+---
+layout: layouts/dark.njk
+permalink: "/contact/"
+title: "Contact"
+description: "Reach the Prime Corporate Golf Club concierge and leadership team."
+---
+<section class="container mt-8">
+  <header class="mb-10">
+    <span class="section-title">Contact Prime</span>
+    <h1 class="text-3xl font-semibold">Concierge Desk &amp; Corporate Office</h1>
+    <p class="max-w-3xl text-slate-300">Our concierge team monitors all channels daily to honour the service-level agreements outlined in the membership terms.</p>
+  </header>
+
+  <div class="card-grid mb-12">
+    <article class="card">
+      <h2 class="text-xl font-semibold mb-2">Concierge Email</h2>
+      <p><a href="mailto:{{ site.contact.concierge }}" class="text-inherit no-underline">{{ site.contact.concierge }}</a></p>
+      <p class="table-note">Primary channel for booking requests, guest manifests, and post-round reports. Response within one business day.</p>
+    </article>
+    <article class="card">
+      <h2 class="text-xl font-semibold mb-2">Telephone</h2>
+      <p><a href="tel:+6621234567" class="text-inherit no-underline">{{ site.contact.phone | formatPhone }}</a></p>
+      <p class="table-note">Direct hotline. Calls answered within three rings by concierge specialists.</p>
+    </article>
+    <article class="card">
+      <h2 class="text-xl font-semibold mb-2">LINE Official Account</h2>
+      <p>@PrimeCorporateGolf</p>
+      <p class="table-note">Preferred for quick itinerary updates and on-course support. Response within 15 minutes during operating hours.</p>
+    </article>
+  </div>
+
+  <section class="card mb-12">
+    <h2 class="text-xl font-semibold mb-4">Corporate Address</h2>
+    <p>{{ site.contact.address }}</p>
+    <p class="table-note">By appointment only. On-site meetings available for executive briefings and procurement reviews.</p>
+  </section>
+
+  <section class="card">
+    <h2 class="text-xl font-semibold mb-4">Media &amp; Partnerships</h2>
+    <p>Email <a href="mailto:media@{{ site.domain }}" class="text-[var(--brand-gold)]">media@{{ site.domain }}</a> for interviews, sponsorships, or co-branded hospitality events.</p>
+    <p class="table-note">Please include company background, event dates, and expected guest profile.</p>
+  </section>
+</section>

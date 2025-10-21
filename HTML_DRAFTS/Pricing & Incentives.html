@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Golf - Membership Pricing & Incentives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy-dark: #0D1A2D;
+            --brand-navy-light: #112240;
+            --brand-gold: #C9B079;
+            --brand-text-light: #E0E0E0;
+            --brand-text-gray: #a0aec0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--brand-navy-dark);
+            color: var(--brand-text-light);
+        }
+        .pricing-card {
+            background-color: var(--brand-navy-light);
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .featured-card {
+            border: 2px solid var(--brand-gold);
+            transform: scale(1.05);
+        }
+        .cta-button {
+            background-color: var(--brand-gold);
+            color: var(--brand-navy-dark);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #E0C58A;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased py-12 px-4 sm:px-6 md:px-8">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Membership Pricing & Launch Incentives</h1>
+            <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">An exclusive opportunity for the first 25 founding members to join at a preferential rate.</p>
+        </header>
+
+        <!-- Pricing Tiers -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <!-- Tier 1: The Founders' Circle -->
+            <div class="pricing-card featured-card rounded-xl p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-12 mt-6">
+                    <div class="bg-yellow-400 text-yellow-900 font-bold text-sm uppercase transform rotate-45 py-1 px-12">
+                        Best Value
+                    </div>
+                </div>
+                <h2 class="text-2xl font-semibold text-white">The Founders' Circle</h2>
+                <p class="text-sm text-yellow-400 font-semibold">First 10 Memberships</p>
+                
+                <div class="my-6">
+                    <span class="text-5xl font-bold text-white">THB 750,000</span>
+                    <span class="text-gray-400">/ year (+VAT)</span>
+                </div>
+                <p class="text-gray-300 line-through">Standard Price: THB 950,000</p>
+
+                <ul class="space-y-4 mt-8 text-gray-300">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Preferential Pricing</strong> (200,000 THB saving)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">12 Bonus Rounds</strong> (156 total rounds)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Exclusive "Prime Founders' Cup"</strong> Invite</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Personalized Premium Welcome Kit</strong></span>
+                    </li>
+                </ul>
+
+                <a href="#" class="cta-button w-full mt-8">Secure Founder Membership</a>
+            </div>
+
+            <!-- Tier 2: Early Adopter Program -->
+            <div class="pricing-card rounded-xl p-8">
+                <h2 class="text-2xl font-semibold text-white">Early Adopter Program</h2>
+                <p class="text-sm text-gray-400 font-semibold">Memberships 11-25</p>
+                
+                <div class="my-6">
+                    <span class="text-5xl font-bold text-white">THB 850,000</span>
+                    <span class="text-gray-400">/ year (+VAT)</span>
+                </div>
+                <p class="text-gray-300 line-through">Standard Price: THB 950,000</p>
+
+                <ul class="space-y-4 mt-8 text-gray-300">
+                    <li class="flex items-start">
+                         <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Special Pricing</strong> (100,000 THB saving)</span>
+                    </li>
+                    <li class="flex items-start">
+                         <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Premium Welcome Kit</strong></span>
+                    </li>
+                </ul>
+                 <a href="#" class="cta-button w-full mt-8">Become an Early Adopter</a>
+            </div>
+            
+            <!-- Standard Membership -->
+            <div class="pricing-card rounded-xl p-8">
+                <h2 class="text-2xl font-semibold text-white">Standard Membership</h2>
+                <p class="text-sm text-gray-400 font-semibold">Post-Launch</p>
+                
+                <div class="my-6">
+                    <span class="text-5xl font-bold text-white">THB 950,000</span>
+                    <span class="text-gray-400">/ year (+VAT)</span>
+                </div>
+                <p class="text-gray-300">The benchmark for corporate golf excellence.</p>
+
+                <ul class="space-y-4 mt-8 text-gray-300">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">144 Annual Rounds</strong> at 80+ courses</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Dedicated Personal Concierge</strong></span>
+                    </li>
+                     <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">All-Inclusive Service</strong> (Green Fee, Caddy, Cart)</span>
+                    </li>
+                     <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Full Digital App Access</strong></span>
+                    </li>
+                </ul>
+                <a href="#" class="cta-button w-full mt-8 bg-gray-600 text-gray-200 hover:bg-gray-500">Join Waiting List</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

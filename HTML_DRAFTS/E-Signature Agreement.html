@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Membership Agreement E-Signature</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            .agreement-container, .signature-box, .signature-display {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                background-color: #ffffff !important;
+            }
+            h1, h2, h3, p, li {
+                color: #000000 !important;
+            }
+            .signature-display img {
+                filter: invert(0); /* Ensure signature is black on white */
+            }
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #0D1A2D;
+            color: #E0E0E0;
+        }
+
+        .agreement-container {
+            background-color: #112240;
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            border-radius: 0.75rem;
+            padding: 2rem 3rem;
+        }
+
+        .agreement-container h3 {
+            color: #C9B079;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .agreement-container p, .agreement-container li {
+            color: #d1d5db;
+            margin-bottom: 0.75rem;
+        }
+
+        .agreement-container ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        .signature-box {
+            background-color: #1C2B41;
+            border: 1px solid #4A5568;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        .signature-box label {
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        .signature-box input {
+            background-color: #112240;
+            border: 1px solid #4A5568;
+            color: #E0E0E0;
+            border-radius: 0.375rem;
+        }
+        
+        .signature-box input:focus {
+            border-color: #C9B079;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(201, 176, 121, 0.5);
+        }
+
+        .signature-pad {
+            border: 2px dashed #4A5568;
+            border-radius: 0.5rem;
+            cursor: crosshair;
+        }
+        
+        .cta-button {
+            background-color: #C9B079;
+            color: #0D1A2D;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 176, 121, 0.2);
+        }
+        .cta-button:hover:not(:disabled) {
+            background-color: #E0C58A;
+            transform: scale(1.05);
+        }
+        .cta-button:disabled {
+            background-color: #4A5568;
+            color: #9CA3AF;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .secondary-button {
+             background-color: transparent;
+             border: 1px solid #4A5568;
+             color: #9CA3AF;
+        }
+         .secondary-button:hover {
+             background-color: #4A5568;
+             color: white;
+         }
+
+        .signature-display {
+            background-color: #112240;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .signature-display img {
+            filter: invert(1); /* Makes black signature appear white */
+        }
+    </style>
+</head>
+<body class="antialiased p-4 sm:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-white">Prime Corporate Golf Club</h1>
+        <p class="text-xl text-[#C9B079]">Corporate Membership Agreement</p>
+    </header>
+
+    <main class="container mx-auto max-w-5xl">
+        <div class="agreement-container mb-8">
+            <p class="text-center">This Membership Agreement ("Agreement") is entered into between Prime Corporate Golf Club ("Prime Golf Club"), and the undersigned Corporate Member ("the Member").</p>
+            
+            <h3>1. MEMBERSHIP SERVICES & PRIVILEGES</h3>
+            <p>Prime Golf Club grants the Member a non-exclusive, non-transferable right to the services outlined in the official Membership Booklet. Key privileges include:</p>
+            <ul>
+                <li>a) A total of one hundred and forty-four (144) rounds of golf annually at partner courses.</li>
+                <li>b) Access for two (2) Designated Users from the Member's organization.</li>
+                <li>c) Access to the Prime Golf Club Personal Concierge service.</li>
+                <li>d) Use of the Prime LINE Mini-App for digital membership management.</li>
+            </ul>
+
+            <h3>2. MEMBERSHIP TERM & RENEWAL</h3>
+            <p><strong>2.1. Term:</strong> This Agreement is effective for twelve (12) months from the Effective Date ("Initial Term").</p>
+            <p><strong>2.2. Renewal:</strong> This Agreement shall automatically renew for successive twelve (12) month periods unless either party provides written notice of non-renewal at least sixty (60) days prior to the end of the current term.</p>
+
+            <h3>3. FEES & PAYMENT</h3>
+            <p><strong>3.1. Annual Fee:</strong> The Member agrees to pay the annual membership fee as specified in the invoice, plus any applicable taxes.</p>
+            <p><strong>3.2. Payment Terms:</strong> The annual fee is due in full within thirty (30) days of signing this Agreement.</p>
+            <p><strong>3.3. Late Payment:</strong> Late payments will incur a fee of 1.5% per month. Privileges may be suspended for accounts over 30 days in arrears.</p>
+
+            <h3>4. BOOKING, GUEST, & CANCELLATION POLICIES</h3>
+            <p><strong>4.1. Guest Policy:</strong> The Designated User must be present with their guests. The Member is responsible for the conduct of its guests.</p>
+            <p><strong>4.2. Cancellation Policy:</strong> Cancellations must be made at least 48 hours in advance. Late cancellations or "No-shows" will result in the forfeiture of the corresponding golf rounds.</p>
+
+            <h3>5. LIABILITY & INDEMNIFICATION</h3>
+            <p><strong>5.1. Assumption of Risk:</strong> All users use golf facilities at their own risk.</p>
+            <p><strong>5.2. Limitation of Liability:</strong> Prime Golf Club is not liable for personal injury or property damage at partner facilities.</p>
+            <p><strong>5.3. Indemnification:</strong> The Member agrees to indemnify Prime Golf Club from claims arising from the actions of its Designated Users or guests.</p>
+
+            <h3>6. CONFIDENTIALITY</h3>
+            <p>Both parties agree to maintain the confidentiality of the terms of this Agreement and proprietary business information.</p>
+            
+            <h3>7. TERMINATION</h3>
+            <p>Prime Golf Club may terminate this Agreement for non-payment, material breach, or detrimental conduct. No portion of the annual fee will be refunded upon termination for breach.</p>
+
+            <h3>8. DISPUTE RESOLUTION</h3>
+            <p>This Agreement is governed by the laws of the Kingdom of Thailand. Any disputes shall be settled by binding arbitration in Bangkok.</p>
+        </div>
+        
+        <!-- Signature Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <!-- Party 1: Prime Golf Club -->
+            <div id="party1-container">
+                <h2 class="text-xl font-bold text-white mb-4">For Prime Corporate Golf Club</h2>
+                <div class="signature-box space-y-4" id="party1-box">
+                    <div>
+                        <label for="party1-name">Full Name</label>
+                        <input type="text" id="party1-name" class="w-full mt-1 p-2">
+                    </div>
+                    <div>
+                        <label for="party1-title">Title</label>
+                        <input type="text" id="party1-title" class="w-full mt-1 p-2">
+                    </div>
+                    <div>
+                        <label>Signature</label>
+                        <canvas id="party1-pad" class="signature-pad w-full h-32 mt-1 bg-gray-800"></canvas>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button class="secondary-button py-2 px-4 rounded-full" onclick="clearSignature('party1')">Clear</button>
+                        <button class="cta-button" onclick="lockSignature('party1')">Sign Agreement</button>
+                    </div>
+                </div>
+                <div id="party1-display" class="hidden signature-display">
+                    <p class="font-semibold text-lg" id="party1-signed-name"></p>
+                    <p class="text-gray-400" id="party1-signed-title"></p>
+                    <img id="party1-sig-img" class="w-48 mt-2" alt="Signature">
+                    <p class="text-sm text-gray-500 mt-2">Signed on: <span id="party1-signed-date"></span></p>
+                </div>
+            </div>
+
+            <!-- Party 2: Corporate Member -->
+            <div id="party2-container">
+                 <h2 class="text-xl font-bold text-white mb-4">For The Corporate Member</h2>
+                <div class="signature-box space-y-4" id="party2-box">
+                    <div>
+                        <label for="party2-name">Full Name</p>
+                        <input type="text" id="party2-name" class="w-full mt-1 p-2">
+                    </div>
+                    <div>
+                        <label for="party2-title">Title</p>
+                        <input type="text" id="party2-title" class="w-full mt-1 p-2">
+                    </div>
+                    <div>
+                        <label>Signature</label>
+                        <canvas id="party2-pad" class="signature-pad w-full h-32 mt-1 bg-gray-800"></canvas>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button class="secondary-button py-2 px-4 rounded-full" onclick="clearSignature('party2')">Clear</button>
+                        <button class="cta-button" onclick="lockSignature('party2')">Sign Agreement</button>
+                    </div>
+                </div>
+                <div id="party2-display" class="hidden signature-display">
+                    <p class="font-semibold text-lg" id="party2-signed-name"></p>
+                    <p class="text-gray-400" id="party2-signed-title"></p>
+                    <img id="party2-sig-img" class="w-48 mt-2" alt="Signature">
+                    <p class="text-sm text-gray-500 mt-2">Signed on: <span id="party2-signed-date"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center no-print">
+            <button id="finalize-btn" class="cta-button text-lg px-8 py-3" disabled>Finalize & Print Agreement</button>
+            <p id="finalize-status" class="text-gray-500 mt-2">Waiting for both parties to sign...</p>
+        </div>
+
+    </main>
+
+    <script>
+        const signaturePads = {};
+        let signedParties = { party1: false, party2: false };
+
+        function setupSignaturePad(partyId) {
+            const canvas = document.getElementById(`${partyId}-pad`);
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+            let lastPos = { x: 0, y: 0 };
+
+            // Set canvas dimensions based on its display size for high DPI screens
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            function getMousePos(canvasDom, event) {
+                const rect = canvasDom.getBoundingClientRect();
+                return {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+            }
+            
+            function getTouchPos(canvasDom, touchEvent) {
+                const rect = canvasDom.getBoundingClientRect();
+                return {
+                    x: touchEvent.touches[0].clientX - rect.left,
+                    y: touchEvent.touches[0].clientY - rect.top
+                };
+            }
+
+            function draw(e) {
+                if (!drawing) return;
+                e.preventDefault();
+                const pos = e.touches ? getTouchPos(canvas, e) : getMousePos(canvas, e);
+                ctx.beginPath();
+                ctx.moveTo(lastPos.x, lastPos.y);
+                ctx.lineTo(pos.x, pos.y);
+                ctx.stroke();
+                lastPos = pos;
+            }
+
+            canvas.addEventListener('mousedown', (e) => {
+                drawing = true;
+                lastPos = getMousePos(canvas, e);
+            });
+            canvas.addEventListener('mouseup', () => drawing = false);
+            canvas.addEventListener('mouseout', () => drawing = false);
+            canvas.addEventListener('mousemove', draw);
+
+            // Touch events
+            canvas.addEventListener('touchstart', (e) => {
+                drawing = true;
+                lastPos = getTouchPos(canvas, e);
+            });
+            canvas.addEventListener('touchend', () => drawing = false);
+            canvas.addEventListener('touchmove', draw);
+            
+            signaturePads[partyId] = { canvas, ctx, hasDrawn: false };
+            
+            canvas.addEventListener('mousedown', () => signaturePads[partyId].hasDrawn = true, { once: true });
+            canvas.addEventListener('touchstart', () => signaturePads[partyId].hasDrawn = true, { once: true });
+        }
+        
+        function clearSignature(partyId) {
+            const { canvas, ctx } = signaturePads[partyId];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            signaturePads[partyId].hasDrawn = false;
+        }
+
+        function lockSignature(partyId) {
+            const nameInput = document.getElementById(`${partyId}-name`);
+            const titleInput = document.getElementById(`${partyId}-title`);
+            const { canvas, hasDrawn } = signaturePads[partyId];
+
+            if (!nameInput.value.trim() || !titleInput.value.trim()) {
+                alert('Please fill in your Full Name and Title.');
+                return;
+            }
+            if (!hasDrawn) {
+                alert('Please provide a signature in the designated box.');
+                return;
+            }
+
+            // Capture signature
+            const sigImg = document.getElementById(`${partyId}-sig-img`);
+            sigImg.src = canvas.toDataURL('image/png');
+
+            // Set text details
+            document.getElementById(`${partyId}-signed-name`).textContent = nameInput.value;
+            document.getElementById(`${partyId}-signed-title`).textContent = titleInput.value;
+            document.getElementById(`${partyId}-signed-date`).textContent = new Date().toLocaleDateString('en-GB', {
+                day: 'numeric', month: 'long', year: 'numeric'
+            });
+
+            // Toggle visibility
+            document.getElementById(`${partyId}-box`).classList.add('hidden');
+            document.getElementById(`${partyId}-display`).classList.remove('hidden');
+
+            signedParties[partyId] = true;
+            checkFinalizationStatus();
+        }
+        
+        function checkFinalizationStatus() {
+            const finalizeBtn = document.getElementById('finalize-btn');
+            const finalizeStatus = document.getElementById('finalize-status');
+
+            if (signedParties.party1 && signedParties.party2) {
+                finalizeBtn.disabled = false;
+                finalizeStatus.textContent = 'Agreement is ready to be finalized.';
+                finalizeStatus.style.color = '#C9B079';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            setupSignaturePad('party1');
+            setupSignaturePad('party2');
+
+            document.getElementById('finalize-btn').addEventListener('click', () => {
+                if (signedParties.party1 && signedParties.party2) {
+                    window.print();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

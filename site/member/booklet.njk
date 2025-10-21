@@ -1,0 +1,107 @@
+---
+layout: layouts/dark.njk
+permalink: "/member/booklet/"
+title: "Membership Booklet"
+description: "Comprehensive view of the Prime Corporate Golf Club membership for executives and assistants."
+---
+<section class="container mt-8">
+  <header class="mb-12">
+    <span class="section-title">Prime Corporate Golf Club</span>
+    <h1 class="text-4xl font-semibold mb-4">Membership Booklet</h1>
+    <p class="max-w-3xl text-slate-300">Designed for executive assistants, corporate hospitality teams, and member onboarding. Every data point stays synced with our single source of truth.</p>
+  </header>
+
+  <section class="card grid gap-6">
+    <h2 class="text-2xl font-semibold">At a glance</h2>
+    <div class="hero-stats hero-stats--compact">
+      <div class="hero-stat"><strong>{{ site.membership.rounds }}</strong><span>rounds per year</span></div>
+      <div class="hero-stat"><strong>{{ site.membership.seats }}</strong><span>named executives</span></div>
+      <div class="hero-stat"><strong>฿{{ site.membership.priceTHB | formatNumber }}</strong><span>annual fee (+ VAT)</span></div>
+    </div>
+    <ul class="list-check">
+      <li>Concierge network confirming tee-times in under 2 hours</li>
+      <li>Access to 80+ elite courses across Bangkok, Pattaya, Hua Hin, Chiang Mai, Phuket</li>
+      <li>Up to {{ site.membership.maxGuests }} accompanied guests when both executives play</li>
+      <li>{{ site.membership.cancelHrs }}-hour cancellation policy with transparent deductions</li>
+    </ul>
+  </section>
+
+  <section class="mt-12">
+    <span class="section-title">Membership value pillars</span>
+    <div class="card-grid mt-6">
+      <article class="card">
+        <h3>Priority Course Access</h3>
+        <p>Weekend and peak season allocation locked in across flagship venues including Siam Country Club, Nikanti, Alpine, and Black Mountain.</p>
+        <p class="table-note">Concierge publishes allocation calendars quarterly.</p>
+      </article>
+      <article class="card">
+        <h3>Corporate-Grade Reporting</h3>
+        <p>Usage ledger captures executive, guest, and department cost centre for each round. Monthly PDF and CSV exports delivered automatically.</p>
+      </article>
+      <article class="card">
+        <h3>Hospitality Enhancements</h3>
+        <p>Optional F&amp;B pairings, lounge access, and branded gifting curated per outing. Concierge manages end-to-end execution.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <span class="section-title">Digital experience</span>
+    <div class="card-grid mt-6">
+      <article class="card">
+        <h3>Portal dashboard</h3>
+        <p>Live tracker shows rounds consumed out of {{ site.membership.rounds }}, guest roster, and cancellation history. Executive assistants receive role-based access.</p>
+      </article>
+      <article class="card">
+        <h3>NFC membership cards</h3>
+        <p>Each executive receives a metal NFC card for on-course verification. Optional guest passes generated via QR with expiry controls.</p>
+      </article>
+      <article class="card">
+        <h3>LINE Mini-App</h3>
+        <p>Submit tee-time requests, view itineraries, and chat with concierge. Notifications sent when the {{ site.membership.cancelHrs }}-hour cancellation window approaches.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <span class="section-title">Onboarding timeline</span>
+    {% from "components/timeline.njk" import timeline %}
+    {{ timeline([
+      {"title": "Day 0", "subtitle": "Contract executed", "body": "Invoice issued for {{ site.membership.priceTHB | formatCurrencyTHB }} (+ VAT). Corporate admins provide executive profiles and guest policies."},
+      {"title": "Day 3", "subtitle": "Credential issuance", "body": "NFC cards and welcome package dispatched. Portal seats activated with multi-factor authentication."},
+      {"title": "Day 7", "subtitle": "Go-live tee times", "body": "Concierge books launch rounds based on member preferences. Digital guest passes ready for first hospitality event."},
+      {"title": "Day 30", "subtitle": "Executive review", "body": "Usage summary, upcoming allocations, and feedback session with concierge leadership."}
+    ]) }}
+  </section>
+
+  <section class="card mt-12">
+    <h2 class="text-xl font-semibold mb-4">Guest policy quick facts</h2>
+    <ul class="list-check">
+      <li>Executives must accompany guests during the full round</li>
+      <li>Single executive may invite up to {{ site.membership.guestsPerSeat }} guests (four-ball)</li>
+      <li>Both executives present may invite up to {{ site.membership.maxGuests }} guests</li>
+      <li>No-show or late cancellation (< {{ site.membership.cancelHrs }} hrs) deducts one round per reserved golfer</li>
+    </ul>
+  </section>
+
+  <section class="card mb-12">
+    <h2 class="text-xl font-semibold mb-4">ภาษาไทย (Executive Summary)</h2>
+    <p><strong>โครงการ Prime Corporate Golf Club</strong> สำหรับผู้บริหารระดับ C-suite ขององค์กรในประเทศไทย มอบสิทธิ์สมาชิก {{ site.membership.seats }} ท่าน พร้อมโควตา {{ site.membership.rounds }} รอบต่อปี รวมค่า green fee, caddy และรถกอล์ฟทุกครั้ง</p>
+    <ul class="list-disc text-slate-300 pl-5 space-y-2">
+      <li>สมาชิกหนึ่งท่านพาแขกได้สูงสุด {{ site.membership.guestsPerSeat }} ท่าน (รวมกลุ่ม 4 คน) หากสมาชิกทั้งสองท่านร่วมเล่นด้วย สามารถพาแขกได้สูงสุด {{ site.membership.maxGuests }} ท่าน (รวม 8 คน)</li>
+      <li>ต้องยืนยันการยกเลิกหรือเปลี่ยนเวลาอย่างน้อย {{ site.membership.cancelHrs }} ชั่วโมง มิฉะนั้นจะถูกหักรอบ</li>
+      <li>ทีม Concierge ตอบกลับภายใน 15 นาทีผ่าน LINE และยืนยันเวลาเล่นภายใน 2 ชั่วโมง</li>
+      <li>รายงานการใช้งานส่งทุกเดือน พร้อมสรุปรายชื่อแขกและรอบที่ใช้ไป</li>
+    </ul>
+    <p class="mt-4">สอบถามเพิ่มเติม: {{ site.contact.concierge }} · {{ site.contact.phone | formatPhone }}</p>
+  </section>
+
+  <section class="card mb-16">
+    <h2 class="text-xl font-semibold mb-4">Next actions</h2>
+    <ol class="ml-5 text-slate-300 list-decimal space-y-2">
+      <li>Share this booklet with executive assistants and procurement.</li>
+      <li>Compile preferred courses, tee-time windows, and annual hospitality calendar.</li>
+      <li>Email {{ site.contact.concierge }} to schedule a white-glove onboarding call.</li>
+    </ol>
+  </section>
+</section>

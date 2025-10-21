@@ -1,0 +1,115 @@
+---
+layout: layouts/dark.njk
+permalink: "/pricing/"
+title: "Pricing & Membership Terms"
+description: "Single THB 700,000 membership includes concierge-managed access to 80+ courses with 150 rounds and executive guest privileges."
+---
+{% from "components/accordion.njk" import accordion %}
+{% set transferFee = site.membership.transferFeeTHB | formatNumber %}
+{% set annualRounds = site.membership.rounds %}
+{% set guestPerSeat = site.membership.guestsPerSeat %}
+{% set maxGuests = site.membership.maxGuests %}
+{% set cancelHrs = site.membership.cancelHrs %}
+{% set membershipAccordion = [
+  {
+    "title": "Membership scope",
+    "content": "<p>Membership runs for 12 consecutive months from activation. Two named executives receive NFC credentials and digital access. Replacement or additional users are subject to a vetting process and a transfer fee of ฿" ~ transferFee ~ ".</p><p>Rounds are pooled at the company level and may be shared across departments under the same corporate entity.</p>",
+    "open": true
+  },
+  {
+    "title": "Usage & quota",
+    "content": "<p>The annual allocation is <strong>" ~ annualRounds ~ " rounds</strong>. Each person may play one 18-hole round per calendar day. Concierge maintains the official ledger and provides monthly statements.</p><p>Guest policy: up to " ~ guestPerSeat ~ " guests per executive (maximum " ~ maxGuests ~ " when both attend).</p>"
+  },
+  {
+    "title": "Booking & cancellation",
+    "content": "<p>All tee times must be confirmed through the concierge desk. Cancellations or amendments must be received at least " ~ cancelHrs ~ " hours before the tee time to avoid deduction. Late cancellation or no-show deducts one round per reserved player.</p><p>Prime reserves the right to adjust course allocation windows during peak season; alternates of equal calibre are always offered.</p>"
+  },
+  {
+    "title": "Financial handling",
+    "content": "<p>Invoices are issued annually in THB with VAT itemized. Optional add-ons (tournaments, F&amp;B packages) are billed post-event. Payment terms are 30 days from invoice date.</p>"
+  },
+  {
+    "title": "Conduct & compliance",
+    "content": "<p>Members and guests must follow partner course regulations and etiquette. Prime is not liable for injury, loss, or damage at partner venues. Breach of conduct may result in suspension or termination without refund.</p>"
+  }
+] %}
+<section class="container mt-8">
+  <h1 class="text-4xl font-semibold mb-6">Prime Corporate Golf Membership</h1>
+  <p class="text-lg text-slate-200 max-w-3xl">One plan tailored for Thai corporate leadership. Annual fee covers concierge-managed access, green fees, caddy, and cart at partner courses nationwide.</p>
+</section>
+
+<section class="container mt-10 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+  <div class="card card-elevated">
+    <h2 class="text-xl font-semibold mb-3">Annual investment</h2>
+    <p class="text-3xl font-semibold text-slate-900">{{ site.membership.priceTHB | formatCurrencyTHB }} <span class="text-base font-normal">+ VAT</span></p>
+    <ul class="mt-5 pl-5 text-slate-600 list-disc">
+      <li>{{ site.membership.rounds }} concierge-confirmed rounds per membership year</li>
+      <li>{{ site.membership.seats }} vetted executives with photo ID cards</li>
+      <li>Up to {{ site.membership.maxGuests }} guests when both users attend</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2 class="text-xl font-semibold mb-3">Included benefits</h2>
+    <ul class="list-check">
+      <li>Green fee, caddy, and cart included for every confirmed round</li>
+      <li>Weekend allocation across Bangkok’s tier-one courses</li>
+      <li>Dedicated concierge team reachable via phone, LINE, and email</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2 class="text-xl font-semibold mb-3">Executive controls</h2>
+    <ul class="list-check">
+      <li>Usage dashboard with live "rounds consumed" counter</li>
+      <li>Digital guest manifests with signature capture</li>
+      <li>User transfer available for ฿{{ site.membership.transferFeeTHB | formatNumber }} per change</li>
+    </ul>
+  </div>
+</section>
+
+<section class="container mt-12">
+  <h2 class="text-2xl font-semibold mb-6">Membership terms</h2>
+  {{ accordion(membershipAccordion) }}
+</section>
+
+<section class="container mt-12">
+  <h2 class="text-2xl font-semibold mb-4">Concierge response standards</h2>
+  <div class="table-wrap mt-4">
+    <table class="table-standard">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>SLA</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Phone</td>
+          <td>Answered within 3 rings</td>
+          <td>Dedicated line: {{ site.contact.phone | formatPhone }}</td>
+        </tr>
+        <tr>
+          <td>LINE Official Account</td>
+          <td>Response within 15 minutes</td>
+          <td>ID: @PrimeCorporateGolf</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>Same-business-day confirmation</td>
+          <td>{{ site.contact.concierge }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="container my-12">
+  <div class="card flex flex-col gap-4">
+    <h2 class="text-xl font-semibold">Ready to brief your leadership team?</h2>
+    <p>Request a confidential consultation to align the membership with your corporate calendar, hospitality commitments, and existing golf entitlements.</p>
+    <div class="flex flex-wrap gap-4">
+      <a class="button-primary" href="mailto:{{ site.contact.concierge }}">Schedule consultation</a>
+      <a class="badge-ghost" href="tel:+6621234567">Call {{ site.contact.phone | formatPhone }}</a>
+    </div>
+  </div>
+</section>

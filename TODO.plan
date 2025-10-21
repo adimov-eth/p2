@@ -1,0 +1,72 @@
+Implementation TODO Plan – Prime Site (Option A: Eleventy)
+
+Decision
+- Adopt Eleventy (11ty) + Nunjucks + Tailwind CDN to centralize facts with minimal rewrite. Keep current HTML structure where possible.
+
+Phase 0 — Baseline & Canonical Facts
+- Define canonical values: 700,000 THB (+VAT), 150 rounds/year, 2 seats, 3 guests/seat (max 6 if both present), 48h cancel, 5,000 THB transfer.
+- Domains/emails: primethailand.golf; concierge@primethailand.golf; privacy@primethailand.golf.
+- Identify public vs internal pages (internal: UAT, Concierge Manual, Launch Plan/Checklist, Outreach, Finance); mark `noindex` later.
+- Grep drift now: `rg -nE '(144|949,000|950,000|primegolf\\.co|Founders)' HTML_DRAFTS *.html`.
+
+Phase 1 — 11ty Scaffold
+- Add structure:
+  site/.eleventy.js
+  site/_data/site.json (single source of truth)
+  site/_includes/{layout.njk,header.njk,footer.njk,glance-cards.njk}
+  site/pages/ (public), site/internal/ (noindex), site/legal/, site/member/, site/assets/
+- Commands:
+  npm init -y && npm i @11ty/eleventy
+  npx eleventy --serve (outputs to site/_site by default)
+
+Phase 2 — Single Source of Truth (site/_data/site.json)
+- Example shape:
+  {
+    "brand": { "name": "Prime", "company": "Prime Corporate Golf Club" },
+    "domain": "primethailand.golf",
+    "contact": { "concierge": "concierge@primethailand.golf", "privacy": "privacy@primethailand.golf" },
+    "membership": { "priceTHB": 700000, "rounds": 150, "seats": 2, "guestsPerSeat": 3, "transferFeeTHB": 5000, "cancelHrs": 48 },
+    "policy": { "privacyLastUpdated": "2025-10-20" }
+  }
+
+Phase 3 — Page Migration (map → convert → bind data)
+- landing.html → site/pages/index.njk (marketing hero, At‑a‑Glance via `site.membership`).
+- HTML_DRAFTS/Pricing & Terms.html AND HTML_DRAFTS/Prime Corporate Golf Club | Pricing & Terms.html → site/pages/pricing-terms.njk (canonical). Replace 949k/tiers with 700k single plan; use accordion partial.
+- HTML_DRAFTS/prime booklet V3.html + V4.html → site/member/booklet.njk (unify; 144→150; 2+6 guest policy).
+- HTML_DRAFTS/Member Welcome Package.html → site/member/welcome-package.njk (update emails/domain).
+- HTML_DRAFTS/Privacy Policy.html → site/legal/privacy.njk (PDPA; update contacts; date from `policy`).
+- HTML_DRAFTS/E-Signature Agreement.html → site/legal/agreement.njk (144→150; fee 700k; domain/emails).
+- HTML_DRAFTS/UAT Dashboard.html → site/internal/uat.njk (progress bars/tables; `noindex`).
+- HTML_DRAFTS/Concierge Manual.html → site/internal/concierge-manual.njk (`noindex`).
+- HTML_DRAFTS/Launch Checklist.html → site/internal/launch-checklist.njk (`noindex`).
+- HTML_DRAFTS/Go-to-Market Launch Plan Dashboard.html → site/internal/launch-plan.njk (`noindex`).
+- HTML_DRAFTS/Target Company Outreach Dashboard.html → site/internal/outreach.njk (`noindex`).
+- HTML_DRAFTS/Branded Merchandise Showcase.html → site/pages/merchandise.njk.
+- HTML_DRAFTS/Sales Presentation.html + Pricing & Incentives.html → remove tiered tables; reflect single plan (either merge into pricing or stage as archived internal).
+
+Phase 4 — Shared Partials & Styling
+- Extract header/footer; add Tailwind CDN in layout.njk head.
+- Create glance-cards.njk bound to `site.membership` (80+ courses text remains as copy).
+- Mark internal pages with `<meta name="robots" content="noindex,nofollow">`.
+
+Phase 5 — QA & Guardrails
+- Serve locally: `npx eleventy --serve`; verify all routes.
+- Validate markup: `npx html-validate site/_site/**/*.html` (if installed) or W3C validator.
+- Broken links: `npx linkinator http://localhost:8080`.
+- Lighthouse on key pages (pricing, privacy, booklet).
+- Drift checks (must be zero matches):
+  rg -nE '(144|949,000|950,000|primegolf\\.co|Founders)' site/**/*.njk
+
+Phase 6 — Deploy
+- Choose host (Cloudflare Pages/Netlify). Build command: `npx eleventy`. Publish `site/_site/`.
+- Add sitemap.xml, robots.txt (block `/internal/`). Set canonical domain to https://primethailand.golf.
+
+Acceptance Criteria
+- All numeric facts render from `site/_data/site.json`.
+- No occurrences of 144/949k/950k/primegolf.co/Founders in generated HTML.
+- Internal pages are reachable but `noindex` and off primary nav.
+- Pricing, Terms, Privacy, Agreement, Booklet, Welcome Package align on plan details.
+
+Notes
+- Do not delete original HTML_DRAFTS during migration; keep as reference until sign‑off.
+- If Eleventy is later replaced by Astro, reuse the same data model and component mapping from chatgpt_review.md.

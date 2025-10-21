@@ -1,0 +1,142 @@
+---
+layout: layouts/dark.njk
+permalink: "/internal/uat/"
+title: "LINE Mini-App UAT"
+description: "User acceptance testing matrix for the Prime Corporate Golf Club digital experience."
+noindex: true
+---
+{% from "components/progress.njk" import progress %}
+<section class="container mt-8">
+  <header class="mb-8">
+    <span class="section-title">Internal Use Only</span>
+    <h1 class="text-3xl font-semibold">UAT Tracker — LINE Mini-App &amp; Dashboard</h1>
+    <p class="max-w-3xl text-slate-300">Covers NFC member card flows, usage dashboard, and digital invitations. All scenarios must pass before production deploy.</p>
+  </header>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Completion status</h2>
+    {{ progress("NFC card flows", 5, 7) }}
+    {{ progress("Usage dashboard", 6, 6) }}
+    {{ progress("Digital invites", 4, 5) }}
+  </section>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">NFC &amp; check-in</h2>
+    <div class="table-wrap">
+      <table class="table-standard">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scenario</th>
+            <th>Steps</th>
+            <th>Expected outcome</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NFC-01</td>
+            <td>Tap to check-in</td>
+            <td>Tap member NFC card at course kiosk</td>
+            <td>Profile photo + guests displayed; round deducted from {{ site.membership.rounds }} counter.</td>
+            <td>Pass</td>
+          </tr>
+          <tr>
+            <td>NFC-02</td>
+            <td>Guest QR fallback</td>
+            <td>Load QR pass for guest; concierge scans</td>
+            <td>Guest is marked "Accompanied" under correct executive.</td>
+            <td>Pass</td>
+          </tr>
+          <tr>
+            <td>NFC-03</td>
+            <td>Lost card</td>
+            <td>Mark card lost, issue temporary QR</td>
+            <td>Original card flagged inactive; replacement fee ฿{{ site.membership.transferFeeTHB | formatNumber }} applied.</td>
+            <td>In progress</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card mb-10">
+    <h2 class="text-xl font-semibold mb-4">Usage dashboard</h2>
+    <div class="table-wrap">
+      <table class="table-standard">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scenario</th>
+            <th>Steps</th>
+            <th>Expected outcome</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TRACK-01</td>
+            <td>Round ledger update</td>
+            <td>Concierge confirms booking completion</td>
+            <td>Dashboard shows "X / {{ site.membership.rounds }} rounds used" with timestamp.</td>
+            <td>Pass</td>
+          </tr>
+          <tr>
+            <td>TRACK-02</td>
+            <td>Guest attribution</td>
+            <td>Add guest during booking</td>
+            <td>Guest appears with company name and compliance checkbox ticked.</td>
+            <td>Pass</td>
+          </tr>
+          <tr>
+            <td>TRACK-03</td>
+            <td>Cancellation inside {{ site.membership.cancelHrs }} hours</td>
+            <td>Cancel reserved tee time 24 hours prior</td>
+            <td>System deducts round and flags reason "Late cancellation".</td>
+            <td>Pass</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-xl font-semibold mb-4">Digital invitations</h2>
+    <div class="table-wrap">
+      <table class="table-standard">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scenario</th>
+            <th>Steps</th>
+            <th>Expected outcome</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>INV-01</td>
+            <td>Send invite via LINE</td>
+            <td>Generate invite from portal for guest</td>
+            <td>Guest receives rich message with course, dress code, and RSVP buttons.</td>
+            <td>Pass</td>
+          </tr>
+          <tr>
+            <td>INV-02</td>
+            <td>RSVP workflow</td>
+            <td>Guest taps "Confirm"</td>
+            <td>Concierge notified instantly; guest listed as confirmed.</td>
+            <td>Pass</td>
+          </tr>
+          <tr>
+            <td>INV-03</td>
+            <td>Waitlist</td>
+            <td>Attempt to book beyond {{ site.membership.maxGuests }} guests</td>
+            <td>System offers waitlist toggle and alerts concierge for manual review.</td>
+            <td>In progress</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>

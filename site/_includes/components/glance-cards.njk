@@ -1,0 +1,20 @@
+<section class="container" aria-label="At a glance">
+  <span class="section-title">At a Glance</span>
+  <div class="card-grid mt-6">
+    <article class="card">
+      <h3>Membership Investment</h3>
+      <p><strong>฿{{ site.membership.priceTHB | formatNumber }}</strong> per year (+ VAT)</p>
+      <p>All inclusive: green fee, caddy, cart at 80+ partner courses.</p>
+    </article>
+    <article class="card">
+      <h3>Annual Rounds</h3>
+      <p><strong>{{ site.membership.rounds }}</strong> rounds per year shared across members.</p>
+      <p>Transparent usage tracking in portal with concierge confirmation.</p>
+    </article>
+    <article class="card">
+      <h3>Team Access</h3>
+      <p><strong>{{ site.membership.seats }}</strong> named executives + up to {{ site.membership.maxGuests }} accompanied guests.</p>
+      <p>Guest ratio of {{ site.membership.guestsPerSeat }} per user ensures board-level hosting.</p>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Corporate Golf Club - Membership Booklet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles inspired by the provided premium theme */
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #0D1A2D; /* Deep Navy Blue base */
+            color: #E0E0E0; /* Soft white for text on dark backgrounds */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Section layout */
+        .content-section {
+            padding: 6rem 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            overflow: hidden; /* Prevent content overflow during animation */
+        }
+
+        .content-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-light {
+            background-color: #F8F9FA; /* Off-white for a softer look */
+            color: #333745; 
+        }
+        
+        .section-dark {
+             background: linear-gradient(180deg, #0D1A2D 0%, #112240 100%);
+        }
+
+        /* Title styling */
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem; /* 32px */
+            padding-bottom: 1.5rem;
+            margin-bottom: 3.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title.light-text {
+            color: #C9B079; /* Gold accent */
+            border-bottom: 1px solid rgba(201, 176, 121, 0.3);
+        }
+
+        .section-title.dark-text {
+            color: #112240;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        /* Card and item styling */
+        .glance-card {
+            background-color: #1C2B41; 
+            border: 1px solid rgba(201, 176, 121, 0.2);
+            border-radius: 0.75rem;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .glance-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button {
+            background-color: #C9B079;
+            color: #0D1A2D;
+            font-weight: 600;
+            padding: 0.85rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(201, 176, 121, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #E0C58A;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 176, 121, 0.3);
+        }
+        .step-connector {
+            position: absolute;
+            top: 52px;
+            left: 50%;
+            height: 2px;
+            width: 100%;
+            background: repeating-linear-gradient(90deg, #D1D5DB, #D1D5DB 6px, transparent 6px, transparent 12px);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .benefit-image {
+            border-radius: 0.75rem;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            min-height: 400px;
+        }
+
+        /* Hero Animation */
+        .hero-title span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            height: 450px;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-nav:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .carousel-prev {
+            left: 1rem;
+        }
+        .carousel-next {
+            right: 1rem;
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+        }
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-dot.active {
+            background-color: #C9B079;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Section -->
+    <header class="bg-[#0D1A2D] text-white min-h-screen flex items-center justify-center text-center" style="background-image: radial-gradient(circle at top right, rgba(201, 176, 121, 0.08), transparent 50%);">
+        <div class="container mx-auto px-6">
+             <p class="text-lg sm:text-xl text-[#C9B079] uppercase tracking-widest mb-4">Prime Corporate Golf Club</p>
+             <h1 class="text-4xl md:text-6xl font-bold mb-6 hero-title">ยกระดับธุรกิจของคุณ, ทีละรอบ</h1>
+             <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                ขอต้อนรับสู่มาตรฐานใหม่ของสิทธิประโยชน์สำหรับองค์กร ที่ซึ่งการเล่นกอล์ฟและการทำธุรกิจมาบรรจบกันอย่างลงตัว
+             </p>
+             <a href="#glance" class="cta-button mt-8">สำรวจสมาชิกภาพ</a>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Membership At a Glance (Dark Section) -->
+        <section id="glance" class="content-section section-dark">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="section-title light-text">ภาพรวมสมาชิกภาพ</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glance-card">
+                        <div class="text-6xl font-bold text-[#C9B079] mb-3">80+</div>
+                        <p class="text-white font-semibold text-lg">สนามกอล์ฟชั้นนำ</p>
+                        <p class="text-sm text-gray-400">ทั่วประเทศ</p>
+                    </div>
+                    <div class="glance-card">
+                        <div class="text-6xl font-bold text-[#C9B079] mb-3">144</div>
+                        <p class="text-white font-semibold text-lg">รอบการเล่นต่อปี</p>
+                        <p class="text-sm text-gray-400">สูงสุด 18 หลุม/วัน</p>
+                    </div>
+                    <div class="glance-card">
+                        <div class="text-6xl font-bold text-[#C9B079] mb-3">2+6</div>
+                        <p class="text-white font-semibold text-lg">ผู้ใช้งานและแขก</p>
+                        <p class="text-sm text-gray-400">สมาชิก 2 ท่าน, แขกสูงสุด 6 ท่าน</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- A World of Difference Section -->
+        <section id="benefits-detail" class="content-section section-light">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="section-title dark-text">A World of Difference: The Prime Benefits</h2>
+                
+                <!-- Benefit 1: Courses Carousel -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#112240] mb-4">อิสระในการเลือกสรร: 80+ สนามกอล์ฟระดับเวิลด์คลาส</h3>
+                        <p class="text-lg text-gray-600 mb-4">
+                            สมาชิกภาพของคุณเปิดประตูสู่เครือข่ายสนามกอล์ฟที่ได้รับการคัดสรรมาอย่างดีที่สุดทั่วประเทศ ตั้งแต่สนามแข่งขันระดับ Championship ที่ท้าทาย ไปจนถึงสนามสไตล์รีสอร์ทที่งดงามราวภาพวาด
+                        </p>
+                        <p class="text-gray-600">
+                            สัมผัสประสบการณ์ระดับ 5 ดาว ณ สนามกอล์ฟอันทรงเกียรติ อาทิ:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 mt-3 space-y-1 font-semibold">
+                            <li>Siam Country Club (Old Course, Plantation, Waterside)</li>
+                            <li>Amata Spring Country Club</li>
+                            <li>Chee Chan Golf Resort</li>
+                            <li>Nikanti Golf Club</li>
+                        </ul>
+                    </div>
+                    <div id="golf-carousel" class="carousel-container">
+                        <!-- Slides -->
+                        <div class="carousel-slide active"><img src="https://placehold.co/800x600/3A4D3A/FFFFFF?text=Pristine+Course" alt="A pristine golf course available to Prime members, showing a lush fairway and manicured green."></div>
+                        <div class="carousel-slide"><img src="https://placehold.co/800x600/5B8A72/FFFFFF?text=Challenging+Hole" alt="A challenging hole at a partner course featuring a water hazard, highlighting the premium quality of the network."></div>
+                        <div class="carousel-slide"><img src="https://placehold.co/800x600/006994/FFFFFF?text=Coastal+View" alt="An aerial view of a stunning coastal golf course, representing the variety of locations available."></div>
+                        <div class="carousel-slide"><img src="https://placehold.co/800x600/D2691E/FFFFFF?text=Sunset+Golf" alt="A golfer putting on a pristine green at sunset, illustrating the world-class experiences offered by Prime membership."></div>
+                        <!-- Navigation -->
+                        <button class="carousel-nav carousel-prev" aria-label="Previous Slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+                        <button class="carousel-nav carousel-next" aria-label="Next Slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                        <!-- Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Benefit 2: Concierge -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                    <div class="lg:order-2">
+                        <h3 class="text-3xl font-bold text-[#112240] mb-4">บริการเหนือระดับ: Personal Concierge ส่วนตัวของคุณ</h3>
+                        <p class="text-lg text-gray-600">
+                           เราเชื่อว่าเวลาของคุณมีค่าอย่างยิ่ง บริการผู้ช่วยส่วนตัวของเราจึงพร้อมดูแลทุกความต้องการด้านกอล์ฟของคุณ ตั้งแต่การให้คำแนะนำและจองสนามที่เหมาะสมที่สุดสำหรับคุณและแขกคนสำคัญ ไปจนถึงการจัดการที่ซับซ้อน เพื่อให้คุณมุ่งเน้นไปที่การสร้างความสัมพันธ์ทางธุรกิจได้อย่างเต็มที่
+                        </p>
+                    </div>
+                    <div class="lg:order-1">
+                        <img src="https://placehold.co/800x600/6C757D/FFFFFF?text=Personal+Service" alt="A professional concierge team providing personalized service to Prime members." class="benefit-image shadow-xl">
+                    </div>
+                </div>
+
+                <!-- Benefit 3: Seamless Experience -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#112240] mb-4">ประสบการณ์ที่ไร้รอยต่อ: มุ่งเน้นที่เกม... ไม่ใช่บิล</h3>
+                        <p class="text-lg text-gray-600">
+                           ด้วยระบบการชำระเงินแบบรวมศูนย์ สมาชิกและแขกของคุณจะได้รับประสบการณ์ที่สะดวกสบายสูงสุด ณ สนามกอล์ฟ ไม่ต้องกังวลเรื่องการชำระเงินค่ากรีนฟี แคดดี้ หรือรถกอล์ฟอีกต่อไป ทุกอย่างถูกรวมไว้ในสมาชิกภาพของคุณแล้ว ช่วยให้การบริหารค่าใช้จ่ายรับรองลูกค้าเป็นเรื่องง่ายและมีประสิทธิภาพ
+                        </p>
+                    </div>
+                     <div>
+                        <img src="https://placehold.co/800x600/ADB5BD/112240?text=Effortless+Transactions" alt="A member completing a transaction effortlessly, symbolizing the seamless, bill-free experience at the club." class="benefit-image shadow-xl">
+                    </div>
+                </div>
+
+                <!-- Benefit 4: Guest Policy -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                    <div class="lg:order-2">
+                        <h3 class="text-3xl font-bold text-[#112240] mb-4">สร้างความประทับใจไม่รู้ลืม: แขกของคุณคือแขกของเรา</h3>
+                        <p class="text-lg text-gray-600">
+                           เราเข้าใจดีว่าแขกของคุณคือบุคคลสำคัญต่อธุรกิจของคุณ เราจึงมอบการดูแลและบริการระดับเดียวกันให้กับแขกของสมาชิกทุกท่าน ตั้งแต่การต้อนรับอย่างอบอุ่น ไปจนถึงประสบการณ์ในสนามที่ราบรื่นไร้กังวล การดูแลแขกของคุณอย่างดีที่สุดไม่เพียงแต่สร้างความประทับใจ แต่ยังสะท้อนถึงความใส่ใจและระดับขององค์กรคุณอีกด้วย
+                        </p>
+                    </div>
+                    <div class="lg:order-1">
+                        <img src="https://placehold.co/800x600/343A40/FFFFFF?text=Building+Relationships" alt="Business partners shaking hands on a golf course, representing the strong relationships built through the Prime guest program." class="benefit-image shadow-xl">
+                    </div>
+                </div>
+
+                <!-- Benefit 5: Exclusive Access -->
+                 <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#112240] mb-4">เอกสิทธิ์ที่เหนือกว่า: Exclusive Access</h3>
+                        <p class="text-lg text-gray-600">
+                           สมาชิกภาพ Prime ไม่ได้เป็นเพียงบัตรผ่านสู่สนามกอล์ฟทั่วไป แต่ยังเป็นกุญแจสำคัญที่เปิดโอกาสให้คุณและแขกคนสำคัญได้เข้าถึงสนามกอล์ฟส่วนตัว (Member-only) บางแห่งที่สงวนไว้สำหรับสมาชิกเท่านั้น นี่คือโอกาสในการสร้างประสบการณ์ที่พิเศษและน่าจดจำอย่างแท้จริง ซึ่งไม่สามารถหาได้จากที่อื่น
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/800x600/C9B079/0D1A2D?text=Exclusive+Entrance" alt="The grand entrance to an exclusive, members-only golf club accessible through Prime membership." class="benefit-image shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Experience Section -->
+        <section class="content-section section-dark">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="section-title light-text">Seamlessly Connected: The Prime Digital Experience</h2>
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="text-center lg:text-left">
+                        <p class="text-lg text-gray-300 mb-6">
+                            เราผสานประสบการณ์ในสนามกอล์ฟระดับพรีเมียมเข้ากับเทคโนโลยีดิจิทัลที่ล้ำสมัย ทุกการจัดการสมาชิกภาพของคุณจะง่ายดายและสะดวกสบายเพียงปลายนิ้วผ่าน <strong class="text-[#C9B079]">Prime LINE Mini-App</strong>
+                        </p>
+                        <ul class="space-y-5 text-left">
+                            <li class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4 text-[#C9B079] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-xl text-white">Digital Membership Card & NFC</h4>
+                                    <p class="text-gray-400">ลืมบัตรพลาสติกไปได้เลย แสดงบัตรสมาชิกดิจิทัลของคุณจากแอป พร้อมเทคโนโลยี NFC เพื่อการเช็คอินที่รวดเร็วและปลอดภัย</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4 text-[#C9B079] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-xl text-white">Member's Portal & Usage Tracking</h4>
+                                    <p class="text-gray-400">ศูนย์กลางข้อมูลของคุณ ตรวจสอบการจองปัจจุบันและที่กำลังจะมาถึง พร้อมติดตามจำนวนรอบการเล่นที่ใช้ไปและคงเหลือได้อย่างง่ายดาย</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4 text-[#C9B079] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-xl text-white">Digital Guest Invitations</h4>
+                                    <p class="text-gray-400">ส่งคำเชิญดิจิทัลที่สวยงามและเป็นทางการให้กับแขกคนสำคัญของคุณได้โดยตรงจากแอป สร้างความประทับใจระดับมืออาชีพตั้งแต่แรกเริ่ม</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                     <div>
+                        <img src="https://placehold.co/800x600/1C2B41/C9B079?text=Prime+App" alt="A user interacting with the sleek Prime LINE Mini-App on their smartphone." class="benefit-image shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Ultimate Business Tool -->
+        <section class="content-section section-light">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="section-title dark-text">เปลี่ยนสนามกอล์ฟให้เป็นห้องประชุมที่ทรงพลังที่สุด</h2>
+                <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-8 mb-16">
+                    สิทธิประโยชน์ทั้งหมดที่กล่าวมา ไม่ได้เป็นเพียงคุณสมบัติที่แยกจากกัน แต่คือองค์ประกอบที่ผสานรวมกันเป็นเครื่องมือทางธุรกิจที่ทรงพลังที่สุดสำหรับองค์กรของคุณ สมาชิกภาพ Prime คือการลงทุนที่ให้ผลตอบแทนทั้งในด้านความสัมพันธ์, วัฒนธรรมองค์กร, และประสิทธิภาพในการดำเนินธุรกิจ
+                </p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1: Relationships -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border border-gray-200 text-center transition duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="mb-4 inline-block text-[#B89E68]"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">สร้างความสัมพันธ์ที่แข็งแกร่ง</h3>
+                        <p class="text-gray-600">ใช้เวลา 4-5 ชั่วโมงในสนามกอล์ฟเพื่อสร้างความไว้วางใจและสานสัมพันธ์กับลูกค้าคนสำคัญในบรรยากาศที่เป็นส่วนตัวและผ่อนคลาย ซึ่งทรงพลังกว่าการประชุมในห้องสี่เหลี่ยม</p>
+                    </div>
+                    <!-- Card 2: Executive Perk -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border border-gray-200 text-center transition duration-300 hover:shadow-2xl hover:-translate-y-2">
+                         <div class="mb-4 inline-block text-[#B89E68]"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg></div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">ตอบแทนบุคลากรคนสำคัญ</h3>
+                        <p class="text-gray-600">มอบสวัสดิการระดับพรีเมียมเพื่อดึงดูดและรักษาบุคลากรระดับผู้บริหารที่มีความสามารถ แสดงให้เห็นว่าองค์กรของคุณให้ความสำคัญกับพวกเขาอย่างแท้จริง</p>
+                    </div>
+                     <!-- Card 3: Expense Management -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border border-gray-200 text-center transition duration-300 hover:shadow-2xl hover:-translate-y-2">
+                         <div class="mb-4 inline-block text-[#B89E68]"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">บริหารค่าใช้จ่ายอย่างมีประสิทธิภาพ</h3>
+                        <p class="text-gray-600">ลดความซับซ้อนของเอกสารเบิกจ่ายและควบคุมงบประมาณได้ง่ายขึ้น ด้วยการรวมศูนย์ค่าใช้จ่ายในการรับรองลูกค้าไว้ในสมาชิกภาพเดียว</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How to Use -->
+        <section class="content-section section-dark border-t border-gray-800">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="section-title light-text">การเดินทางสู่ประสบการณ์ที่ไร้รอยต่อ</h2>
+                <div class="relative grid md:grid-cols-3 gap-8 text-center px-4">
+                    <div class="hidden md:block step-connector" style="background: repeating-linear-gradient(90deg, #4A5568, #4A5568 6px, transparent 6px, transparent 12px);"></div>
+                    <div class="relative p-6"><div class="relative z-10 mb-6 inline-block rounded-full bg-[#C9B079] p-5 text-[#0D1A2D] border-8 border-gray-700 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div><h3 class="text-2xl font-semibold text-white mb-3">1. จองรอบเล่น</h3><p class="text-gray-400">ติดต่อ <strong class="text-white">Personal Concierge</strong> หรือจัดการผ่าน <strong class="text-white">LINE Mini-App</strong></p></div>
+                    <div class="relative p-6"><div class="relative z-10 mb-6 inline-block rounded-full bg-[#C9B079] p-5 text-[#0D1A2D] border-8 border-gray-700 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-1a6 6 0 00-1.781-4.121M12 10.875a4 4 0 110-5.292M12 10.875a4 4 0 117.89 2.121M12 10.875v6.521" /></svg></div><h3 class="text-2xl font-semibold text-white mb-3">2. เชิญแขก</h3><p class="text-gray-400">ส่ง <strong class="text-white">Digital Invite</strong> ให้แขกของคุณผ่านแอปได้โดยตรง</p></div>
+                    <div class="relative p-6"><div class="relative z-10 mb-6 inline-block rounded-full bg-[#C9B079] p-5 text-[#0D1A2D] border-8 border-gray-700 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></div><h3 class="text-2xl font-semibold text-white mb-3">3. เข้าใช้บริการ</h3><p class="text-gray-400">แสดง <strong class="text-white">Digital Card (NFC)</strong> พร้อมบัตรประจำตัว</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms and Conditions -->
+        <section class="content-section section-light">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="section-title dark-text">ข้อกำหนดและเงื่อนไข</h2>
+                <div class="space-y-6 text-gray-700 bg-white p-8 rounded-lg shadow-lg">
+                    <div><h4 class="font-semibold text-lg mb-2 text-gray-900">1. สมาชิกภาพ</h4><ul class="list-disc list-inside space-y-2"><li>สมาชิกภาพมีอายุ 12 เดือนนับจากวันที่เปิดใช้งาน</li><li>1 สมาชิกภาพสามารถระบุชื่อผู้ใช้งานหลักได้ 2 ท่าน</li><li>การโอนสิทธิ์หรือเปลี่ยนชื่อผู้ใช้งานสามารถทำได้โดยมีค่าธรรมเนียม 5,000 บาท และต้องเป็นการเปลี่ยนแปลงให้กับบุคลากรภายในองค์กรเดียวกันเท่านั้น</li></ul></div>
+                    <div><h4 class="font-semibold text-lg mb-2 text-gray-900">2. การใช้งานและนโยบายเกี่ยวกับแขก</h4><ul class="list-disc list-inside space-y-2"><li>จำกัดการเล่นสูงสุด 144 รอบต่อปี และไม่เกิน 18 หลุมต่อวันต่อผู้เล่น 1 ท่าน</li><li>สมาชิก 1 ท่าน สามารถนำแขกเข้าใช้บริการได้สูงสุด 3 ท่าน (รวมเป็น 4) และสมาชิก 2 ท่าน สามารถนำแขกเข้าได้สูงสุด 6 ท่าน (รวมเป็น 8)</li><li>สมาชิกจะต้องอยู่กับกลุ่มแขกของตนเองตลอดเวลาการเล่น</li></ul></div>
+                    <div><h4 class="font-semibold text-lg mb-2 text-gray-900">3. การจองและยกเลิก</h4><ul class="list-disc list-inside space-y-2"><li>หากต้องการยกเลิกหรือเปลี่ยนแปลงการจอง กรุณาแจ้ง Concierge ล่วงหน้าอย่างน้อย 48 ชั่วโมง</li><li>การยกเลิกช้ากว่ากำหนดหรือการไม่ปรากฏตัว (No-show) อาจส่งผลให้ถูกหักสิทธิ์ 1 รอบการเล่นจากโควต้าประจำปี</li></ul></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="text-center py-20 bg-[#0A1422]">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-semibold text-white mb-3">พร้อมยกระดับธุรกิจของคุณแล้วหรือยัง?</h3>
+            <p class="text-gray-400 text-lg mb-8">ปลดล็อกศักยภาพทางธุรกิจของคุณในสนามกอล์ฟกับ Prime Corporate Golf Club</p>
+            <a href="mailto:concierge@primegolf.co" class="cta-button">ติดต่อเพื่อรับข้อเสนอ</a>
+             <p class="text-gray-500 text-sm mt-12">© 2025 Prime Corporate Golf Club. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate hero title
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                const text = heroTitle.textContent;
+                const newText = text.split('').map((char, i) => `<span style="animation-delay: ${i * 50}ms">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
+                heroTitle.innerHTML = newText;
+            }
+
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Carousel Logic
+            const carousel = document.getElementById('golf-carousel');
+            if (carousel) {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+                const prevButton = carousel.querySelector('.carousel-prev');
+                const nextButton = carousel.querySelector('.carousel-next');
+                let currentSlide = 0;
+                let slideInterval;
+
+                // Create dots
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('carousel-dot');
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    if (i === 0) dot.classList.add('active');
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+                const showSlide = (n) => {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    slides[n].classList.add('active');
+                    dots[n].classList.add('active');
+                };
+
+                const nextSlide = () => {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                };
+                
+                const prevSlide = () => {
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                const startSlideShow = () => {
+                    slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                };
+
+                const stopSlideShow = () => {
+                    clearInterval(slideInterval);
+                };
+
+                nextButton.addEventListener('click', () => {
+                    stopSlideShow();
+                    nextSlide();
+                    startSlideShow();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    stopSlideShow();
+                    prevSlide();
+                    startSlideShow();
+                });
+
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        stopSlideShow();
+                        currentSlide = i;
+                        showSlide(currentSlide);
+                        startSlideShow();
+                    });
+                });
+                
+                startSlideShow();
+            }
+        });
+    </script>
+</body>
+</html>
