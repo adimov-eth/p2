@@ -1,72 +1,29 @@
-Implementation TODO Plan – Prime Site (Option A: Eleventy)
+TODO Plan – Prime Eleventy Project
 
-Decision
-- Adopt Eleventy (11ty) + Nunjucks + Tailwind CDN to centralize facts with minimal rewrite. Keep current HTML structure where possible.
+1. Environment & Baseline
+   - Pull latest `codex/complete-eleventy-migration-and-tooling` and install deps (`cd site && npm install`).
+   - Run `npm run build`, `npm run test:links`, `npm run test:html` to confirm baseline passes before edits.
 
-Phase 0 — Baseline & Canonical Facts
-- Define canonical values: 700,000 THB (+VAT), 150 rounds/year, 2 seats, 3 guests/seat (max 6 if both present), 48h cancel, 5,000 THB transfer.
-- Domains/emails: primethailand.golf; concierge@primethailand.golf; privacy@primethailand.golf.
-- Identify public vs internal pages (internal: UAT, Concierge Manual, Launch Plan/Checklist, Outreach, Finance); mark `noindex` later.
-- Grep drift now: `rg -nE '(144|949,000|950,000|primegolf\\.co|Founders)' HTML_DRAFTS *.html`.
+2. Source-of-Truth Audit
+   - Compare Eleventy pages in `site/` against `HTML_DRAFTS/` to verify every draft page exists and content aligns with the unified navigation.
+   - Note any missing sections, mismatched copy (price/rounds/emails), or styling gaps for follow-up.
 
-Phase 1 — 11ty Scaffold
-- Add structure:
-  site/.eleventy.js
-  site/_data/site.json (single source of truth)
-  site/_includes/{layout.njk,header.njk,footer.njk,glance-cards.njk}
-  site/pages/ (public), site/internal/ (noindex), site/legal/, site/member/, site/assets/
-- Commands:
-  npm init -y && npm i @11ty/eleventy
-  npx eleventy --serve (outputs to site/_site by default)
+3. Premium Polish & Consistency
+   - Review each public page (white vs blue backgrounds) to ensure consistent premium look-and-feel; adjust heroArt usage, color tokens, and typography if mismatched.
+   - Confirm navigation across home/pricing/contact/incentives/internal pages is intuitive; fix broken or buried links.
 
-Phase 2 — Single Source of Truth (site/_data/site.json)
-- Example shape:
-  {
-    "brand": { "name": "Prime", "company": "Prime Corporate Golf Club" },
-    "domain": "primethailand.golf",
-    "contact": { "concierge": "concierge@primethailand.golf", "privacy": "privacy@primethailand.golf" },
-    "membership": { "priceTHB": 700000, "rounds": 150, "seats": 2, "guestsPerSeat": 3, "transferFeeTHB": 5000, "cancelHrs": 48 },
-    "policy": { "privacyLastUpdated": "2025-10-20" }
-  }
+4. Documentation & Contributor Experience
+   - Draft `AGENTS.md` contributor guide (follow 200–400 word brief, reference key commands and structure).
+   - Update README or related docs if new tooling or workflows emerge.
 
-Phase 3 — Page Migration (map → convert → bind data)
-- landing.html → site/pages/index.njk (marketing hero, At‑a‑Glance via `site.membership`).
-- HTML_DRAFTS/Pricing & Terms.html AND HTML_DRAFTS/Prime Corporate Golf Club | Pricing & Terms.html → site/pages/pricing-terms.njk (canonical). Replace 949k/tiers with 700k single plan; use accordion partial.
-- HTML_DRAFTS/prime booklet V3.html + V4.html → site/member/booklet.njk (unify; 144→150; 2+6 guest policy).
-- HTML_DRAFTS/Member Welcome Package.html → site/member/welcome-package.njk (update emails/domain).
-- HTML_DRAFTS/Privacy Policy.html → site/legal/privacy.njk (PDPA; update contacts; date from `policy`).
-- HTML_DRAFTS/E-Signature Agreement.html → site/legal/agreement.njk (144→150; fee 700k; domain/emails).
-- HTML_DRAFTS/UAT Dashboard.html → site/internal/uat.njk (progress bars/tables; `noindex`).
-- HTML_DRAFTS/Concierge Manual.html → site/internal/concierge-manual.njk (`noindex`).
-- HTML_DRAFTS/Launch Checklist.html → site/internal/launch-checklist.njk (`noindex`).
-- HTML_DRAFTS/Go-to-Market Launch Plan Dashboard.html → site/internal/launch-plan.njk (`noindex`).
-- HTML_DRAFTS/Target Company Outreach Dashboard.html → site/internal/outreach.njk (`noindex`).
-- HTML_DRAFTS/Branded Merchandise Showcase.html → site/pages/merchandise.njk.
-- HTML_DRAFTS/Sales Presentation.html + Pricing & Incentives.html → remove tiered tables; reflect single plan (either merge into pricing or stage as archived internal).
+5. QA & Regression Safety
+   - After changes, rerun `npm run build`, `npm run test:links`, and `npm run test:html`.
+   - Spot-check visual diffs locally; capture notes/screens where layout improvements were made.
 
-Phase 4 — Shared Partials & Styling
-- Extract header/footer; add Tailwind CDN in layout.njk head.
-- Create glance-cards.njk bound to `site.membership` (80+ courses text remains as copy).
-- Mark internal pages with `<meta name="robots" content="noindex,nofollow">`.
+6. Git Hygiene & Delivery
+   - Stage and commit with clear conventional messages (e.g., `docs: add contributor guide`).
+   - Push to origin branch; open/update PR #3 with summary, testing proof, and screenshots if UI changes.
 
-Phase 5 — QA & Guardrails
-- Serve locally: `npx eleventy --serve`; verify all routes.
-- Validate markup: `npx html-validate site/_site/**/*.html` (if installed) or W3C validator.
-- Broken links: `npx linkinator http://localhost:8080`.
-- Lighthouse on key pages (pricing, privacy, booklet).
-- Drift checks (must be zero matches):
-  rg -nE '(144|949,000|950,000|primegolf\\.co|Founders)' site/**/*.njk
-
-Phase 6 — Deploy
-- Choose host (Cloudflare Pages/Netlify). Build command: `npx eleventy`. Publish `site/_site/`.
-- Add sitemap.xml, robots.txt (block `/internal/`). Set canonical domain to https://primethailand.golf.
-
-Acceptance Criteria
-- All numeric facts render from `site/_data/site.json`.
-- No occurrences of 144/949k/950k/primegolf.co/Founders in generated HTML.
-- Internal pages are reachable but `noindex` and off primary nav.
-- Pricing, Terms, Privacy, Agreement, Booklet, Welcome Package align on plan details.
-
-Notes
-- Do not delete original HTML_DRAFTS during migration; keep as reference until sign‑off.
-- If Eleventy is later replaced by Astro, reuse the same data model and component mapping from chatgpt_review.md.
+7. Post-Delivery Follow-ups
+   - Create GitHub issue describing remaining tasks (visual QA, potential Playwright baseline, analytics toggle).
+   - Plan next enhancements (map embed on contact page, expanded dashboards, bilingual content) and note prerequisites.

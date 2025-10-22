@@ -33,6 +33,10 @@
   --leading-relaxed: 1.75;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   line-height: var(--leading-base);
 }
@@ -1130,10 +1134,121 @@ main {
   color: var(--brand-gold);
 }
 
+.badge:focus-visible,
+.badge-ghost:focus-visible,
+.button-primary:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid rgba(201, 176, 121, 0.65);
+  outline-offset: 4px;
+}
+
+.button-primary:focus-visible,
+.badge-ghost:focus-visible {
+  box-shadow: 0 0 0 4px rgba(201, 176, 121, 0.18);
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem 1.25rem;
+    margin: 1.25rem 0 1rem;
+    background: linear-gradient(135deg, rgba(12, 25, 45, 0.94) 0%, rgba(8, 18, 34, 0.94) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 18px 38px rgba(10, 15, 25, 0.45);
+    border: 1px solid rgba(201, 176, 121, 0.16);
+  }
+
+  .header-nav > div:first-child {
+    align-self: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.75rem 0 0.5rem;
+    border-top: 1px solid rgba(201, 176, 121, 0.22);
+    border-bottom: 1px solid rgba(201, 176, 121, 0.12);
+  }
+
+  .nav-link {
+    width: 100%;
+    padding-bottom: 0.35rem;
+  }
+
+  .nav-link::after {
+    bottom: -6px;
+    height: 2px;
+  }
+
+  .nav-link.is-active::after {
+    width: 28px;
+  }
+
+  .header-nav .button-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.5rem;
+    box-shadow: 0 18px 36px rgba(201, 176, 121, 0.32);
+  }
+}
+
 .hero-stats {
   display: grid;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+.partner-strip {
+  text-align: center;
+}
+
+.partner-strip__label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(229, 232, 238, 0.75);
+}
+
+.partner-strip__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  color: var(--brand-gold);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.comparison-blurb {
+  max-width: 48rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+.onboarding-step {
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+.onboarding-step__number {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 176, 121, 0.4);
+  color: var(--brand-gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .hero-stats-wrapper {

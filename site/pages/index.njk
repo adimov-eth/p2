@@ -1,15 +1,18 @@
+---
 layout: layouts/dark.njk
 permalink: "/"
 title: "Prime Corporate Golf Club"
-description: "Corporate golf membership with 150 concierge-managed rounds, two executive seats, and access to 80+ Thai courses."
+eleventyComputed:
+  description: >-
+    Corporate golf membership with {{ site.membership.rounds }} concierge-managed rounds, two executive seats, and access to 80+ Thai courses.
 metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1600&auto=format&fit=crop"
 ---
 {% from "components/hero-art.njk" import heroArt %}
 
 {{ heroArt({
   badge: "Executive membership",
-  title: "Thailand’s concierge golf membership for senior leadership.",
-  subtitle: "Two named executives, " ~ site.membership.rounds ~ " annual rounds, and a concierge team confirming tee times across 80+ elite courses.",
+  title: site.membership.seats ~ " seats. " ~ site.membership.rounds ~ " rounds. ฿" ~ (site.membership.priceTHB | formatNumber) ~ " per year.",
+  subtitle: "Concierge-managed access to 80+ elite Thai courses with confirmations in under two hours and green fees within contracted ceilings.",
   image: {
     src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2000&auto=format&fit=crop",
     sources: [
@@ -18,8 +21,8 @@ metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=
     alt: "Executive golfer overlooking a championship course at sunset"
   },
   actions: [
-    {"label": "Connect with concierge", "href": "mailto:" ~ site.contact.concierge, "class": "button-primary"},
-    {"label": "View membership terms", "href": "/pricing/", "class": "badge-ghost"}
+    {"label": "Request proposal", "href": "mailto:" ~ site.contact.concierge ~ "?subject=Prime%20Corporate%20Membership%20Proposal", "class": "button-primary"},
+    {"label": "See covered courses", "href": "#flagship-courses", "class": "badge-ghost"}
   ]
 }) }}
 
@@ -49,7 +52,62 @@ metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=
   </div>
 </section>
 
+<section class="container mt-16 partner-strip">
+  <p class="partner-strip__label">Trusted by corporate hospitality teams hosting at</p>
+  <div class="partner-strip__logos">
+    <span>Siam CC Bangkok</span>
+    <span>Nikanti</span>
+    <span>Summit Windmill</span>
+    <span>Thai Country Club</span>
+    <span>Alpine</span>
+    <span>Laguna Phuket</span>
+  </div>
+</section>
+
 {% include "components/glance-cards.njk" %}
+
+<section class="container mt-16" id="prime-comparison">
+  <span class="section-title">Prime vs. ad-hoc booking</span>
+  <p class="comparison-blurb">Prime delivers concierge-confirmed itineraries with predictable costs and executive reporting. Traditional booking leaves assistants chasing availability and reconciling expenses.</p>
+  <div class="table-wrap mt-6">
+    <table class="table-standard">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Prime Corporate Golf Club</th>
+          <th>Ad-hoc bookings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Weekend &amp; holiday access</td>
+          <td><span class="badge">Reserved allocations across flagship courses</span></td>
+          <td>Limited public inventory; no guarantees</td>
+        </tr>
+        <tr>
+          <td>Cost control</td>
+          <td>Ceilings baked into membership fee; green fee, cart, caddy included</td>
+          <td>Dynamic rates per course; manual reconciliation</td>
+        </tr>
+        <tr>
+          <td>Admin visibility</td>
+          <td>Usage ledger, guest logs, and monthly statements</td>
+          <td>Spreadsheet tracking, no automated reporting</td>
+        </tr>
+        <tr>
+          <td>Concierge service</td>
+          <td>Two-hour tee time confirmations via phone, LINE, email</td>
+          <td>Call centers or individual course coordinators</td>
+        </tr>
+        <tr>
+          <td>Guest experience</td>
+          <td>Executive welcome kits, NFC credentials, on-site concierge</td>
+          <td>Guests fend for themselves upon arrival</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <section class="container mt-16">
   <span class="section-title">Concierge Service Level Agreements</span>
@@ -72,7 +130,7 @@ metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=
   </div>
 </section>
 
-<section class="container mt-16">
+<section class="container mt-16" id="flagship-courses">
   <span class="section-title">Flagship Partner Courses</span>
   <div class="card-grid mt-6">
     <article class="card">
@@ -99,7 +157,7 @@ metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=
   <div class="card-grid mt-6">
     <article class="card">
       <h3>Usage Dashboard</h3>
-      <p>Track "{{ site.membership.rounds }} round" quota in real time with guest attribution and department charge back.</p>
+      <p>Track the {{ site.membership.rounds }}-round quota in real time with guest attribution and department charge back.</p>
     </article>
     <article class="card">
       <h3>NFC Member Cards</h3>
@@ -113,12 +171,33 @@ metaImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=
 </section>
 
 <section class="container mt-16">
+  <span class="section-title">Onboarding made effortless</span>
+  <div class="card-grid mt-6">
+    <article class="card onboarding-step">
+      <span class="onboarding-step__number">01</span>
+      <h3>Day 0 &ndash; Contract &amp; invoice</h3>
+      <p>Finance receives a single annual invoice for <strong>฿{{ site.membership.priceTHB | formatNumber }}</strong> (+ VAT) while assistants share executive profiles and guest policies.</p>
+    </article>
+    <article class="card onboarding-step">
+      <span class="onboarding-step__number">02</span>
+      <h3>Day 3 &ndash; Credentials delivered</h3>
+      <p>NFC member cards, welcome kits, and portal credentials are dispatched with concierge support for data import and calendar setup.</p>
+    </article>
+    <article class="card onboarding-step">
+      <span class="onboarding-step__number">03</span>
+      <h3>Day 7 &ndash; Launch rounds booked</h3>
+      <p>Concierge confirms the first tee sheets, briefs caddies on preferences, and preps guest passes so leadership sees value immediately.</p>
+    </article>
+  </div>
+</section>
+
+<section class="container mt-16">
   <span class="section-title">Next Step</span>
   <div class="card flex flex-col gap-4">
     <p>Schedule a 30-minute executive briefing to tailor the membership to your corporate calendar, travel patterns, and hospitality goals.</p>
     <div class="flex flex-wrap gap-4">
       <a href="mailto:{{ site.contact.concierge }}" class="button-primary">Request briefing</a>
-      <a href="tel:+6621234567" class="badge-ghost">Call the concierge desk</a>
+      <a href="tel:{{ site.contact.phone | phoneHref }}" class="badge-ghost">Call the concierge desk</a>
     </div>
   </div>
 </section>

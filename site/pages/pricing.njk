@@ -2,7 +2,9 @@
 layout: layouts/dark.njk
 permalink: "/pricing/"
 title: "Pricing & Membership Terms"
-description: "Single THB 700,000 membership includes concierge-managed access to 80+ courses with 150 rounds and executive guest privileges."
+eleventyComputed:
+  description: >-
+    Single {{ site.membership.priceTHB | formatCurrencyTHB }} membership includes concierge-managed access to 80+ courses with {{ site.membership.rounds }} rounds and executive guest privileges.
 metaImage: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=1600&auto=format&fit=crop"
 ---
 {% from "components/accordion.njk" import accordion %}
@@ -123,7 +125,7 @@ metaImage: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=
     <p>Request a confidential consultation to align the membership with your corporate calendar, hospitality commitments, and existing golf entitlements.</p>
     <div class="flex flex-wrap gap-4">
       <a class="button-primary" href="mailto:{{ site.contact.concierge }}">Schedule consultation</a>
-      <a class="badge-ghost" href="tel:+6621234567">Call {{ site.contact.phone | formatPhone }}</a>
+      <a class="badge-ghost" href="tel:{{ site.contact.phone | phoneHref }}">Call {{ site.contact.phone | formatPhone }}</a>
     </div>
   </div>
 </section>

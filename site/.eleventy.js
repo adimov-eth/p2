@@ -44,6 +44,13 @@ module.exports = function(eleventyConfig) {
     return new runtime.SafeString(formatted);
   });
 
+  eleventyConfig.addFilter("phoneHref", function(value) {
+    if (!value) {
+      return "";
+    }
+    return String(value).replace(/[^\d+]/g, "");
+  });
+
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addWatchTarget("./assets/");
 

@@ -7,14 +7,20 @@ metaImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=
 ---
 {% from "components/hero-art.njk" import heroArt %}
 
+{% set basePrice = site.membership.priceTHB %}
+{% set baseRounds = site.membership.rounds %}
+{% set founderPrice = 750000 %}
+{% set earlyPrice = 850000 %}
+{% set founderBonusRounds = 12 %}
 {% set tiers = [
   {
     "name": "The Founders' Circle",
     "audience": "First 10 memberships",
-    "price": 750000,
-    "savings": "200,000 THB launch savings",
+    "price": founderPrice,
+    "savings": basePrice - founderPrice,
+    "savingsLabel": "launch savings",
     "benefits": [
-      "12 bonus rounds (156 total in year one)",
+      founderBonusRounds ~ " bonus rounds (" ~ (baseRounds + founderBonusRounds) ~ " total in year one)",
       "Invitation to the Prime Founders' Cup",
       "Premium welcome kit with personalised engraving"
     ],
@@ -24,8 +30,9 @@ metaImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=
   {
     "name": "Early Adopter Program",
     "audience": "Memberships 11–25",
-    "price": 850000,
-    "savings": "100,000 THB incentive",
+    "price": earlyPrice,
+    "savings": basePrice - earlyPrice,
+    "savingsLabel": "incentive",
     "benefits": [
       "Premium welcome kit",
       "Priority scheduling for first three rounds",
@@ -36,10 +43,11 @@ metaImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=
   {
     "name": "Standard Membership",
     "audience": "Post-launch",
-    "price": 950000,
-    "savings": null,
+    "price": basePrice,
+    "savings": 0,
+    "savingsLabel": null,
     "benefits": [
-      "144 concierge-managed rounds",
+      baseRounds ~ " concierge-managed rounds",
       "Dedicated concierge team",
       "Green fee, caddy, and cart included"
     ],
@@ -73,8 +81,10 @@ metaImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=
         <p class="tier-card__audience">{{ tier.audience }}</p>
         <h3>{{ tier.name }}</h3>
         <p class="tier-card__price">{{ tier.price | formatCurrencyTHB }} <span>/ year + VAT</span></p>
-        {% if tier.savings %}
-        <p class="tier-card__meta">{{ tier.savings }}</p>
+        {% if tier.savings and tier.savings > 0 %}
+        <p class="tier-card__meta">{{ tier.savings | formatCurrencyTHB }} {{ tier.savingsLabel }}</p>
+        {% elseif tier.savingsLabel %}
+        <p class="tier-card__meta">{{ tier.savingsLabel }}</p>
         {% endif %}
       </header>
       <ul class="tier-card__list">
@@ -116,7 +126,7 @@ metaImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=
     <p class="text-slate-700 mb-4">We provide a tailored ROI calculator, executive talking points, and collateral aligned to your hospitality calendar.</p>
     <div class="flex flex-wrap gap-4">
       <a class="button-primary" href="mailto:sales@primethailand.golf">Schedule a consultation</a>
-      <a class="badge" href="tel:+6621234567">Call {{ site.contact.phone | formatPhone }}</a>
+      <a class="badge" href="tel:{{ site.contact.phone | phoneHref }}">Call {{ site.contact.phone | formatPhone }}</a>
     </div>
   </div>
 </section>

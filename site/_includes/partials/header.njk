@@ -9,7 +9,7 @@
     {% set current = page.url or '' %}
     {% for item in navItems %}
       {% set isActive = current == item.url %}
-      <a href="{{ item.url }}" class="nav-link{% if isActive %} is-active{% endif %}">{{ item.label }}</a>
+      <a href="{{ item.url }}" class="nav-link{% if isActive %} is-active{% endif %}"{% if isActive %} aria-current="page"{% endif %}>{{ item.label }}</a>
     {% endfor %}
   </nav>
   <div>

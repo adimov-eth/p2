@@ -20,7 +20,7 @@ metaImage: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=
   },
   actions: [
     {"label": "Email concierge", "href": "mailto:" ~ site.contact.concierge, "class": "button-primary"},
-    {"label": "Call +66 2 123 4567", "href": "tel:+6621234567", "class": "badge-ghost"}
+    {"label": "Call " ~ (site.contact.phone | formatPhone), "href": "tel:" ~ (site.contact.phone | phoneHref), "class": "badge-ghost"}
   ]
 }) }}
 
@@ -33,7 +33,7 @@ metaImage: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=
     </article>
     <article class="card">
       <h2 class="text-xl font-semibold mb-2">Telephone</h2>
-      <p><a href="tel:+6621234567" class="text-inherit no-underline">{{ site.contact.phone | formatPhone }}</a></p>
+      <p><a href="tel:{{ site.contact.phone | phoneHref }}" class="text-inherit no-underline">{{ site.contact.phone | formatPhone }}</a></p>
       <p class="table-note">Direct hotline. Calls answered within three rings by concierge specialists.</p>
     </article>
     <article class="card">
@@ -42,6 +42,15 @@ metaImage: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=
       <p class="table-note">Preferred for quick itinerary updates and on-course support. Response within 15 minutes during operating hours.</p>
     </article>
   </div>
+
+  <section class="card mb-12">
+    <h2 class="text-xl font-semibold mb-4">Response standards at a glance</h2>
+    <ul class="list-check">
+      <li>Email itineraries confirmed within the next business day, with urgent changes fast-tracked inside two hours.</li>
+      <li>Hotline answered within three rings by senior concierge staff empowered to confirm tee sheets immediately.</li>
+      <li>LINE Mini-App replies in under 15 minutes with booking status, guest manifests, and {{ site.membership.cancelHrs }}-hour cancellation reminders.</li>
+    </ul>
+  </section>
 
   <section class="card mb-12">
     <h2 class="text-xl font-semibold mb-4">Corporate Address</h2>

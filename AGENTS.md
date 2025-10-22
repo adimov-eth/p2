@@ -1,38 +1,33 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Root contains the production entry: `landing.html`.
-- `HTML_DRAFTS/` holds in‑progress pages and related assets (e.g., images). Keep draft‑specific assets alongside the draft; promote to shared `assets/` if reused.
-- Use relative links between files. Example: `<a href="./HTML_DRAFTS/Pricing & Terms.html">Pricing</a>`.
+- The production site lives in `site/` (Eleventy). Shared data sits in `site/_data/site.json`; layouts and macros reside under `site/_includes/`.
+- Pages are grouped by audience: public marketing in `site/pages/`, pricing and incentives in `site/pricing/`, member collateral in `site/member/`, internal dashboards in `site/internal/`, and legal docs in `site/legal/`. Assets belong in `site/assets/`.
+- Update navigation by editing `site/_data/navigation.json`; hero art variants live in `site/_includes/components/heroArt.njk`.
 
-## Build, Test, and Development
-- Quick preview: open `landing.html` directly in a browser.
-- Local server (preferred):
-  - `python3 -m http.server 8000` (from repo root), then open `http://localhost:8000/landing.html`.
-  - Optional: `npx serve -p 8000` if Node tools are available.
-- Formatting (optional but recommended): `npx prettier --write "**/*.html"`.
+## Build, Test, and Development Commands
+- Install once per clone: `cd site && npm install`.
+- Local preview: `npm run serve` (hot reload on http://localhost:8080/).
+- Production build: `npm run build` (outputs to `site/_site/`).
+- Quality gates: `npm run test:links` (linkinator) and `npm run test:html` (html-validate). Run both before pushing.
+- Format everything with `npm run format` (repo Prettier config).
 
 ## Coding Style & Naming Conventions
-- Indentation: 2 spaces; wrap at ~120 chars when reasonable.
-- Prefer semantic HTML (`header`, `main`, `section`, `footer`).
-- Minimize inline styles; prefer reusable classes.
-- Images: include descriptive `alt` text; optimize to reasonable size (<200KB when possible).
-- Filenames: drafts may keep human‑readable names; final/public pages use kebab‑case (e.g., `pricing-and-terms.html`).
+- Follow Prettier defaults (2-space indent, trailing commas where valid). Do not hand-format files already touched by Prettier.
+- Use Eleventy data bindings (`{{ site.membership.priceTHB }}`) instead of hard-coded values. Keep front matter minimal and prefer `_data` for shared facts.
+- Class naming follows Tailwind utility conventions; add custom utilities only if reused across sections.
+- When editing macros, add concise comments only for non-obvious logic.
 
 ## Testing Guidelines
-- Validate markup (W3C validator or `npx html-validate` if available).
-- Manually verify in at least Chrome and Safari/Firefox.
-- Check for broken links after serving locally. Example: `npx linkinator http://localhost:8000`.
-- Accessibility/performance: run Lighthouse when feasible: `npx lighthouse http://localhost:8000/landing.html --view`.
+- Always run the Eleventy build plus both QA scripts. Investigate and fix link or HTML warnings immediately.
+- Spot-check the premium hero theme across pages (white vs blue variants) in desktop and mobile breakpoints.
+- For significant UI tweaks, capture before/after screenshots to attach in PR discussions.
 
 ## Commit & Pull Request Guidelines
-- Use Conventional Commits: `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`.
-- Commits should be scoped and focused (one logical change).
-- PRs include: summary of changes, affected files (e.g., `landing.html`, `HTML_DRAFTS/...`), before/after screenshots for visual updates, and any new asset paths.
-- Link related issues/tasks and confirm local testing steps in the description.
+- Use Conventional Commits (`feat:`, `fix:`, `docs:`, etc.) scoped to a single concern. Run tests and formatter before committing.
+- PR descriptions must include: summary, key file touchpoints, command log (`npm run build`, QA scripts), and screenshots whenever layout changes.
+- Reference relevant issues (e.g., tracking completion of HTML draft parity) and note any follow-up tasks discovered during work.
 
-## Agent-Specific Notes
-- Scope: this AGENTS.md applies repo‑wide.
-- Keep patches minimal and targeted; avoid unrelated reformatting.
-- Add new work under `HTML_DRAFTS/`; do not rename/move existing files unless requested.
-- Do not overwrite `landing.html` without explicit direction; propose changes via PR.
+## Configuration Tips
+- Plausible analytics domain is controlled via `site/_data/site.json`. Update or disable before deploying to another host.
+- Keep secrets out of the repo; environment-specific overrides go through deployment configuration, not checked-in files.
